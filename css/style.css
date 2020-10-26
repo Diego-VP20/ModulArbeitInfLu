@@ -263,7 +263,7 @@ input[type=text]::placeholder {
 
 body{
 
-    background-image: url("assets/images/background_login.jpg");
+    background-image: url("../assets/images/background_login.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
