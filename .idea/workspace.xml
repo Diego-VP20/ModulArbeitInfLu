@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d80c6812-82d7-4ab8-9361-d87674feefe8" name="Default Changelist" comment="" />
+    <list default="true" id="d80c6812-82d7-4ab8-9361-d87674feefe8" name="Default Changelist" comment="Change route to style.css">
+      <change afterPath="$PROJECT_DIR$/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ModulArbetiLurati.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ModulArbetiLurati.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,8 +21,13 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SET_USER_NAME_GLOBALLY" value="false" />
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.4" />
   <component name="ProjectId" id="1jQYDnCWDhqoM5eRcCz6c9QF2eh" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -27,7 +36,13 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Diego\PhpstormProjects\ModulArbetiLurati\css" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -38,12 +53,32 @@
       <option name="presentableId" value="Default" />
       <updated>1603737666004</updated>
       <workItem from="1603737668327" duration="9000" />
-      <workItem from="1603737694747" duration="4200000" />
+      <workItem from="1603737694747" duration="4549000" />
     </task>
+    <task id="LOCAL-00001" summary="Init">
+      <created>1603744590203</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1603744590203</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Change route to style.css">
+      <created>1603744766206</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1603744766206</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Init" />
+    <MESSAGE value="Change route to style.css" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change route to style.css" />
   </component>
   <component name="WindowStateProjectService">
     <state x="679" y="91" width="588" height="898" key="#PHP" timestamp="1603738744565">
@@ -54,9 +89,13 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="794" y="459" key="NewPhpFileDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1603738332930" />
-    <state x="616" y="250" key="run.anything.popup" timestamp="1603744246708">
+    <state x="552" y="268" key="Vcs.Push.Dialog.v2" timestamp="1603744769337">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="616" y="250" key="run.anything.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1603744246708" />
+    <state x="552" y="268" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1603744769337" />
+    <state x="616" y="250" width="672" height="677" key="run.anything.popup" timestamp="1603744753090">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="616" y="250" width="672" height="677" key="run.anything.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1603744753090" />
   </component>
 </project>

@@ -29,8 +29,8 @@
 
             <!-- Login Form -->
             <form>
-                <input type="text" id="login" class="fadeIn second" name="login" placeholder="Username">
-                <input type="text" id="password" class="fadeIn third" name="login" placeholder="Password"x">
+                <label for="login"></label><input type="text" id="login" class="fadeIn second" name="login" placeholder="Username">
+                <label for="password"></label><input type="password" id="password" class="fadeIn third" name="login" placeholder="Password">
                 <input type="submit" class="fadeIn fourth" value="Log In" style="margin-top: 20px">
             </form>
 
