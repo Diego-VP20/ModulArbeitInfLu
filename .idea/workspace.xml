@@ -1,10 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="d80c6812-82d7-4ab8-9361-d87674feefe8" name="Default Changelist" comment="Change route to style.css">
-      <change afterPath="$PROJECT_DIR$/register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ModulArbetiLurati.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ModulArbetiLurati.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/login_book_dm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/login/validate_login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/background_login.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/login_background_dm.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/book.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/login_book_lm.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/login/register.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +48,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="SET_USER_NAME_GLOBALLY" value="false" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.4" />
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7" />
   <component name="ProjectId" id="1jQYDnCWDhqoM5eRcCz6c9QF2eh" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -36,11 +59,13 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Diego\PhpstormProjects\ModulArbeitInfLu\login" />
       <recent name="C:\Users\Diego\PhpstormProjects\ModulArbetiLurati\css" />
     </key>
   </component>
@@ -54,6 +79,7 @@
       <updated>1603737666004</updated>
       <workItem from="1603737668327" duration="9000" />
       <workItem from="1603737694747" duration="4549000" />
+      <workItem from="1603781927784" duration="4781000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <created>1603744590203</created>
@@ -75,27 +101,41 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Init" />
     <MESSAGE value="Change route to style.css" />
     <option name="LAST_COMMIT_MESSAGE" value="Change route to style.css" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="679" y="91" width="588" height="898" key="#PHP" timestamp="1603738744565">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="453" y="61" width="560" height="599" key="#PHP" timestamp="1603781949800">
+      <screen x="0" y="0" width="1280" height="720" />
     </state>
+    <state x="453" y="61" width="560" height="599" key="#PHP/0.0.1280.720@0.0.1280.720" timestamp="1603781949800" />
     <state x="679" y="91" width="588" height="898" key="#PHP/0.0.1920.1080@0.0.1920.1080" timestamp="1603738744565" />
-    <state x="794" y="459" key="NewPhpFileDialog" timestamp="1603738332930">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="529" y="306" key="NewPhpFileDialog" timestamp="1603789919193">
+      <screen x="0" y="0" width="1280" height="720" />
     </state>
+    <state x="529" y="306" key="NewPhpFileDialog/0.0.1280.720@0.0.1280.720" timestamp="1603789919193" />
     <state x="794" y="459" key="NewPhpFileDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1603738332930" />
     <state x="552" y="268" key="Vcs.Push.Dialog.v2" timestamp="1603744769337">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="552" y="268" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1603744769337" />
-    <state x="616" y="250" width="672" height="677" key="run.anything.popup" timestamp="1603744753090">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="411" y="167" width="448" height="452" key="run.anything.popup" timestamp="1603784527378">
+      <screen x="0" y="0" width="1280" height="720" />
     </state>
+    <state x="411" y="167" width="448" height="452" key="run.anything.popup/0.0.1280.720@0.0.1280.720" timestamp="1603784527378" />
     <state x="616" y="250" width="672" height="677" key="run.anything.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1603744753090" />
   </component>
 </project>

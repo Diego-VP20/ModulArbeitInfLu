@@ -7,12 +7,12 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
 
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body style="background-image: url('assets/images/background_login.jpg')">
+<body style="background-image: url('../assets/images/login_background_dm.jpg')">
     <!-- JS from Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -24,11 +24,11 @@
 
             <!-- Icon -->
             <div class="fadeIn first">
-                <img src="assets/images/book.png" id="icon" alt="User Icon" style="width: 100px; height: auto; margin: 20px 0 15px 0"/>
+                <img src="../assets/images/login_book_dm.png" id="icon" alt="User Icon" style="width: 100px; height: auto; margin: 20px 0 15px 0"/>
             </div>
 
             <!-- Login Form -->
-            <form>
+            <form action="validate_login.php" method="post">
                 <label for="login"></label><input type="text" id="login" class="fadeIn second" name="login" placeholder="Username">
                 <label for="password"></label><input type="password" id="password" class="fadeIn third" name="login" placeholder="Password">
                 <input type="submit" class="fadeIn fourth" value="Log In" style="margin-top: 20px">
@@ -36,7 +36,7 @@
 
             <!-- Create Account -->
             <div id="formFooter">
-                <a class="underlineHover" href="register.php">Not registered yet? Sign up!</a>
+                <a class="underlineHover" style="text-decoration: none" href="register.php">Not registered yet? Sign up!</a>
             </div>
 
         </div>
