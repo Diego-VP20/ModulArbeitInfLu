@@ -29,8 +29,8 @@
 
             <!-- Login Form -->
             <form action="validate_login.php" method="post">
-                <label for="login"></label><input type="text" id="login" class="fadeIn second" name="login" placeholder="Username">
-                <label for="password"></label><input type="password" id="password" class="fadeIn third" name="login" placeholder="Password">
+                <label for="login"></label><input type="text" id="login" class="fadeIn second" name="user" placeholder="Username">
+                <label for="password"></label><input type="password" id="password" class="fadeIn third" name="pass" placeholder="Password">
                 <input type="submit" class="fadeIn fourth" value="Log In" style="margin-top: 20px">
             </form>
 
