@@ -19,14 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d80c6812-82d7-4ab8-9361-d87674feefe8" name="Default Changelist" comment="School Work">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DBDump.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login/validate_login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login/validate_login.php" afterDir="false" />
-    </list>
+    <list default="true" id="d80c6812-82d7-4ab8-9361-d87674feefe8" name="Default Changelist" comment="Add validate_login.php and DBDump.sql&#10;&#10;Edit validate_login.php" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -81,7 +74,7 @@
       <updated>1603737666004</updated>
       <workItem from="1603737668327" duration="9000" />
       <workItem from="1603737694747" duration="4549000" />
-      <workItem from="1603781927784" duration="7991000" />
+      <workItem from="1603781927784" duration="8677000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <created>1603744590203</created>
@@ -104,7 +97,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603790583600</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add validate_login.php and DBDump.sql&#10;&#10;Edit validate_login.php">
+      <created>1603794977179</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1603794977179</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -126,7 +126,8 @@
     <MESSAGE value="Init" />
     <MESSAGE value="Change route to style.css" />
     <MESSAGE value="School Work" />
-    <option name="LAST_COMMIT_MESSAGE" value="School Work" />
+    <MESSAGE value="Add validate_login.php and DBDump.sql&#10;&#10;Edit validate_login.php" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add validate_login.php and DBDump.sql&#10;&#10;Edit validate_login.php" />
   </component>
   <component name="WindowStateProjectService">
     <state x="453" y="61" width="560" height="599" key="#PHP" timestamp="1603781949800">
@@ -147,10 +148,10 @@
     </state>
     <state x="529" y="306" key="NewPhpFileDialog/0.0.1280.720@0.0.1280.720" timestamp="1603789919193" />
     <state x="794" y="459" key="NewPhpFileDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1603738332930" />
-    <state x="368" y="179" key="Vcs.Push.Dialog.v2" timestamp="1603790616771">
+    <state x="368" y="179" key="Vcs.Push.Dialog.v2" timestamp="1603794981583">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state x="368" y="179" key="Vcs.Push.Dialog.v2/0.0.1280.720@0.0.1280.720" timestamp="1603790616771" />
+    <state x="368" y="179" key="Vcs.Push.Dialog.v2/0.0.1280.720@0.0.1280.720" timestamp="1603794981583" />
     <state x="552" y="268" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1603744769337" />
     <state x="411" y="167" width="448" height="452" key="run.anything.popup" timestamp="1603792939922">
       <screen x="0" y="0" width="1280" height="720" />
