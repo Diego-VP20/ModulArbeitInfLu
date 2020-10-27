@@ -1,17 +1,13 @@
 
 /* BASIC */
 
-html {
-    background-color: #56baed;
-}
-
 body {
     font-family: "Poppins", sans-serif;
     height: 100vh;
 }
 
 a {
-    color: #92badd;
+    color: royalblue;
     display:inline-block;
     text-decoration: none;
     font-weight: 400;
@@ -44,8 +40,7 @@ h2 {
 #formContent {
     -webkit-border-radius: 10px 10px 10px 10px;
     border-radius: 10px 10px 10px 10px;
-    background: #919191;
-    padding: 30px;
+    background: #3e3e3e;
     width: 90%;
     max-width: 450px;
     position: relative;
@@ -56,7 +51,7 @@ h2 {
 }
 
 #formFooter {
-    background-color: #6b6b6b;
+    background-color: #292929;
     border-top: 1px solid royalblue;
     padding: 25px;
     text-align: center;
@@ -115,10 +110,11 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
     transform: scale(0.95);
 }
 
+
+/*  */
 input[type=text], input[type=password] {
-    background-color: #f6f6f6;
-    border: none;
-    color: #0d0d0d;
+    background-color: #3e3e3e;
+    color: #ffffff;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -126,7 +122,7 @@ input[type=text], input[type=password] {
     font-size: 16px;
     margin: 5px;
     width: 85%;
-    border: 2px solid #f6f6f6;
+    border: 2px solid royalblue;
     -webkit-transition: all 0.5s ease-in-out;
     -moz-transition: all 0.5s ease-in-out;
     -ms-transition: all 0.5s ease-in-out;
@@ -136,12 +132,13 @@ input[type=text], input[type=password] {
     border-radius: 5px 5px 5px 5px;
 }
 
-input[type=text]:focus {
-    background-color: #fff;
+input[type=text]:focus, input[type=password]:focus {
+    background-color: #282828;
     border-bottom: 2px solid royalblue;
 }
 
-input[type=text]::placeholder {
+/* Color of form placeholder */
+input[type=text]::placeholder, input[type=password]::placeholder {
     color: #838383;
 }
 
@@ -236,7 +233,7 @@ input[type=text]::placeholder {
     bottom: -10px;
     width: 0;
     height: 2px;
-    background-color: royalblue;
+    background-color: #2a56de;
     content: "";
     transition: width 0.2s;
 }
@@ -263,7 +260,7 @@ input[type=text]::placeholder {
 
 body{
 
-    background-image: url("../assets/images/background_login.jpg");
+    background-image: url("../assets/images/login_background_dm.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
