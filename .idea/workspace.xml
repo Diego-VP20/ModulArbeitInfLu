@@ -1,30 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
-    <select />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="d80c6812-82d7-4ab8-9361-d87674feefe8" name="Default Changelist" comment="Add validate_login.php and DBDump.sql&#10;&#10;Edit validate_login.php">
-      <change beforePath="$PROJECT_DIR$/.idea/ModulArbetiLurati.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ModulArbetiLurati.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/login/register.php" afterDir="false" />
-    </list>
+    <list default="true" id="3bc2930f-2343-4e3b-9de1-64b13aeb29df" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,179 +10,22 @@
   <component name="ComposerSettings">
     <execution />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="HTML File" />
-      </list>
-    </option>
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="SET_USER_NAME_GLOBALLY" value="false" />
-  </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.4" />
-  <component name="ProjectId" id="1jQYDnCWDhqoM5eRcCz6c9QF2eh" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="DatabaseDriversLRU" value="mariadb" />
-    <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="discord-application" />
-    <property name="vue.rearranger.settings.migration" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/PhpstormProjects/ModulArbeitInfLu" />
   </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Diego\PhpstormProjects\ModulArbetiLurati\includes" />
-      <recent name="C:\Users\Diego\PhpstormProjects\ModulArbeitInfLu\login" />
-      <recent name="C:\Users\Diego\PhpstormProjects\ModulArbetiLurati\css" />
-    </key>
-  </component>
-  <component name="RunManager">
-    <configuration name="validate_register.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/includes/validate_register.php">
-      <method v="2" />
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="PHP Script.validate_register.php" />
-      </list>
-    </recent_temporary>
-  </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="d80c6812-82d7-4ab8-9361-d87674feefe8" name="Default Changelist" comment="" />
-      <created>1603737666004</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1603737666004</updated>
-      <workItem from="1603737668327" duration="9000" />
-      <workItem from="1603737694747" duration="4549000" />
-      <workItem from="1603781927784" duration="8677000" />
-      <workItem from="1603824101878" duration="2399000" />
-      <workItem from="1603868825336" duration="4852000" />
-    </task>
-    <task id="LOCAL-00001" summary="Init">
-      <created>1603744590203</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1603744590203</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Change route to style.css">
-      <created>1603744766206</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1603744766206</updated>
-    </task>
-    <task id="LOCAL-00003" summary="School Work">
-      <created>1603790583600</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1603790583600</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Add validate_login.php and DBDump.sql&#10;&#10;Edit validate_login.php">
-      <created>1603794977179</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1603794977179</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-  </component>
   <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Init" />
-    <MESSAGE value="Change route to style.css" />
-    <MESSAGE value="School Work" />
-    <MESSAGE value="Add validate_login.php and DBDump.sql&#10;&#10;Edit validate_login.php" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add validate_login.php and DBDump.sql&#10;&#10;Edit validate_login.php" />
-  </component>
   <component name="WindowStateProjectService">
-    <state x="679" y="91" width="560" height="599" key="#PHP" timestamp="1603809227016">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="453" y="61" width="560" height="599" key="#PHP/0.0.1280.720@0.0.1280.720" timestamp="1603781949800" />
-    <state x="679" y="91" width="588" height="898" key="#PHP/0.0.1920.1080@0.0.1920.1080" timestamp="1603809227016" />
-    <state x="80" y="197" key="#SQL_Dialects" timestamp="1603792116653">
+    <state x="421" y="116" key="FileChooserDialogImpl" timestamp="1603884662192">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state x="80" y="197" key="#SQL_Dialects/0.0.1280.720@0.0.1280.720" timestamp="1603792116653" />
-    <state x="350" y="29" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603808553450">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="233" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.720@0.0.1280.720" timestamp="1603792097465" />
-    <state x="350" y="29" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1603808553450" />
-    <state width="1877" height="288" key="GridCell.Tab.0.bottom" timestamp="1603820120058">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1877" height="288" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1603820120058" />
-    <state width="1877" height="288" key="GridCell.Tab.0.center" timestamp="1603820120057">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1877" height="288" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1603820120057" />
-    <state width="1877" height="288" key="GridCell.Tab.0.left" timestamp="1603820120057">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1877" height="288" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1603820120057" />
-    <state width="1877" height="288" key="GridCell.Tab.0.right" timestamp="1603820120058">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1877" height="288" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1603820120058" />
-    <state width="196" height="539" key="HiddenNamespacesPopup" timestamp="1603808581319">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="196" height="539" key="HiddenNamespacesPopup/0.0.1920.1080@0.0.1920.1080" timestamp="1603808581319" />
-    <state x="794" y="459" key="NewPhpFileDialog" timestamp="1603810227447">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="529" y="306" key="NewPhpFileDialog/0.0.1280.720@0.0.1280.720" timestamp="1603789919193" />
-    <state x="794" y="459" key="NewPhpFileDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1603810227447" />
-    <state x="461" y="184" key="SettingsEditor" timestamp="1603820107953">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="461" y="184" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1603820107953" />
-    <state x="368" y="179" key="Vcs.Push.Dialog.v2" timestamp="1603794981583">
-      <screen x="0" y="0" width="1280" height="720" />
-    </state>
-    <state x="368" y="179" key="Vcs.Push.Dialog.v2/0.0.1280.720@0.0.1280.720" timestamp="1603794981583" />
-    <state x="552" y="268" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1603744769337" />
-    <state x="708" y="429" width="1403" height="746" key="dock-window-1" timestamp="1603813137774">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="708" y="429" width="1403" height="746" key="dock-window-1/0.0.1920.1080@0.0.1920.1080" timestamp="1603813137774" />
-    <state x="411" y="167" width="448" height="452" key="run.anything.popup" timestamp="1603872359061">
-      <screen x="0" y="0" width="1280" height="720" />
-    </state>
-    <state x="411" y="167" width="448" height="452" key="run.anything.popup/0.0.1280.720@0.0.1280.720" timestamp="1603872359061" />
-    <state x="616" y="250" width="672" height="677" key="run.anything.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1603812979920" />
+    <state x="421" y="116" key="FileChooserDialogImpl/0.0.1280.720@0.0.1280.720" timestamp="1603884662192" />
   </component>
 </project>

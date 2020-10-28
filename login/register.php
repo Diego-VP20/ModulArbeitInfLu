@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +16,7 @@
     <link rel="stylesheet" href="../css/style.css">
 
     <meta charset="UTF-8">
-    <title>Sign Up!</title>
+    <title>Signup</title>
 </head>
 <body style="background-image: url('../assets/images/login_background_dm.jpg')">
     <!-- JS from Bootstrap -->
@@ -19,7 +25,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     <div class="wrapper fadeInDown">
-
+        /* Error handler */
         <?php
 
         if (isset($_GET["error"])){
@@ -91,6 +97,20 @@
                                     Password too weak.
                                         <hr>
                                       <p class="mb-0">Please enter a password that is at least 8 characters long!</p>
+                                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                            </div>
+                            ';
+
+            }
+
+            if ($_GET["error"] == "none"){
+
+                echo '<div class="alert alert-success alert-dismissible fade show fadeInDown" style="width: 60%; top: 0; flex-direction: unset; justify-content: normal; position:absolute; z-index: 10; margin: 10px 50px" role="alert">
+                                  <h4 class="alert-heading">Success!</h4>
+                                        <hr>
+                                      <p class="mb-0">You can now login <a href="login.php" class="alert-link">here</a> !</p>
                                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                   </button>

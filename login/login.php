@@ -1,3 +1,9 @@
+<?php
+
+    session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +16,7 @@
     <link rel="stylesheet" href="../css/style.css">
 
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Login</title>
 </head>
 <body style="background-image: url('../assets/images/login_background_dm.jpg')">
     <!-- JS from Bootstrap -->
@@ -19,6 +25,76 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     <div class="wrapper fadeInDown">
+
+        /* Error handler */
+        <?php
+
+        if (isset($_GET["error"])){
+
+            if ($_GET["error"] == "emptyInput"){
+
+                echo '<div class="alert alert-danger alert-dismissible fade show fadeInDown" style="width: 60%; top: 0; flex-direction: unset; justify-content: normal; position:absolute; z-index: 10; margin: 5px 50px" role="alert">
+                                  <h4 class="alert-heading">Error!</h4>
+                                    Some of the fields are empty.
+                                        <hr>
+                                      <p class="mb-0">Make sure to provide us with an Username and a Password!</p>
+                                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                            </div>
+                            ';
+
+            }
+
+            if ($_GET["error"] == "wrongPass"){
+
+                echo '<div class="alert alert-danger alert-dismissible fade show fadeInDown" style="width: 60%; top: 0; flex-direction: unset; justify-content: normal; position:absolute; z-index: 10; margin: 5px 50px" role="alert">
+                                  <h4 class="alert-heading">Error!</h4>
+                                    Wrong Password.
+                                        <hr>
+                                      <p class="mb-0">Please check the password you entered and try again!</p>
+                                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                            </div>
+                            ';
+
+            }
+
+            if ($_GET["error"] == "wrongPass"){
+
+                echo '<div class="alert alert-danger alert-dismissible fade show fadeInDown" style="width: 60%; top: 0; flex-direction: unset; justify-content: normal; position:absolute; z-index: 10; margin: 5px 50px" role="alert">
+                                  <h4 class="alert-heading">Error!</h4>
+                                    Wrong Password.
+                                        <hr>
+                                      <p class="mb-0">Please check the password you entered and try again!</p>
+                                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                            </div>
+                            ';
+
+            }
+
+            if ($_GET["error"] == "userNotExists"){
+
+                echo '<div class="alert alert-danger alert-dismissible fade show fadeInDown" style="width: 60%; top: 0; flex-direction: unset; justify-content: normal; position:absolute; z-index: 10; margin: 5px 50px" role="alert">
+                                  <h4 class="alert-heading">Error!</h4>
+                                    That user doesn\'t exist.
+                                        <hr>
+                                      <p class="mb-0">If you meant to Sign up you can do it <a href="register.php" class="alert-link">here</a>!</p>
+                                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                            </div>
+                            ';
+
+            }
+
+        }
+
+        ?>
+
         <div id="formContent">
             <!-- Tabs Titles -->
 
@@ -31,7 +107,7 @@
             <form action="../includes/validate_login.php" method="post">
                 <label for="login"></label><input type="text" id="login" class="fadeIn second" name="user" placeholder="Username">
                 <label for="password"></label><input type="password" id="password" class="fadeIn third" name="pass" placeholder="Password">
-                <input type="submit" class="fadeIn fourth" value="Log In" style="margin-top: 20px">
+                <input type="submit" name="submit" class="fadeIn fourth" value="Log In" style="margin-top: 20px">
             </form>
 
             <!-- Create Account -->

@@ -64,7 +64,7 @@ function usernameAlreadyTaken($conn, $user){
     if ($row = mysqli_fetch_assoc($result)){
 
         mysqli_stmt_close($stmt);
-        return true;
+        return $row;
 
     }else{
 
@@ -96,5 +96,35 @@ function createUser($conn, $user, $pass){
     header("location: ../login/register.php?error=none");
     exit();
 
+
+}
+
+function loginUser($conn, $user, $pass){
+
+    $userArray = usernameAlreadyTaken($conn, $user);
+
+    if($userArray === false){
+
+        header("location: ../login/login.php?error=userNotExists");
+        exit();
+
+    }
+
+    $passHashed = $userArray["password"];
+    $checkPass = password_verify($pass, $passHashed);
+
+    if($checkPass === false){
+
+        header("location: ../login/login.php?error=wrongPass");
+        exit();
+
+    }else{
+
+        session_start();
+        $_SESSION["userID"] = $userArray["ID"];
+        $_SESSION["username"] = $userArray["username"];
+        header("location: ../index.php?loggedIn=1");
+        exit();
+    }
 
 }
