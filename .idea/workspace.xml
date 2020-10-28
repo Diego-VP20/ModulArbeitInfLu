@@ -20,15 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d80c6812-82d7-4ab8-9361-d87674feefe8" name="Default Changelist" comment="Add validate_login.php and DBDump.sql&#10;&#10;Edit validate_login.php">
-      <change afterPath="$PROJECT_DIR$/includes/dbch.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/includes/utilities.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/includes/validate_register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ModulArbetiLurati.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ModulArbetiLurati.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login/login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/login/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/login/register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login/validate_login.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,6 +93,7 @@
       <workItem from="1603737694747" duration="4549000" />
       <workItem from="1603781927784" duration="8677000" />
       <workItem from="1603824101878" duration="2399000" />
+      <workItem from="1603868825336" duration="4852000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <created>1603744590203</created>
@@ -206,10 +202,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="708" y="429" width="1403" height="746" key="dock-window-1/0.0.1920.1080@0.0.1920.1080" timestamp="1603813137774" />
-    <state x="616" y="250" width="672" height="677" key="run.anything.popup" timestamp="1603812979920">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="411" y="167" width="448" height="452" key="run.anything.popup" timestamp="1603872359061">
+      <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state x="411" y="167" width="448" height="452" key="run.anything.popup/0.0.1280.720@0.0.1280.720" timestamp="1603792939922" />
+    <state x="411" y="167" width="448" height="452" key="run.anything.popup/0.0.1280.720@0.0.1280.720" timestamp="1603872359061" />
     <state x="616" y="250" width="672" height="677" key="run.anything.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1603812979920" />
   </component>
 </project>

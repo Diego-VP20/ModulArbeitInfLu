@@ -19,6 +19,90 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     <div class="wrapper fadeInDown">
+
+        <?php
+
+        if (isset($_GET["error"])){
+
+            if ($_GET["error"] == "emptyFields"){
+
+                echo '<div class="alert alert-danger alert-dismissible fade show fadeInDown" style="width: 60%; top: 0; flex-direction: unset; justify-content: normal; position:absolute; z-index: 10; margin: 5px 50px" role="alert">
+                                  <h4 class="alert-heading">Error!</h4>
+                                    Some of the fields are empty.
+                                        <hr>
+                                      <p class="mb-0">Make sure to provide us with an Username and a Password!</p>
+                                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                            </div>
+                            ';
+
+            }
+
+            if ($_GET["error"] == "invalidUser"){
+
+                echo '<div class="alert alert-danger alert-dismissible fade show fadeInDown" style="width: 60%; top: 0; flex-direction: unset; justify-content: normal; position:absolute; z-index: 10; margin: 5px 50px" role="alert">
+                                  <h4 class="alert-heading">Error!</h4>
+                                    Invalid Username.
+                                        <hr>
+                                      <p class="mb-0">Please enter a name with characters from a to Z and 0 to 9!</p>
+                                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                            </div>
+                            ';
+
+            }
+
+            if ($_GET["error"] == "usernameTaken"){
+
+                echo '<div class="alert alert-danger alert-dismissible fade show fadeInDown" style="width: 60%; top: 0; flex-direction: unset; justify-content: normal; position:absolute; z-index: 10; margin: 5px 50px" role="alert">
+                                  <h4 class="alert-heading">Error!</h4>
+                                    Username already in use.
+                                        <hr>
+                                      <p class="mb-0">The username you entered is already taken, try another one!</p>
+                                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                            </div>
+                            ';
+
+            }
+
+            if ($_GET["error"] == "usernameTaken"){
+
+                echo '<div class="alert alert-danger alert-dismissible fade show fadeInDown" style="width: 60%; top: 0; flex-direction: unset; justify-content: normal; position:absolute; z-index: 10; margin: 5px 50px" role="alert">
+                                  <h4 class="alert-heading">Error!</h4>
+                                    Username already in use.
+                                        <hr>
+                                      <p class="mb-0">The username you entered is already taken, try another one!</p>
+                                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                            </div>
+                            ';
+
+            }
+
+            if ($_GET["error"] == "passLen"){
+
+                echo '<div class="alert alert-danger alert-dismissible fade show fadeInDown" style="width: 60%; top: 0; flex-direction: unset; justify-content: normal; position:absolute; z-index: 10; margin: 5px 50px" role="alert">
+                                  <h4 class="alert-heading">Error!</h4>
+                                    Password too weak.
+                                        <hr>
+                                      <p class="mb-0">Please enter a password that is at least 8 characters long!</p>
+                                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                            </div>
+                            ';
+
+            }
+
+        }
+
+        ?>
+
         <div id="formContent">
             <!-- Tabs Titles -->
 
@@ -41,29 +125,5 @@
 
         </div>
     </div>
-
-    <?php
-
-    if (isset($_GET["error"])){
-
-        if ($_GET["error"] == "emptyFields"){
-
-            echo '<div class="alert alert-danger alert-dismissible fade show fadeInDown" style="position: absolute; left: 31%; top: 0; margin:20px; width: 35%" role="alert">
-                                  <h4 class="alert-heading">Error!</h4>
-                                    Some of the fields are empty.
-                                        <hr>
-                                      <p class="mb-0">Make sure to provide us with an Username and a Password!</p>
-                                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                  </button>
-                            </div>
-                            ';
-
-        }
-
-    }
-
-    ?>
-
 </body>
 </html>
