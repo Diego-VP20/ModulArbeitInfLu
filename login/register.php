@@ -24,7 +24,51 @@ session_start();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-    <div class="wrapper fadeInDown">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark static-top bg-dark" style=" position:fixed; width:100%;top:0;border-radius: 0 0 60px 60px; opacity: 0.7;">
+        <div class="container">
+            <a class="navbar-brand" href="../index.php"><img src="../assets/images/login_book_dm.png" alt="" width="8%" height="8%"> Get It Done!</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+
+                    <?php
+
+                    if(isset($_SESSION["username"])){
+
+                        echo '
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">+ Add a todo</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">My Todo\'s</a>
+                            </li>
+                        
+                        ';
+
+                    }else {
+
+                        echo '
+                        
+                            <li class="nav-item" >
+                                <a class="nav-link" href = "login.php" > Log in </a >
+                            </li >
+                        
+                        ';
+
+                    }
+                    ?>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="wrapper fadeInDown" style="padding-top:100px;">
         <?php
         /* Error handler */
 
@@ -52,21 +96,6 @@ session_start();
                                     Invalid Username.
                                         <hr>
                                       <p class="mb-0">Please enter a name with characters from a to Z and 0 to 9!</p>
-                                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                  </button>
-                            </div>
-                            ';
-
-            }
-
-            if ($_GET["error"] == "usernameTaken"){
-
-                echo '<div class="alert alert-danger alert-dismissible fade show fadeInDown" style="width: 60%; top: 0; flex-direction: unset; justify-content: normal; position:absolute; z-index: 10; margin: 5px 50px" role="alert">
-                                  <h4 class="alert-heading">Error!</h4>
-                                    Username already in use.
-                                        <hr>
-                                      <p class="mb-0">The username you entered is already taken, try another one!</p>
                                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                   </button>

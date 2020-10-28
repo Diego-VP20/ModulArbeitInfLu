@@ -50,7 +50,7 @@
 
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark static-top bg-primary" style="border-radius: 0 0 60px 60px; opacity: 0.7">
+    <nav class="navbar navbar-expand-lg navbar-dark static-top bg-dark" style="z-index: 9; border-radius: 0 0 60px 60px; opacity: 0.7">
         <div class="container">
             <a class="navbar-brand" href="#"><img src="assets/images/login_book_dm.png" alt="" width="8%" height="8%"> Get It Done!</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -73,6 +73,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="#">My Todo\'s</a>
                             </li>
+                                <li class="nav-item">
+                                <a class="nav-link" href="includes/logout.php">Logout</a>
+                            </li>
                         
                         ';
 
@@ -80,9 +83,6 @@
 
                         echo '
                         
-                            <li class="nav-item" >
-                                <a class="nav-link" href = "login/register.php" > Sign up </a >
-                            </li>
                             <li class="nav-item" >
                                 <a class="nav-link" href = "login/login.php" > Log in </a >
                             </li >
