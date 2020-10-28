@@ -25,7 +25,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark static-top bg-dark" style=" position:fixed; width:100%;top:0;border-radius: 0 0 60px 60px; opacity: 0.7;">
+    <nav class="navbar navbar-expand-lg navbar-dark static-top bg-dark" style="z-index: 1; position:fixed; width:100%;top:0;border-radius: 0 0 60px 60px; opacity: 0.7;">
         <div class="container">
             <a class="navbar-brand" href="../index.php"><img src="../assets/images/login_book_dm.png" alt="" width="8%" height="8%"> Get It Done!</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
