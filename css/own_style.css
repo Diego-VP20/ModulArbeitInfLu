@@ -1,0 +1,27 @@
+body{
+
+    background-image: url("../assets/images/login_background_dm.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: black;
+    font-family: "Poppins", sans-serif;
+    height: 100vh;
+}
+
+.createTODO{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 50%;
+    padding: 20px;
+    top:30%;
+    left:35%;
+    width: 30%;
+    position: relative;
+    background-color: rgb(62,62,62);
+    opacity: 0.9;
+
+}

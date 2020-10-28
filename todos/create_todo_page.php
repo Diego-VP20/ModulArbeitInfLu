@@ -13,7 +13,7 @@ session_start();
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/own_style.css">
 
     <meta charset="UTF-8">
     <title>Home</title>
@@ -26,5 +26,34 @@ session_start();
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 
+<div class="createTODO">
+
+    <div style="top: 10%"><p><strong>Create TODO</strong></p></div>
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Title</span>
+        </div>
+        <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Priority</span>
+        </div>
+        <input type="number" max=3 min=1 class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Description</span>
+        </div>
+        <textarea class="form-control" style="resize: none; height: 200px" maxlength=255 aria-label="With textarea"></textarea>
+    </div>
+
+
+
+
+</div>
 </body>
 </html>
