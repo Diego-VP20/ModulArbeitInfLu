@@ -13,13 +13,13 @@ if (isset($_POST["submit"])){
     /* emptySignup() works here because I'm checking the same as in the signu form.- */
     if(emptySignup($user, $pass)){
 
-        header("location: ../login/login.php?error=emptyInput");
+        header("location: ../session/login.php?error=emptyInput");
         exit();
     }
 
     loginUser($conn, $user, $pass);
 
 }else{
-    header("location: ../login/login.php");
+    header("location: ../session/login.php");
     exit();
 }

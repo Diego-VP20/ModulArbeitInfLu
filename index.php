@@ -44,7 +44,7 @@
 
                         echo '
                             <li class="nav-item">
-                                <a class="nav-link" href="#">+ Add a todo</a>
+                                <a class="nav-link" href="todos/create_todo_page.php">Add a todo</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">My Todo\'s</a>
@@ -60,7 +60,7 @@
                         echo '
                         
                             <li class="nav-item" >
-                                <a class="nav-link" href = "login/login.php" > Log in </a >
+                                <a class="nav-link" href = "session/login.php" > Log in </a >
                             </li >
                         
                         ';
@@ -71,10 +71,5 @@
             </div>
         </div>
     </nav>
-
-
-
-
-
 </body>
 </html>

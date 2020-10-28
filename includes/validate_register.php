@@ -9,28 +9,28 @@ if(isset($_POST["submit"])) {
 
     if(emptySignup($user, $pass) !== false){
 
-        header("location: ../login/register.php?error=emptyFields");
+        header("location: ../session/register.php?error=emptyFields");
         exit();
 
     }
 
     if(invalidUsername($user) !== false){
 
-        header("location: ../login/register.php?error=invalidUser");
+        header("location: ../session/register.php?error=invalidUser");
         exit();
 
     }
 
     if(usernameAlreadyTaken($conn, $user) !== false){
 
-        header("location: ../login/register.php?error=usernameTaken");
+        header("location: ../session/register.php?error=usernameTaken");
         exit();
 
     }
 
     if(passLen($pass) !== false){
 
-        header("location: ../login/register.php?error=passLen");
+        header("location: ../session/register.php?error=passLen");
         exit();
 
     }
@@ -39,6 +39,6 @@ if(isset($_POST["submit"])) {
 
 }else{
 
-    header("location: ../login/register.php");
+    header("location: ../session/register.php");
 
 }

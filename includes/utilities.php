@@ -51,7 +51,7 @@ function usernameAlreadyTaken($conn, $user){
 
     if (!mysqli_stmt_prepare($stmt, $sql)){
 
-        header("location: ../login/register.php?error=usernameCheckFailed");
+        header("location: ../session/register.php?error=usernameCheckFailed");
         exit();
 
     }
@@ -83,7 +83,7 @@ function createUser($conn, $user, $pass){
 
     if (!mysqli_stmt_prepare($stmt, $sql)){
 
-        header("location: ../login/register.php?error=createUserFailed");
+        header("location: ../session/register.php?error=createUserFailed");
         exit();
 
     }
@@ -93,7 +93,7 @@ function createUser($conn, $user, $pass){
     mysqli_stmt_bind_param($stmt, "ss", $user, $hashedPass);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    header("location: ../login/register.php?error=none");
+    header("location: ../session/register.php?error=none");
     exit();
 
 
@@ -105,7 +105,7 @@ function loginUser($conn, $user, $pass){
 
     if($userArray === false){
 
-        header("location: ../login/login.php?error=userNotExists");
+        header("location: ../session/login.php?error=userNotExists");
         exit();
 
     }
@@ -115,7 +115,7 @@ function loginUser($conn, $user, $pass){
 
     if($checkPass === false){
 
-        header("location: ../login/login.php?error=wrongPass");
+        header("location: ../session/login.php?error=wrongPass");
         exit();
 
     }else{
@@ -123,7 +123,7 @@ function loginUser($conn, $user, $pass){
         session_start();
         $_SESSION["userID"] = $userArray["ID"];
         $_SESSION["username"] = $userArray["username"];
-        header("location: ../index.php?loggedIn=1");
+        header("location: ../index.php");
         exit();
     }
 

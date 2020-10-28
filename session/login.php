@@ -25,7 +25,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark static-top bg-dark" style="z-index: 1; position:fixed; width:100%;top:0;border-radius: 0 0 60px 60px; opacity: 0.7;">
+    <nav class="navbar navbar-expand-lg navbar-dark static-top bg-dark" style="z-index: 5; position:fixed; width:100%;top:0;border-radius: 0 0 60px 60px; opacity: 0.7;">
         <div class="container">
             <a class="navbar-brand" href="../index.php"><img src="../assets/images/login_book_dm.png" alt="" width="8%" height="8%"> Get It Done!</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,7 +43,7 @@
 
                         echo '
                             <li class="nav-item">
-                                <a class="nav-link" href="#">+ Add a todo</a>
+                                <a class="nav-link" href="/todos/create_todo_page.php">+ Add a todo</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">My Todo\'s</a>
@@ -68,17 +68,15 @@
         </div>
     </nav>
 
-    <div class="wrapper fadeInDown" style="padding-top:100px;">
+    <?php
 
-        <?php
+    /* Error handler */
 
-        /* Error handler */
+    if (isset($_GET["error"])){
 
-        if (isset($_GET["error"])){
+        if ($_GET["error"] == "emptyInput"){
 
-            if ($_GET["error"] == "emptyInput"){
-
-                echo '<div class="alert alert-danger alert-dismissible fade show fadeInDown" style="width: 60%; top: 0; flex-direction: unset; justify-content: normal; position:absolute; z-index: 10; margin: 5px 50px" role="alert">
+            echo '<div class="alert alert-danger alert-dismissible fade show fadeInDown" style="z-index: 10; border-radius: 30px; width: 98%; position: fixed; margin-top: 20px; margin-left: 1%">
                                   <h4 class="alert-heading">Error!</h4>
                                     Some of the fields are empty.
                                         <hr>
@@ -89,23 +87,23 @@
                             </div>
                             ';
 
-            }
+        }
 
-            if ($_GET["error"] == "logout"){
+        if ($_GET["error"] == "logout"){
 
-                echo '<div class="alert alert-success alert-dismissible fade show fadeInDown" style="width: 60%; top: 0; flex-direction: unset; justify-content: normal; position:absolute; z-index: 10; margin: 5px 50px" role="alert">
-                                  <h4 class="alert-heading">You logged out.</h4>
+            echo '<div class="alert alert-success alert-dismissible fade show fadeInDown" style="z-index: 10; border-radius: 30px; width: 98%; position: fixed; margin-top: 20px; margin-left: 1%">
+                                  You have successfully logged out!
                                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                   </button>
                             </div>
                             ';
 
-            }
+        }
 
-            if ($_GET["error"] == "wrongPass"){
+        if ($_GET["error"] == "wrongPass"){
 
-                echo '<div class="alert alert-danger alert-dismissible fade show fadeInDown" style="width: 60%; top: 0; flex-direction: unset; justify-content: normal; position:absolute; z-index: 10; margin: 5px 50px" role="alert">
+            echo '<div class="alert alert-danger alert-dismissible fade show fadeInDown" style="z-index: 10; border-radius: 30px; width: 98%; position: fixed; margin-top: 20px; margin-left: 1%">
                                   <h4 class="alert-heading">Error!</h4>
                                     Wrong Password.
                                         <hr>
@@ -116,26 +114,26 @@
                             </div>
                             ';
 
-            }
+        }
 
-            if ($_GET["error"] == "wrongPass"){
+        if ($_GET["error"] == "notLogged"){
 
-                echo '<div class="alert alert-danger alert-dismissible fade show fadeInDown" style="width: 60%; top: 0; flex-direction: unset; justify-content: normal; position:absolute; z-index: 10; margin: 5px 50px" role="alert">
+            echo '<div class="alert alert-danger alert-dismissible fade show fadeInDown" style="z-index: 10; border-radius: 30px; width: 98%; position: fixed; margin-top: 20px; margin-left: 1%">
                                   <h4 class="alert-heading">Error!</h4>
-                                    Wrong Password.
+                                    You\'re not logged in!
                                         <hr>
-                                      <p class="mb-0">Please check the password you entered and try again!</p>
+                                      <p class="mb-0">Please <a href="login.php" class="alert-link">log in</a> here to create a TODO!</p>
                                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                   </button>
                             </div>
                             ';
 
-            }
+        }
 
-            if ($_GET["error"] == "userNotExists"){
+        if ($_GET["error"] == "userNotExists"){
 
-                echo '<div class="alert alert-danger alert-dismissible fade show fadeInDown" style="width: 60%; top: 0; flex-direction: unset; justify-content: normal; position:absolute; z-index: 10; margin: 5px 50px" role="alert">
+            echo '<div class="alert alert-danger alert-dismissible fade show fadeInDown" style="z-index: 10; border-radius: 30px; width: 98%; position: fixed; margin-top: 20px; margin-left: 1%">
                                   <h4 class="alert-heading">Error!</h4>
                                     That user doesn\'t exist.
                                         <hr>
@@ -146,12 +144,13 @@
                             </div>
                             ';
 
-            }
-
         }
 
-        ?>
+    }
 
+    ?>
+
+    <div class="wrapper fadeInDown" style="z-index: 9; padding-top:100px;">
         <div id="formContent">
             <!-- Tabs Titles -->
 

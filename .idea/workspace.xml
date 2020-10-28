@@ -19,11 +19,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3bc2930f-2343-4e3b-9de1-64b13aeb29df" name="Default Changelist" comment="Nav and login done for the moment">
+    <list default="true" id="a3412cb2-c02e-415e-a264-45706d229b9b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/todos/create_todo_page.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/logout.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/logout.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/utilities.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/utilities.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/validate_login.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/validate_login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/validate_register.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/validate_register.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/login/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/session/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/session/register.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,10 +42,8 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1jVMdoKEfolep4qyAm6JQEd3DDY" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.4" />
+  <component name="ProjectId" id="1jW9gi5jtPJUkpdw1gCucTXN1jw" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -50,45 +54,22 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\ModulArbeitInfLu\todos" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="3bc2930f-2343-4e3b-9de1-64b13aeb29df" name="Default Changelist" comment="" />
-      <created>1603884896024</created>
+      <changelist id="a3412cb2-c02e-415e-a264-45706d229b9b" name="Default Changelist" comment="" />
+      <created>1603909094008</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1603884896024</updated>
-      <workItem from="1603884897301" duration="12263000" />
+      <updated>1603909094008</updated>
+      <workItem from="1603909095124" duration="636000" />
+      <workItem from="1603916154693" duration="6705000" />
     </task>
-    <task id="LOCAL-00001" summary="Sync">
-      <created>1603884954076</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1603884954076</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Sync">
-      <created>1603885531728</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1603885531728</updated>
-    </task>
-    <task id="LOCAL-00003" summary="TODO Finish Nav">
-      <created>1603891315153</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1603891315153</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Nav and login done for the moment">
-      <created>1603894265699</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1603894265699</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -104,22 +85,15 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Sync" />
-    <MESSAGE value="TODO Finish Nav" />
-    <MESSAGE value="Nav and login done for the moment" />
-    <option name="LAST_COMMIT_MESSAGE" value="Nav and login done for the moment" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="421" y="116" key="FileChooserDialogImpl" timestamp="1603884662192">
-      <screen x="0" y="0" width="1280" height="720" />
+    <state x="679" y="91" width="588" height="898" key="#PHP" timestamp="1603909124437">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="421" y="116" key="FileChooserDialogImpl/0.0.1280.720@0.0.1280.720" timestamp="1603884662192" />
-    <state x="233" y="90" key="Vcs.Push.Dialog.v2" timestamp="1603894269068">
-      <screen x="0" y="0" width="1280" height="720" />
+    <state x="679" y="91" width="588" height="898" key="#PHP/0.0.1920.1080@0.0.1920.1080" timestamp="1603909124437" />
+    <state x="794" y="459" key="NewPhpFileDialog" timestamp="1603917184593">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="233" y="90" key="Vcs.Push.Dialog.v2/0.0.1280.720@0.0.1280.720" timestamp="1603894269068" />
+    <state x="794" y="459" key="NewPhpFileDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1603917184593" />
   </component>
 </project>
