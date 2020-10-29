@@ -44,7 +44,7 @@
 
                         echo '
                             <li class="nav-item">
-                                <a class="nav-link" href="todos/create_todo_page.php">Add a todo</a>
+                                <a class="nav-link" href="todos/todo.php">Add a todo</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">My Todo\'s</a>
@@ -71,5 +71,54 @@
             </div>
         </div>
     </nav>
+
+<?php
+
+/* Error handler */
+
+if (isset($_GET["error"])){
+
+    if ($_GET["error"] == "alreadyLogged"){
+
+        echo '<div class="alert alert-warning alert-dismissible fade show fadeInDown" style="z-index: 10; border-radius: 30px; width: 98%; position: fixed; margin-top: 20px; margin-left: 1%">
+                                    You are already logged in. If you want to logout press <a href="includes/logout.php" class="alert-link">here</a>!
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                            </div>
+                            ';
+
+    }
+
+    if ($_GET["error"] == "createTODOFailed"){
+
+        echo '<div class="alert alert-danger alert-dismissible fade show fadeInDown" style="z-index: 10; border-radius: 30px; width: 98%; position: fixed; margin-top: 20px; margin-left: 1%">
+                                    <h4 class="alert-heading">Error!</h4>
+                                    We couldn\'t create the TODO. Contact the Website owner.
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                            </div>
+                            ';
+
+    }
+
+    if ($_GET["error"] == "TODOCreated"){
+
+        echo '<div class="alert alert-success alert-dismissible fade show fadeInDown" style="z-index: 10; border-radius: 30px; width: 98%; position: fixed; margin-top: 20px; margin-left: 1%">
+                                    <h4 class="alert-heading">Successfully added a new TODO!</h4>
+                                    Check it out <a href="todos/list_todos.php" class="alert-link">here</a>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                            </div>
+                            ';
+
+    }
+
+}
+
+?>
+
 </body>
 </html>

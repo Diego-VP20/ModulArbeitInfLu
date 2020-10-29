@@ -99,6 +99,32 @@ function createUser($conn, $user, $pass){
 
 }
 
+function createTODO($conn, $title, $content, $priority){
+
+    session_start();
+
+    $belongsTo = $_SESSION["userID"];
+
+    $sql = "INSERT INTO todos(belongsTo, title, content, priority) values(?,?,?,?);";
+    $stmt = mysqli_stmt_init($conn);
+
+    if (!mysqli_stmt_prepare($stmt, $sql)){
+
+        header("location: ../session/index.php?error=createTODOFailed");
+        exit();
+
+    }
+
+    mysqli_stmt_bind_param($stmt, "issi", $belongsTo,$title, $content, $priority);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    header("location: ../session/index.php?error=TODOCreated");
+    exit();
+
+
+}
+
+
 function loginUser($conn, $user, $pass){
 
     $userArray = usernameAlreadyTaken($conn, $user);

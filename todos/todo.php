@@ -1,9 +1,3 @@
-<?php
-
-session_start();
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,34 +20,26 @@ session_start();
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 
-<div class="createTODO">
-
-    <div style="top: 10%"><p><strong>Create TODO</strong></p></div>
-
-    <div class="input-group mb-3">
-        <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-addon1">Title</span>
+<form style="position:relative; top:25%; width: 60%; margin: auto; opacity: 0.9;" action="create_todo.php" method="post">
+    <div class="container text-center" style="position:absolute;">
+        <div class="card p-5">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-6"> <input name="title" type="text" placeholder="Title" class="form-control" /> </div>
+                        <div class="col-md-6"> <input name="priority" type="number" min=1 max=3 placeholder="Priority" class="form-control" /> </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-12"> <textarea name="content" class="form-control textarea" style="resize: none;" placeholder="TODO:" rows="4"></textarea> </div>
+                    </div>
+                    <div class="send-button mt-4"> <button class="button" value="submit" name="submit">Create TODO</button> </div>
+                    <div class="cancel-button mt-4"><button class="button" value="cancel" name="cancel">Cancel</button></div>
+                </div>
+            </div>
         </div>
-        <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
     </div>
-
-    <div class="input-group mb-3">
-        <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-addon1">Priority</span>
-        </div>
-        <input type="number" max=3 min=1 class="form-control" aria-label="Username" aria-describedby="basic-addon1">
-    </div>
-
-    <div class="input-group">
-        <div class="input-group-prepend">
-            <span class="input-group-text">Description</span>
-        </div>
-        <textarea class="form-control" style="resize: none; height: 200px" maxlength=255 aria-label="With textarea"></textarea>
-    </div>
+</form>
 
 
-
-
-</div>
 </body>
 </html>

@@ -44,15 +44,8 @@ session_start();
 
                 if(isset($_SESSION["username"])){
 
-                    echo '
-                            <li class="nav-item">
-                                <a class="nav-link" href="../todos/create_todo_page.php">+ Add a todo</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">My Todo\'s</a>
-                            </li>
-                        
-                        ';
+                    header("location: ../index.php?error=alreadyLogged");
+                    exit();
 
                 }else {
 

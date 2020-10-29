@@ -19,11 +19,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a3412cb2-c02e-415e-a264-45706d229b9b" name="Default Changelist" comment="TODO find a form for create_todo_page.php">
-      <change afterPath="$PROJECT_DIR$/css/own_style.css" afterDir="false" />
+    <list default="true" id="eb2ca217-79f2-4a39-8b05-4282573be009" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/todos/list_todos.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todos/create_todo_page.php" beforeDir="false" afterPath="$PROJECT_DIR$/todos/create_todo_page.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/own_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/own_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/utilities.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/utilities.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/session/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/session/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/session/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/session/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todos/create_todo_page.php" beforeDir="false" afterPath="$PROJECT_DIR$/todos/create_todo.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,49 +37,38 @@
   <component name="ComposerSettings">
     <execution />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="SET_USER_NAME_GLOBALLY" value="false" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.4" />
-  <component name="ProjectId" id="1jW9gi5jtPJUkpdw1gCucTXN1jw" />
+  <component name="ProjectId" id="1jXy5tfNasY4Ie2kPFzmtnCqSF8" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/css" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\ModulArbeitInfLu\css" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\ModulArbeitInfLu\todos" />
-    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="a3412cb2-c02e-415e-a264-45706d229b9b" name="Default Changelist" comment="" />
-      <created>1603909094008</created>
+      <changelist id="eb2ca217-79f2-4a39-8b05-4282573be009" name="Default Changelist" comment="" />
+      <created>1603964550141</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1603909094008</updated>
-      <workItem from="1603909095124" duration="636000" />
-      <workItem from="1603916154693" duration="9072000" />
+      <updated>1603964550141</updated>
+      <workItem from="1603964551218" duration="6680000" />
     </task>
-    <task id="LOCAL-00001" summary="TODO find a form for create_todo_page.php">
-      <created>1603919600357</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1603919600357</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -92,22 +85,14 @@
       </map>
     </option>
   </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="TODO find a form for create_todo_page.php" />
-    <option name="LAST_COMMIT_MESSAGE" value="TODO find a form for create_todo_page.php" />
-  </component>
   <component name="WindowStateProjectService">
-    <state x="679" y="91" width="588" height="898" key="#PHP" timestamp="1603909124437">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="368" y="126" width="942" height="701" key="dock-window-1" timestamp="1603965291937">
+      <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state x="679" y="91" width="588" height="898" key="#PHP/0.0.1920.1080@0.0.1920.1080" timestamp="1603909124437" />
-    <state x="794" y="459" key="NewPhpFileDialog" timestamp="1603917184593">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="368" y="126" width="942" height="701" key="dock-window-1/0.0.1280.720@0.0.1280.720" timestamp="1603965291937" />
+    <state x="297" y="161" key="run.anything.popup" timestamp="1603968726257">
+      <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state x="794" y="459" key="NewPhpFileDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1603917184593" />
-    <state x="552" y="268" key="Vcs.Push.Dialog.v2" timestamp="1603919604192">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="552" y="268" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1603919604192" />
+    <state x="297" y="161" key="run.anything.popup/0.0.1280.720@0.0.1280.720" timestamp="1603968726257" />
   </component>
 </project>
