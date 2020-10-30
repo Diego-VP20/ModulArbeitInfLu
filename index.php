@@ -47,7 +47,7 @@
                                 <a class="nav-link" href="todos/todo.php">Add a todo</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">My Todo\'s</a>
+                                <a class="nav-link" href="todos/list_todos.php">My Todo\'s</a>
                             </li>
                                 <li class="nav-item">
                                 <a class="nav-link" href="includes/logout.php">Logout</a>

@@ -103,25 +103,47 @@ function createTODO($conn, $title, $content, $priority){
 
     session_start();
 
-    $belongsTo = $_SESSION["userID"];
+    if(empty($_POST["priority"])){
 
-    $sql = "INSERT INTO todos(belongsTo, title, content, priority) values(?,?,?,?);";
-    $stmt = mysqli_stmt_init($conn);
+        $belongsTo = $_SESSION["userID"];
 
-    if (!mysqli_stmt_prepare($stmt, $sql)){
+        $sql = "INSERT INTO todos(belongsTo, title, content) values(?,?,?);";
+        $stmt = mysqli_stmt_init($conn);
 
-        header("location: ../session/index.php?error=createTODOFailed");
+        if (!mysqli_stmt_prepare($stmt, $sql)){
+
+            header("location: ../index.php?error=createTODOFailed");
+            exit();
+
+        }
+
+        mysqli_stmt_bind_param($stmt, "iss", $belongsTo,$title, $content);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
+        header("location: ../index.php?error=TODOCreated");
+        exit();
+
+    }else {
+
+        $belongsTo = $_SESSION["userID"];
+
+        $sql = "INSERT INTO todos(belongsTo, title, content, priority) values(?,?,?,?);";
+        $stmt = mysqli_stmt_init($conn);
+
+        if (!mysqli_stmt_prepare($stmt, $sql)) {
+
+            header("location: ../index.php?error=createTODOFailed");
+            exit();
+
+        }
+
+        mysqli_stmt_bind_param($stmt, "issi", $belongsTo, $title, $content, $priority);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
+        header("location: ../index.php?error=TODOCreated");
         exit();
 
     }
-
-    mysqli_stmt_bind_param($stmt, "issi", $belongsTo,$title, $content, $priority);
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_close($stmt);
-    header("location: ../session/index.php?error=TODOCreated");
-    exit();
-
-
 }
 
 
