@@ -21,7 +21,11 @@ function listTodos(){
     $row = mysqli_fetch_assoc($result);
 
 
-    $todo = '
+
+
+    if(!empty($row["title"])){
+
+        return '
             
             <div class="card" style="width: 18rem; top: 25%; left: 38%; opacity: 0.9;max-height: 200px;">
               <img src="../assets/images/login_book_dm.png" class="card-img-top" alt="...">
@@ -34,7 +38,11 @@ function listTodos(){
     
         ';
 
+    }
 
-    return $todo;
+    else{
 
+        return "";
+
+    }
 }

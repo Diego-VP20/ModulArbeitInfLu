@@ -112,7 +112,7 @@ function createTODO($conn, $title, $content, $priority){
 
         if (!mysqli_stmt_prepare($stmt, $sql)){
 
-            header("location: ../session/index.php?error=createTODOFailed");
+            header("location: ../index.php?error=createTODOFailed");
             exit();
 
         }
@@ -120,7 +120,7 @@ function createTODO($conn, $title, $content, $priority){
         mysqli_stmt_bind_param($stmt, "iss", $belongsTo,$title, $content);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
-        header("location: ../session/index.php?error=TODOCreated");
+        header("location: ../index.php?error=TODOCreated");
         exit();
 
     }else {
