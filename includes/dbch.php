@@ -3,9 +3,9 @@
 /* Database Connection Handler*/
 
 $sv_name = "localhost";
-$sv_username = "root";
-$sv_password = "";
-$db_name = "dvp_projekt";
+$sv_username = "todositeuser";
+$sv_password = "onlyID0Th3Qu3r13s!";
+$db_name = "todosite";
 
 // Create connection
 $conn = mysqli_connect($sv_name, $sv_username, $sv_password, $db_name);

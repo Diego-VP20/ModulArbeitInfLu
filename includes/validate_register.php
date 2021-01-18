@@ -1,6 +1,6 @@
 <?php
 
-if(isset($_POST["submit"])) {
+if(isset($_POST["submit"]) && $_POST["submit"] == "Sign Up") {
     $user = $_POST["user"];
     $pass = $_POST["pass"];
     require_once("dbch.php");

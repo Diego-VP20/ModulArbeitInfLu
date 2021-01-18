@@ -63,93 +63,7 @@ session_start();
         </div>
     </div>
 </nav>
-
-<?php
-/* Error handler */
-
-if (isset($_GET["error"])){
-
-    if ($_GET["error"] == "emptyFields"){
-
-        echo '<div class="alert alert-danger alert-dismissible fade show fadeInDown" style="z-index: 10; border-radius: 30px; width: 98%; position: fixed; margin-top: 20px; margin-left: 1%">
-                                  <h4 class="alert-heading">Error!</h4>
-                                    Some of the fields are empty.
-                                        <hr>
-                                      <p class="mb-0">Make sure to provide us with an Username and a Password!</p>
-                                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                  </button>
-                            </div>
-                            
-                            ';
-
-    }
-
-    if ($_GET["error"] == "invalidUser"){
-
-        echo '<div class="alert alert-danger alert-dismissible fade show fadeInDown" style="z-index: 10; border-radius: 30px; width: 98%; position: fixed; margin-top: 20px; margin-left: 1%">
-                                  <h4 class="alert-heading">Error!</h4>
-                                    Invalid Username.
-                                        <hr>
-                                      <p class="mb-0">Please enter a name with characters from a to Z and 0 to 9!</p>
-                                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                  </button>
-                            </div>
-                            ';
-
-    }
-
-    if ($_GET["error"] == "usernameTaken"){
-
-        echo '<div class="alert alert-danger alert-dismissible fade show fadeInDown" style="z-index: 10; border-radius: 30px; width: 98%; position: fixed; margin-top: 20px; margin-left: 1%">
-                                  <h4 class="alert-heading">Error!</h4>
-                                    Username already in use.
-                                        <hr>
-                                      <p class="mb-0">The username you entered is already taken, try another one!</p>
-                                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                  </button>
-                            </div>
-                            ';
-
-    }
-
-    if ($_GET["error"] == "passLen"){
-
-        echo '<div class="alert alert-danger alert-dismissible fade show fadeInDown" style="z-index: 10; border-radius: 30px; width: 98%; position: fixed; margin-top: 20px; margin-left: 1%">
-                                  <h4 class="alert-heading">Error!</h4>
-                                    Password too weak.
-                                        <hr>
-                                      <p class="mb-0">Please enter a password that is at least 8 characters long!</p>
-                                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                  </button>
-                            </div>
-                            ';
-
-    }
-
-    if ($_GET["error"] == "none"){
-
-        echo '<div class="alert alert-success alert-dismissible fade show fadeInDown" style="z-index: 10; border-radius: 30px; width: 98%; position: fixed; margin-top: 20px; margin-left: 1%">
-                                  <h4 class="alert-heading">Success!</h4>
-                                        <hr>
-                                      <p class="mb-0">You can now login <a href="login.php" class="alert-link">here</a> !</p>
-                                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                  </button>
-                            </div>
-                            ';
-
-    }
-
-}
-
-?>
-
     <div class="wrapper fadeInDown" style="padding-top:100px; z-index:1;">
-
         <div id="formContent">
             <!-- Tabs Titles -->
 
@@ -159,15 +73,73 @@ if (isset($_GET["error"])){
             </div>
 
             <!-- Register Form -->
-            <form action="../includes/validate_register.php" method="post">
+            <form action="../includes/validate_register.php" method="post" autocomplete="off">
                 <label for="login"></label><input type="text" id="login" class="fadeIn second" name="user" placeholder="Username">
                 <label for="password"></label><input type="password" id="password" class="fadeIn third" name="pass" placeholder="Password">
                 <input type="submit" name="submit" class="fadeIn fourth" value="Sign Up" style="margin-top: 20px">
             </form>
 
+            <?php
+            /* Error handler */
+
+            if (isset($_GET["error"])){
+
+                if ($_GET["error"] == "emptyFields"){
+
+                    echo '<div class="login-error-div">
+                                  <p class="login-error-text">Eins oder mehrere Pflichtfelder wurden ausgelassen!</p>
+                            </div>
+                            ';
+
+                }
+
+                if ($_GET["error"] == "invalidUser"){
+
+                    echo '<div class="login-error-div">
+                                  <p class="login-error-text">Suchen Sie ein Nutzername mit nur a-Z und 0-9</p>
+                            </div>
+                            ';
+
+                }
+
+                if ($_GET["error"] == "usernameTaken"){
+
+                    echo '<div class="login-error-div">
+                                  <p class="login-error-text">Dieser Nutzername existiert schon.</p>
+                            </div>
+                            ';
+
+                }
+
+                if ($_GET["error"] == "passLen"){
+
+                    echo '<div class="login-error-div">
+                                  <p class="login-error-text">Ihr Passwort muss mind. 8 Zeichen haben!</p>
+                            </div>
+                            ';
+
+                }
+
+                if ($_GET["error"] == "none"){
+
+                    echo '<div class="login-success-div">
+                                  <p class="login-success-text">Sie haben sich erfolgreich Registriert. Redirecting...</p>
+                                  
+                            </div>
+                            
+                            ';
+
+                    header( "refresh:5;url=login.php" );
+
+                }
+
+            }
+
+            ?>
+
             <!-- Login to existing Account -->
             <div id="formFooter">
-                <a class="underlineHover" style="text-decoration: none" href="login.php">Already have an account? Log in!</a>
+                <a class="underlineHover" href="login.php">Already have an account? Log in!</a>
             </div>
 
         </div>
