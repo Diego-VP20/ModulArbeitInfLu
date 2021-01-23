@@ -1,0 +1,20 @@
+/* Unique Categories */
+CREATE TABLE categories(name VARCHAR(20) NOT NULL PRIMARY KEY);
+
+/* ToDo Table */
+CREATE TABLE todos(username VARCHAR(16) NOT NULL,
+                   category VARCHAR(20) NOT NULL,
+                   creationDate DATE NOT NULL,
+                   priority INT DEFAULT 1,
+                   expireDate DATE NOT NULL,
+                   title TEXT NOT NULL,
+                   content TEXT NOT NULL);
+/* User Table */              
+CREATE TABLE users(
+	
+	ID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	Username VARCHAR(16) NOT NULL,
+    Password CHAR(60) NOT NULL
+    Admin BOOLEAN NOT NULL DEFAULT 0
+
+    );
