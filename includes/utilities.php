@@ -44,7 +44,7 @@ function passLen($pass){
 
 
 /* This function will be able to return userdata if user already exists */
-function usernameAlreadyTaken($conn, $user){
+function checkForUser($conn, $user){
 
     $sql = "SELECT * FROM users WHERE username = ?;";
     $stmt = mysqli_stmt_init($conn);
@@ -149,7 +149,7 @@ function createTODO($conn, $title, $content, $priority){
 
 function loginUser($conn, $user, $pass){
 
-    $userArray = usernameAlreadyTaken($conn, $user);
+    $userArray = checkForUser($conn, $user);
 
     if($userArray === false){
 

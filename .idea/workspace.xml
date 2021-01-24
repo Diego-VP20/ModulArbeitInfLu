@@ -26,7 +26,18 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb2ca217-79f2-4a39-8b05-4282573be009" name="Default Changelist" comment="More changes..." />
+    <list default="true" id="eb2ca217-79f2-4a39-8b05-4282573be009" name="Default Changelist" comment="More changes...">
+      <change afterPath="$PROJECT_DIR$/ConceptTODO" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ModulArbeitInfLu.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ModulArbeitInfLu.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/own_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/own_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/dbch.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/dbch.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/utilities.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/utilities.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/register.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -54,11 +65,15 @@
     </file-type-list>
   </component>
   <component name="ProjectId" id="1jXy5tfNasY4Ie2kPFzmtnCqSF8" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mariadb&#10;mysql" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
@@ -81,7 +96,10 @@
       <command value="find usages" />
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="PHP Script.dbch.php">
+    <configuration name="dbch.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/includes/dbch.php">
+      <method v="2" />
+    </configuration>
     <configuration name="test.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/includes/test.php">
       <CommandLine>
         <PhpTestInterpreterSettings>
@@ -92,6 +110,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHP Script.dbch.php" />
         <item itemvalue="PHP Script.test.php" />
       </list>
     </recent_temporary>
@@ -109,6 +128,7 @@
       <workItem from="1610959411902" duration="7545000" />
       <workItem from="1610968499214" duration="244000" />
       <workItem from="1611039538740" duration="11354000" />
+      <workItem from="1611491546554" duration="6020000" />
     </task>
     <task id="LOCAL-00001" summary="Test functionality of create TODO">
       <created>1603974237567</created>
@@ -169,6 +189,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Test functionality of create TODO" />
     <MESSAGE value="Find solution to display TODOS for user" />
     <MESSAGE value="CSS changes" />

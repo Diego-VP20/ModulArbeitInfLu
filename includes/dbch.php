@@ -3,9 +3,9 @@
 /* Database Connection Handler*/
 
 $sv_name = "localhost";
-$sv_username = "todositeuser";
-$sv_password = "onlyID0Th3Qu3r13s!";
-$db_name = "todosite";
+$sv_username = "todoDBAdmin";
+$sv_password = "0nly1D0Ch4ng3s!!";
+$db_name = "todos";
 
 // Create connection
 $conn = mysqli_connect($sv_name, $sv_username, $sv_password, $db_name);
