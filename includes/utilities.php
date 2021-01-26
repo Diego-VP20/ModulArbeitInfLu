@@ -46,7 +46,7 @@ function passLen($pass){
 /* This function will be able to return userdata if user already exists */
 function checkForUser($conn, $user){
 
-    $sql = "SELECT * FROM users WHERE username = ?;";
+    $sql = "SELECT * FROM users WHERE userName = ?;";
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql)){
@@ -78,7 +78,7 @@ function checkForUser($conn, $user){
 
 function createUser($conn, $user, $pass){
 
-    $sql = "INSERT INTO users(username, password) values(?,?);";
+    $sql = "INSERT INTO users(userName, passwordHash) values(?,?);";
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql)){
@@ -93,58 +93,12 @@ function createUser($conn, $user, $pass){
     mysqli_stmt_bind_param($stmt, "ss", $user, $hashedPass);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    header("location: ../session/register.php?error=none");
+    header("location: ../session/register.php?error=success");
     exit();
 
 
 }
 
-function createTODO($conn, $title, $content, $priority){
-
-    session_start();
-
-    if(empty($_POST["priority"])){
-
-        $belongsTo = $_SESSION["userID"];
-
-        $sql = "INSERT INTO todos(belongsTo, title, content) values(?,?,?);";
-        $stmt = mysqli_stmt_init($conn);
-
-        if (!mysqli_stmt_prepare($stmt, $sql)){
-
-            header("location: ../index.php?error=createTODOFailed");
-            exit();
-
-        }
-
-        mysqli_stmt_bind_param($stmt, "iss", $belongsTo,$title, $content);
-        mysqli_stmt_execute($stmt);
-        mysqli_stmt_close($stmt);
-        header("location: ../index.php?error=TODOCreated");
-        exit();
-
-    }else {
-
-        $belongsTo = $_SESSION["userID"];
-
-        $sql = "INSERT INTO todos(belongsTo, title, content, priority) values(?,?,?,?);";
-        $stmt = mysqli_stmt_init($conn);
-
-        if (!mysqli_stmt_prepare($stmt, $sql)) {
-
-            header("location: ../index.php?error=createTODOFailed");
-            exit();
-
-        }
-
-        mysqli_stmt_bind_param($stmt, "issi", $belongsTo, $title, $content, $priority);
-        mysqli_stmt_execute($stmt);
-        mysqli_stmt_close($stmt);
-        header("location: ../index.php?error=TODOCreated");
-        exit();
-
-    }
-}
 
 
 function loginUser($conn, $user, $pass){
@@ -158,7 +112,7 @@ function loginUser($conn, $user, $pass){
 
     }
 
-    $passHashed = $userArray["password"];
+    $passHashed = $userArray["passwordHash"];
     $checkPass = password_verify($pass, $passHashed);
 
     if($checkPass === false){
@@ -170,7 +124,8 @@ function loginUser($conn, $user, $pass){
 
         session_start();
         $_SESSION["userID"] = $userArray["ID"];
-        $_SESSION["username"] = $userArray["username"];
+        $_SESSION["username"] = $userArray["userName"];
+        $_SESSION["admin"] = $userArray["admin"];
         header("location: ../index.php");
         exit();
     }

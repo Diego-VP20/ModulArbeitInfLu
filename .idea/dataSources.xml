@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="dvp_projekt@localhost" uuid="4cef8742-8eb5-43b8-9fbc-5e9a5050dfb8">
+    <data-source source="LOCAL" name="todo" uuid="ec43f74a-d96b-42fe-9c74-17bdcc6bd75a">
       <driver-ref>mariadb</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mariadb://localhost:3306/dvp_projekt</jdbc-url>
-    </data-source>
-    <data-source source="LOCAL" name="todosite" uuid="e72e2c2a-afa3-4acc-8689-4e44ed3b42d2">
-      <driver-ref>mariadb</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mariadb://localhost:3306/todosite</jdbc-url>
+      <jdbc-url>jdbc:mariadb://localhost:3306/todos</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

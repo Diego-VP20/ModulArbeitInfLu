@@ -29,7 +29,7 @@ session_regenerate_id();
             <ul class="nav navbar-nav mr-auto">
                 <li class="nav-item"><a class="nav-link" href="#">TODO's</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Admin</a></li>
-            </ul><span class="navbar-text actions"> <a class="login" href="login.php">Log In</a><a class="btn btn-light action-button" role="button" href="register.php">Sign Up</a></span>
+            </ul><span class="navbar-text actions"> <a class="login" href="session/login.php">Log In</a><a class="btn btn-light action-button" role="button" href="session/register.php">Sign Up</a></span>
         </div>
     </div>
 </nav>

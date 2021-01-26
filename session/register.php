@@ -1,145 +1,128 @@
 <?php
 
 session_start();
+session_regenerate_id();
 
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
+
 <head>
-    <!-- CSS from Bootstrap -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/style.css">
-
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Login</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="../css/styles.css">
+
 </head>
+
 <body>
-
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark static-top bg-dark" style="z-index: 1; position:fixed; width:100%;top:0;border-radius: 0 0 60px 60px; opacity: 0.7;">
-
-    <div class="container">
-        <a class="navbar-brand" href="../index.php"><img src="../assets/images/login_book_dm.png" alt="" width="8%" height="8%"> Get It Done!</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
-
-                <?php
-
-                if(isset($_SESSION["username"])){
-
-                    header("location: ../index.php?error=alreadyLogged");
-                    exit();
-
-                }else {
-
-                    echo '
-                        
-                            <li class="nav-item" >
-                                <a class="nav-link" href = "login.php" > Log in </a >
-                            </li >
-                        
-                        ';
-
-                }
-                ?>
-            </ul>
+<nav class="navbar navbar-dark navbar-expand-md navigation-clean-button">
+    <div class="container"><a class="navbar-brand" href="../index.php"><img class="navbar-image" src="../assets/images/login_book_dm.png" alt="">Do It Now!</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navcol-1">
+            <ul class="nav navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" href="#">TODO's</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Admin</a></li>
+            </ul><span class="navbar-text actions"> <a class="login" href="login.php">Log In</a></span>
         </div>
     </div>
 </nav>
-    <div class="wrapper fadeInDown" style="padding-top:100px; z-index:1;">
-        <div id="formContent">
-            <!-- Tabs Titles -->
 
-            <!-- Icon -->
-            <div class="fadeIn first">
-                <img src="../assets/images/login_book_dm.png" id="icon" alt="User Icon" style="width: 100px; height: auto; margin: 20px 0 15px 0"/>
-            </div>
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <!-- Tabs Titles -->
 
-            <!-- Register Form -->
-            <form action="../includes/validate_register.php" method="post" autocomplete="off">
-                <label for="login"></label><input type="text" id="login" class="fadeIn second" name="user" placeholder="Username">
-                <label for="password"></label><input type="password" id="password" class="fadeIn third" name="pass" placeholder="Password">
-                <input type="submit" name="submit" class="fadeIn fourth" value="Sign Up" style="margin-top: 20px">
-            </form>
+        <!-- Icon -->
+        <div class="fadeIn first">
+            <img src="../assets/images/login_book_dm.png" id="icon" alt="User Icon" style="width: 100px; height: auto; margin: 20px 0 15px 0"/>
+        </div>
 
-            <?php
-            /* Error handler */
+        <!-- Login Form -->
+        <form action="../includes/validate_register.php" method="post" autocomplete="off">
+            <label for="login"></label><input type="text" id="login" class="fadeIn second" name="user" placeholder="Username">
+            <label for="password"></label><input type="password" id="password" class="fadeIn third" name="pass" placeholder="Password">
+            <input type="submit" name="submit" class="fadeIn fourth" value="Sign Up" style="margin-top: 20px">
+        </form>
 
-            if (isset($_GET["error"])){
+        <?php
 
-                if ($_GET["error"] == "emptyFields"){
+        /* Error handler */
 
-                    echo '<div class="login-error-div">
+        if (isset($_GET["error"])) {
+
+            if ($_GET["error"] == "emptyInput") {
+
+                echo '<div class="login-error-div">
                                   <p class="login-error-text">Eins oder mehrere Pflichtfelder wurden ausgelassen!</p>
                             </div>
                             ';
 
-                }
+            }
 
-                if ($_GET["error"] == "invalidUser"){
+            if ($_GET["error"] == "logout") {
 
-                    echo '<div class="login-error-div">
-                                  <p class="login-error-text">Suchen Sie ein Nutzername mit nur a-Z und 0-9</p>
+                echo '<div class="login-success-div">
+                                  <p class="login-success-text">Sie haben sich erfolgreich abgemeldet!</p>
                             </div>
                             ';
-
-                }
-
-                if ($_GET["error"] == "usernameTaken"){
-
-                    echo '<div class="login-error-div">
-                                  <p class="login-error-text">Dieser Nutzername existiert schon.</p>
-                            </div>
-                            ';
-
-                }
-
-                if ($_GET["error"] == "passLen"){
-
-                    echo '<div class="login-error-div">
-                                  <p class="login-error-text">Ihr Passwort muss mind. 8 Zeichen haben!</p>
-                            </div>
-                            ';
-
-                }
-
-                if ($_GET["error"] == "none"){
-
-                    echo '<div class="login-success-div">
-                                  <p class="login-success-text">Sie haben sich erfolgreich Registriert. Redirecting...</p>
-                                  
-                            </div>
-                            
-                            ';
-
-                    header( "refresh:5;url=login.php" );
-
-                }
 
             }
 
-            ?>
+            if ($_GET["error"] == "wrongPass" || $_GET["error"] == "userNotExists") {
 
-            <!-- Login to existing Account -->
-            <div id="formFooter">
-                <a class="underlineHover" href="login.php">Already have an account? Log in!</a>
-            </div>
+                echo '<div class="login-error-div">
+                                  <p class="login-error-text">Diesen Benutzer gibt es nicht oder das Passwort ist falsch!</p>
+                            </div>
+                            ';
 
+            }
+
+            if ($_GET["error"] == "notLogged") {
+
+                echo '<div class="login-error-div">
+                                  <p class="login-error-text">Sie sind nicht eingeloggt!</p>
+                            </div>
+                            ';
+
+            }
+
+            if ($_GET["error"] == "createUserFailed") {
+
+                echo '<div class="login-error-div">
+                                  <p class="login-error-text">Es konnte kein Benutzer erstellt werden.</p>
+                            </div>
+                            ';
+
+            }
+
+            if ($_GET["error"] == "success") {
+
+                echo '<div class="login-success-div">
+                                  <p class="login-success-text">Erfolgreich registriert. Wir redirecten Sie.</p>
+                            </div>
+                            ';
+                header("Refresh: 4; ../session/login.php");
+
+
+            }
+        }
+
+        ?>
+
+        <!-- Create Account -->
+        <div id="formFooter">
+            <a class="underlineHover" href="register.php">Not registered yet? Sign up!</a>
         </div>
+
     </div>
+</div>
 
-
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

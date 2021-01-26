@@ -27,16 +27,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb2ca217-79f2-4a39-8b05-4282573be009" name="Default Changelist" comment="More changes...">
-      <change afterPath="$PROJECT_DIR$/ConceptTODO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ModulArbeitInfLu.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ModulArbeitInfLu.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/own_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/own_style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/dbch.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/dbch.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConceptTODO" beforeDir="false" afterPath="$PROJECT_DIR$/ConceptTODO" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/databasecode.txt" beforeDir="false" afterPath="$PROJECT_DIR$/databasecode.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/utilities.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/utilities.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/validate_register.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/validate_register.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/register.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/session/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/session/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/session/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/session/register.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,6 +79,7 @@
     <property name="DatabaseDriversLRU" value="mariadb&#10;mysql" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -87,8 +90,8 @@
       <recent name="C:\xampp\htdocs\ModulArbeitInfLu" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\ModulArbeitInfLu\css" />
       <recent name="C:\xampp\htdocs\ModulArbeitInfLu\session" />
+      <recent name="C:\xampp\htdocs\ModulArbeitInfLu\css" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -129,6 +132,7 @@
       <workItem from="1610968499214" duration="244000" />
       <workItem from="1611039538740" duration="11354000" />
       <workItem from="1611491546554" duration="6020000" />
+      <workItem from="1611647406783" duration="2974000" />
     </task>
     <task id="LOCAL-00001" summary="Test functionality of create TODO">
       <created>1603974237567</created>
