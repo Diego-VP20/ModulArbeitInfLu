@@ -3,7 +3,12 @@
 session_start();
 session_regenerate_id();
 
-if(isset($_SESSION["userID"]))
+if(isset($_SESSION["userID"])){
+
+    header("location: ../index.php");
+    exit();
+
+}
 
 ?>
 
@@ -15,9 +20,7 @@ if(isset($_SESSION["userID"]))
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Login</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/Navigation-with-Button.css">
     <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/own_style.css">
 
 </head>
 

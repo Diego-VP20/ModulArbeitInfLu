@@ -21,7 +21,7 @@ if(isset($_POST["submit"]) && $_POST["submit"] == "Sign Up") {
 
     }
 
-    if(checkForUser($conn, $user) !== false){
+    if(checkForUser($user) !== false){
 
         header("location: ../session/register.php?error=usernameTaken");
         exit();
@@ -35,7 +35,7 @@ if(isset($_POST["submit"]) && $_POST["submit"] == "Sign Up") {
 
     }
 
-    createUser($conn, $user, $pass);
+    createUser($user, $pass);
 
 }else{
 

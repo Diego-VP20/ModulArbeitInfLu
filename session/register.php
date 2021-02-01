@@ -3,6 +3,13 @@
 session_start();
 session_regenerate_id();
 
+if(isset($_SESSION["userID"])){
+
+    header("location: ../index.php");
+    exit();
+
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +22,6 @@ session_regenerate_id();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/Navigation-with-Button.css">
     <link rel="stylesheet" href="../css/styles.css">
 
 </head>
@@ -99,10 +105,19 @@ session_regenerate_id();
 
             }
 
+            if ($_GET["error"] == "invalidUser") {
+
+                echo '<div class="login-error-div">
+                                  <p class="login-error-text">Dieser Benutzername kann nicht benutzt werden.</p>
+                            </div>
+                            ';
+
+            }
+
             if ($_GET["error"] == "success") {
 
                 echo '<div class="login-success-div">
-                                  <p class="login-success-text">Erfolgreich registriert. Wir redirecten Sie.</p>
+                                  <p class="login-success-text">Erfolgreich registriert. Wir leiten Sie weiter.</p>
                             </div>
                             ';
                 header("Refresh: 4; ../session/login.php");

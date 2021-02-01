@@ -1,6 +1,9 @@
 <?php
 
-function emptySignup($user, $pass){
+require_once("dbch.php");
+
+function emptySignup($user, $pass): bool
+{
 
     if (empty($user) || empty($pass)){
 
@@ -14,7 +17,8 @@ function emptySignup($user, $pass){
 
 }
 
-function invalidUsername($user){
+function invalidUsername($user): bool
+{
 
     if (!preg_match("/^[a-zA-Z0-9]*$/", $user)){
 
@@ -28,7 +32,8 @@ function invalidUsername($user){
 
 }
 
-function passLen($pass){
+function passLen($pass): bool
+{
 
     if (strlen($pass) < 8){
 
@@ -44,7 +49,9 @@ function passLen($pass){
 
 
 /* This function will be able to return userdata if user already exists */
-function checkForUser($conn, $user){
+function checkForUser($user){
+
+    global $conn;
 
     $sql = "SELECT * FROM users WHERE userName = ?;";
     $stmt = mysqli_stmt_init($conn);
@@ -76,7 +83,9 @@ function checkForUser($conn, $user){
 
 }
 
-function createUser($conn, $user, $pass){
+function createUser($user, $pass){
+
+    global $conn;
 
     $sql = "INSERT INTO users(userName, passwordHash) values(?,?);";
     $stmt = mysqli_stmt_init($conn);
@@ -101,9 +110,9 @@ function createUser($conn, $user, $pass){
 
 
 
-function loginUser($conn, $user, $pass){
+function loginUser($user, $pass){
 
-    $userArray = checkForUser($conn, $user);
+    $userArray = checkForUser($user);
 
     if($userArray === false){
 
@@ -125,9 +134,54 @@ function loginUser($conn, $user, $pass){
         session_start();
         $_SESSION["userID"] = $userArray["ID"];
         $_SESSION["username"] = $userArray["userName"];
-        $_SESSION["admin"] = $userArray["admin"];
+        // I won't put that in here so if a user is turned into an admin no relog is needed.
+        //$_SESSION["admin"] = $userArray["admin"];
         header("location: ../index.php");
         exit();
     }
+
+}
+
+function isUserAdmin($userID): ?bool
+{
+
+    global $conn;
+
+    $stmt = mysqli_stmt_init($conn);
+
+    if (mysqli_stmt_prepare($stmt, 'SELECT admin FROM users WHERE ID=?')) {
+
+        /* bind parameters for markers */
+        mysqli_stmt_bind_param($stmt, "i", $userID);
+
+        /* execute query */
+        mysqli_stmt_execute($stmt);
+
+        /* bind result variables */
+        mysqli_stmt_bind_result($stmt, $isAdmin);
+
+        /* fetch value */
+        mysqli_stmt_fetch($stmt);
+
+        /* close statement */
+        mysqli_stmt_close($stmt);
+
+        if($isAdmin == 0){
+
+            return false;
+
+        }elseif($isAdmin == 1){
+
+            return true;
+
+        }else{
+
+            // If check is somehow compromised or it can't find proper value
+            // then it will always return false.
+            return false;
+
+        }
+    }
+    return null;
 
 }
