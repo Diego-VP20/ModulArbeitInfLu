@@ -26,19 +26,11 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb2ca217-79f2-4a39-8b05-4282573be009" name="Default Changelist" comment="More changes...">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+    <list default="true" id="eb2ca217-79f2-4a39-8b05-4282573be009" name="Default Changelist" comment="Solve DB errors.">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e72e2c2a-afa3-4acc-8689-4e44ed3b42d2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e72e2c2a-afa3-4acc-8689-4e44ed3b42d2/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConceptTODO" beforeDir="false" afterPath="$PROJECT_DIR$/ConceptTODO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/databasecode.txt" beforeDir="false" afterPath="$PROJECT_DIR$/databasecode.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/utilities.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/utilities.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/validate_register.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/validate_register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/register.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/session/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/session/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/session/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/session/register.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +124,9 @@
       <workItem from="1610968499214" duration="244000" />
       <workItem from="1611039538740" duration="11354000" />
       <workItem from="1611491546554" duration="6020000" />
-      <workItem from="1611647406783" duration="2974000" />
+      <workItem from="1611647406783" duration="3030000" />
+      <workItem from="1612162790363" duration="106000" />
+      <workItem from="1612162942006" duration="824000" />
     </task>
     <task id="LOCAL-00001" summary="Test functionality of create TODO">
       <created>1603974237567</created>
@@ -162,7 +156,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611068151010</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Solve DB errors.">
+      <created>1611656997413</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1611656997414</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -198,6 +199,7 @@
     <MESSAGE value="Find solution to display TODOS for user" />
     <MESSAGE value="CSS changes" />
     <MESSAGE value="More changes..." />
-    <option name="LAST_COMMIT_MESSAGE" value="More changes..." />
+    <MESSAGE value="Solve DB errors." />
+    <option name="LAST_COMMIT_MESSAGE" value="Solve DB errors." />
   </component>
 </project>
