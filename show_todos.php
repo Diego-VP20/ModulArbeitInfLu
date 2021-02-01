@@ -60,9 +60,9 @@ if(!isset($_SESSION["userID"]) or isUserAdmin($_SESSION["userID"])){
         <td>Otto</td>
         <td>@mdo</td>
         <td>@mdo</td>
-        <td style="word-break: break-all">@mdqwuegqwiyeggqwuegyqweguyqwgegquweqwguyegyuytquwyetuqwtetqwueyqweutyqweuqywetyqwteuqweqweo</td>
+        <td style="word-break: break-all;">@mdqwuegqwiyeggqwuegyqweguyqwgegquweqwguyegyuytquwyetuqwtetqwueyqweutyqweuqywetyqwteuqweqweo</td>
 
-        <td>
+        <td style="min-width: 100px;">
 
             <a href="#"><i class="fas fa-edit mr-2"></i></a>
             <a href="#"><i class="fas fa-archive mr-2"></i></a>
