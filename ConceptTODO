@@ -26,7 +26,7 @@ User:
 
 
 	I can see others TODO's in same category as me but can't touch them.
- 
+
 Searchbar:
 	Search by title or content. Only self-made todo's shown.
 	First sorted by priority then by creation date.
@@ -81,3 +81,53 @@ Users_Category:
 	`categoryID` INT NOT NULL,
 	PRIMARY KEY (`userID`,`categoryID`)
 	) ENGINE=InnoDB;
+
+
+
+
+
+
+
+
+
+
+	create database todos;
+    create user "todoDBAdmin"@"localhost" IDENTIFIED BY "0nly1D0Ch4ng3s!!";
+    GRANT SELECT, UPDATE, INSERT, DELETE ON todos.* to "todoDBAdmin"@"localhost";
+    flush privileges;
+    use todos;
+    CREATE TABLE `users` (
+    	`ID` INT NOT NULL AUTO_INCREMENT,
+    	`userName` VARCHAR(50) NOT NULL,
+    	`passwordHash` VARCHAR(255) NOT NULL,
+    	`admin` BOOLEAN NOT NULL DEFAULT 0,
+    	PRIMARY KEY (`ID`)
+    ) ENGINE=InnoDB;
+
+    CREATE TABLE `category` (
+    	`ID` INT NOT NULL AUTO_INCREMENT,
+    	`name` VARCHAR(40) NOT NULL,
+    	PRIMARY KEY (`ID`)
+    ) ENGINE=InnoDB;
+
+    CREATE TABLE `users_category` (
+    	`userID` INT NOT NULL,
+    	`categoryID` INT NOT NULL,
+    	FOREIGN KEY (`userID`) REFERENCES users(`ID`),
+    	FOREIGN KEY (`categoryID`) REFERENCES category(`ID`)
+    ) ENGINE=InnoDB;
+
+    CREATE TABLE `todo` (
+    	`ID` INT NOT NULL,
+    	`fromUser` INT NOT NULL,
+    	`categoryID` INT NOT NULL,
+    	`creationDate` DATE NOT NULL DEFAULT NOW(),
+    	`expiryDate` DATE NOT NULL,
+    	`title` VARCHAR(30) NOT NULL,
+    	`text` TEXT NOT NULL,
+    	`priority` TINYINT NOT NULL,
+    	`isArchived` BOOLEAN NOT NULL DEFAULT 0,
+    	PRIMARY KEY (`ID`),
+    	FOREIGN KEY (`fromUser`) REFERENCES users(`ID`),
+    	FOREIGN KEY (`categoryID`) REFERENCES category(`ID`)
+    ) ENGINE=InnoDB;

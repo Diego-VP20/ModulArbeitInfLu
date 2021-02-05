@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="dvp_projekt@localhost" uuid="4cef8742-8eb5-43b8-9fbc-5e9a5050dfb8">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MARIADB" exact-version="0" />
-      <secret-storage>forget</secret-storage>
-      <schema-mapping />
-    </data-source>
-    <data-source name="todosite" uuid="e72e2c2a-afa3-4acc-8689-4e44ed3b42d2">
+    <data-source name="todo" uuid="ec43f74a-d96b-42fe-9c74-17bdcc6bd75a">
       <database-info product="MariaDB" version="10.4.14-MariaDB" jdbc-version="4.2" driver-name="MariaDB Connector/J" driver-version="2.6.0" dbms="MARIADB" exact-version="10.4.14" exact-driver-version="2.6">
         <extra-name-characters>#@</extra-name-characters>
         <identifier-quote-string>`</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower" />
       <secret-storage>master_key</secret-storage>
-      <user-name>todositeuser</user-name>
+      <user-name>todoDBAdmin</user-name>
       <schema-mapping>
         <introspection-scope>
           <node kind="schema" qname="@" />

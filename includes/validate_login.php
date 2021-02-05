@@ -10,14 +10,14 @@ if (isset($_POST["submit"])){
 
     global $conn;
 
-    /* emptySignup() works here because I'm checking the same as in the signu form.- */
+    /* emptySignup() works here because I'm checking the same as in the signup form.- */
     if(emptySignup($user, $pass)){
 
         header("location: ../session/login.php?error=emptyInput");
         exit();
     }
 
-    loginUser($conn, $user, $pass);
+    loginUser($user, $pass);
 
 }else{
     header("location: ../session/login.php");

@@ -1,7 +1,7 @@
 /* Unique Categories */
 CREATE TABLE categories(name VARCHAR(20) NOT NULL PRIMARY KEY);
 
-/* ToDo Table */
+/* ToDos Table */
 CREATE TABLE todos(username VARCHAR(16) NOT NULL,
                    category VARCHAR(20) NOT NULL,
                    creationDate DATE NOT NULL,
