@@ -185,3 +185,68 @@ function isUserAdmin($userID): ?bool
     return null;
 
 }
+
+function getUsersToDisplay($offset, $nrOfPages){
+
+    global $conn;
+
+    $stmt = mysqli_stmt_init($conn);
+
+    if (mysqli_stmt_prepare($stmt, 'SELECT ID, userName FROM users LIMIT ?,?')) {
+
+        /* bind parameters for markers */
+        mysqli_stmt_bind_param($stmt, "ii", $offset, $nrOfPages);
+
+        /* execute query */
+        mysqli_stmt_execute($stmt);
+
+        $result = mysqli_stmt_get_result($stmt);
+
+        /* close statement */
+        mysqli_stmt_close($stmt);
+
+        return $result;
+
+    }
+}
+
+function getPagesForUserDisplay($usersPerSite){
+
+    global $conn;
+
+    $total_pages_sql = "SELECT COUNT(*) FROM users";
+    $result = mysqli_query($conn,$total_pages_sql);
+    $total_rows = mysqli_fetch_array($result)[0];
+    $total_pages = ceil($total_rows / $usersPerSite);
+
+    return $total_pages;
+
+}
+
+function deleteUser($userID){
+
+    global $conn;
+
+    $stmt = mysqli_stmt_init($conn);
+
+    if (mysqli_stmt_prepare($stmt, 'DELETE FROM users WHERE ID = ?')) {
+
+        /* bind parameters for markers */
+        mysqli_stmt_bind_param($stmt, "i", $userID);
+
+        /* execute query */
+        mysqli_stmt_execute($stmt);
+
+        /* close statement */
+        mysqli_stmt_close($stmt);
+
+
+        // On successful deletion
+        return true;
+
+    }
+
+    // On unsuccessful deletion
+    return false;
+
+}

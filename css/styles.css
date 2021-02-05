@@ -39,10 +39,7 @@ a {
 
 }
 
-.btn:not(:disabled):not(.disabled) {
-  background: #4cc9f0;
-  color: var(--light);
-}
+
 
 /* STRUCTURE */
 

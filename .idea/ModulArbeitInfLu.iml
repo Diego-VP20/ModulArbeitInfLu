@@ -8,8 +8,7 @@
     <orderEntry type="library" name="twitter-bootstrap" level="application" />
     <orderEntry type="library" name="twitter-bootstrap" level="application" />
     <orderEntry type="library" name="jquery" level="application" />
-    <orderEntry type="library" name="sweetalert" level="application" />
-    <orderEntry type="library" name="limonte-sweetalert2" level="application" />
+    <orderEntry type="library" name="0914a3a2ee" level="application" />
     <orderEntry type="library" name="0914a3a2ee" level="application" />
   </component>
 </module>
