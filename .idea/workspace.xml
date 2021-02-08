@@ -26,7 +26,19 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb2ca217-79f2-4a39-8b05-4282573be009" name="Default Changelist" comment="Add ConceptTODO and edit files." />
+    <list default="true" id="eb2ca217-79f2-4a39-8b05-4282573be009" name="Default Changelist" comment="Progress">
+      <change afterPath="$PROJECT_DIR$/admin_area/editUser.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin_area/showCategories.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/includes/validate_userEdit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_area/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_area/showUsers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_area/removeUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_area/removeUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/adminsite.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/adminsite.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/utilities.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/utilities.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/session/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/session/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/session/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/session/register.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,6 +51,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -69,6 +82,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -118,7 +132,10 @@
       <workItem from="1610959411902" duration="7545000" />
       <workItem from="1610968499214" duration="244000" />
       <workItem from="1611039538740" duration="11354000" />
-      <workItem from="1611491546554" duration="6130000" />
+      <workItem from="1611491546554" duration="6020000" />
+      <workItem from="1611647406783" duration="3030000" />
+      <workItem from="1612162790363" duration="106000" />
+      <workItem from="1612162942006" duration="824000" />
     </task>
     <task id="LOCAL-00001" summary="Test functionality of create TODO">
       <created>1603974237567</created>
@@ -155,7 +172,35 @@
       <option name="project" value="LOCAL" />
       <updated>1611507513019</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Add ERM.png">
+      <created>1612163970598</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1612163970598</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Move Nav css to styles.css">
+      <created>1612170788129</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1612170788129</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Progress">
+      <created>1612175082892</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1612175082892</updated>
+    </task>
+    <task id="LOCAL-00009" summary="add min-width to show_todos.php">
+      <created>1612175854354</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1612175854354</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -191,7 +236,7 @@
     <MESSAGE value="Find solution to display TODOS for user" />
     <MESSAGE value="CSS changes" />
     <MESSAGE value="More changes..." />
-    <MESSAGE value="Add ConceptTODO and edit files." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add ConceptTODO and edit files." />
+    <MESSAGE value="Solve DB errors." />
+    <option name="LAST_COMMIT_MESSAGE" value="Solve DB errors." />
   </component>
 </project>

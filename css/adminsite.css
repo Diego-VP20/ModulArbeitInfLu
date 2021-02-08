@@ -1,3 +1,14 @@
+@import url('http://getbootstrap.com/dist/css/bootstrap.css');
+
+table {
+    margin-top: 50px;
+}
+
+.table > thead > tr:first-child > th,
+.table > tbody > tr:first-child > th {
+    border: none;
+}
+
 .grid-container {
     display: grid;
     grid-template-columns: 1.4fr;

@@ -51,7 +51,7 @@ if(isset($_SESSION["userID"])){
         <form action="../includes/validate_register.php" method="post" autocomplete="off">
             <label for="login"></label><input type="text" id="login" class="fadeIn second" name="user" placeholder="Username">
             <label for="password"></label><input type="password" id="password" class="fadeIn third" name="pass" placeholder="Password">
-            <input type="submit" name="submit" class="fadeIn fourth" value="Sign Up" style="margin-top: 20px">
+            <input type="submit" name="submit" class="fadeIn fourth mt-4" value="Sign Up">
         </form>
 
         <?php

@@ -49,12 +49,10 @@ if(isset($_SESSION["username"])){
         </div>
     </nav>
 
-
     <div class="container mt-5">
         <div class="grid-container">
             <div class="Table">
-
-                <table class="table table-striped table-dark" style="text-align: center;">
+                <table class="table table-striped table-dark text-center" style="border-radius: 20px">
                     <thead>
                     <tr>
                         <th scope="col">ID</th>
@@ -83,10 +81,9 @@ if(isset($_SESSION["username"])){
                         <tr>
                             <th scope="row"><?=$row["ID"]?></th>
                             <td><?=$row["userName"]?></td>
-                            <td style="text-align: center;">
+                            <td class="text-center"">
 
-                                <a href="#"><i class="fas fa-edit mr-2"></i></a>
-                                <a href="#"><i class="fas fa-archive mr-2"></i></a>
+                                <a href="editUser.php?userID=<?=$row["ID"]?>"><i class="fas fa-edit mr-2"></i></a>
                                 <a href="removeUser.php?userID=<?=$row["ID"]?>"><i class="fas fa-trash-alt"></i></a>
 
 

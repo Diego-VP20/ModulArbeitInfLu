@@ -22,7 +22,6 @@ if(isset($_SESSION["username"])){
 }
 
 deleteUser($_GET["userID"]);
-
-header("location: admin.php");
+header("location: showUsers.php");
 
 ?>

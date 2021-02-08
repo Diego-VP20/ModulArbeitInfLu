@@ -30,8 +30,9 @@ require_once("includes/utilities.php")
                 <?php
                 if(isset($_SESSION["username"]) and isUserAdmin($_SESSION["userID"]) == 1):
                 ?>
-                <li class="nav-item"><a class="nav-link" href="admin_area/admin.php">Admin</a></li>
-                </ul><span class="navbar-text actions"><a class="btn btn-light action-button" role="button" href="session/logout.php">Log out</a></span>
+                <li class="nav-item"><a class="nav-link" href="admin_area/showUsers.php">Manage Users</a></li>
+                <li class="nav-item"><a class="nav-link" href="admin_area/showCategories.php">Manage Categories</a></li>
+            </ul><span class="navbar-text actions"><a class="btn btn-light action-button" role="button" href="session/logout.php">Log out</a></span>
             <?php endif; ?>
             <?php if(!isset($_SESSION["username"])): ?>
                 </ul><span class="navbar-text actions"> <a class="login" href="session/login.php">Log In</a><a class="btn btn-light action-button" role="button" href="session/register.php">Sign Up</a></span>
