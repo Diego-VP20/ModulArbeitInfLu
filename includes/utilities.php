@@ -262,26 +262,24 @@ function deleteUser($userID){
     global $conn;
 
     $stmt = mysqli_stmt_init($conn);
+    mysqli_stmt_prepare($stmt, 'DELETE FROM todo WHERE fromUser = ?');
+    mysqli_stmt_bind_param($stmt, "i", $userID);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
 
-    if (mysqli_stmt_prepare($stmt, 'DELETE FROM users WHERE ID = ?')) {
+    $stmt = mysqli_stmt_init($conn);
+    mysqli_stmt_prepare($stmt, 'DELETE FROM users_category WHERE UserID = ?');
+    mysqli_stmt_bind_param($stmt, "i", $userID);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
 
-        /* bind parameters for markers */
-        mysqli_stmt_bind_param($stmt, "i", $userID);
-
-        /* execute query */
-        mysqli_stmt_execute($stmt);
-
-        /* close statement */
-        mysqli_stmt_close($stmt);
+    $stmt = mysqli_stmt_init($conn);
+    mysqli_stmt_prepare($stmt, 'DELETE FROM users WHERE ID = ?');
+    mysqli_stmt_bind_param($stmt, "i", $userID);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
 
 
-        // On successful deletion
-        return true;
-
-    }
-
-    // On unsuccessful deletion
-    return false;
 
 }
 
@@ -391,4 +389,25 @@ function changeUsernameAndPassword($ID, $newUsername, $newPassword){
         header("location: ../admin_area/showUsers.php");
         exit;
     }
+}
+
+function getCategoriesFromUser($UserID){
+
+    global $conn;
+
+    $stmt = mysqli_stmt_init($conn);
+
+    mysqli_stmt_prepare($stmt, 'select c.name, c.ID, uc.userID from users_category uc left join category c on c.ID = uc.categoryID where userID=?');
+    mysqli_stmt_bind_param($stmt, "s",$UserID);
+    mysqli_stmt_execute($stmt);
+
+    $result = mysqli_stmt_get_result($stmt);
+    $result = mysqli_fetch_all($result);
+
+    mysqli_stmt_close($stmt);
+
+    return $result;
+
+
+
 }

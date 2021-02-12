@@ -52,11 +52,12 @@ if(isset($_SESSION["username"])){
     <div class="container mt-5">
         <div class="grid-container">
             <div class="Table">
-                <table class="table table-striped table-dark text-center" style="border-radius: 20px">
+                <table class="table table-striped table-dark text-center rounded" >
                     <thead>
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Username</th>
+                        <th scope="col">Categories</th>
                         <th scope="col">Actions</th>
 
                     </tr>
@@ -81,13 +82,27 @@ if(isset($_SESSION["username"])){
                         <tr>
                             <th scope="row"><?=$row["ID"]?></th>
                             <td><?=$row["userName"]?></td>
-                            <td class="text-center"">
-
-                                <a href="editUser.php?userID=<?=$row["ID"]?>"><i class="fas fa-edit mr-2"></i></a>
-                                <a href="removeUser.php?userID=<?=$row["ID"]?>"><i class="fas fa-trash-alt"></i></a>
-
+                            <td class="text-center">
+                            <?php if(isUserAdmin($row["ID"]) == 0): ?>
+                            <a href="addCategoryForm.php?userID=<?=$row['ID']?>"><i class="fas fa-plus-square mr-2"></i></a>
+                            <?php if(sizeof(getCategoriesFromUser($row['ID']))>0): ?>
+                                <a href="removeCategoryForm.php?userID=<?=$row['ID']?>"><i class="fas fa-minus-square"></i></a>
+                            <?php endif; ?>
+                            <?php endif; ?>
 
                             </td>
+
+                            <td class="text-center">
+                                <?php if(isUserAdmin($row['ID']) == false): ?>
+                                    <a href="editUser.php?userID=<?=$row["ID"]?>"><i class="fas fa-edit mr-2"></i></a>
+                                    <a href="removeUser.php?userID=<?=$row["ID"]?>"><i class="fas fa-trash-alt"></i></a>
+                                <?php elseif(isUserAdmin($row['ID']) == true): ?>
+                                    <h5><span class="badge badge-warning"> Admin</span></h5>
+
+                                <?php endif; ?>
+
+                            </td>
+
                         </tr>
                     <?php endwhile;?>
 

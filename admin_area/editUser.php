@@ -54,74 +54,71 @@ if(!isset($_GET["userID"]) or $_GET["userID"] == ""){
         <div class="collapse navbar-collapse" id="navcol-1">
             <ul class="nav navbar-nav mr-auto">
                 <li class="nav-item"><a class="nav-link" href="showUsers.php">Manage Users</a></li>
-                <li class="nav-item"><a class="nav-link" href="showCategories.php">Manage Categories</a></li>
             </ul><span class="navbar-text actions"><a class="btn btn-light action-button" role="button" href="../session/logout.php">Log out</a></span>
         </div>
     </div>
 </nav>
 
-<div class="container mt-5">
-    <div class="wrapper fadeInDown">
-        <div id="formContent">
-            <!-- Tabs Titles -->
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <!-- Tabs Titles -->
 
-            <!-- Icon -->
-            <div class="fadeIn first">
-                <img src="../assets/images/login_book_dm.png" id="icon" alt="User Icon" style="width: 100px; height: auto; margin: 20px 0 15px 0"/>
-            </div>
+        <!-- Icon -->
+        <div class="fadeIn first">
+            <img src="../assets/images/login_book_dm.png" id="icon" alt="User Icon" style="width: 100px; height: auto; margin: 20px 0 15px 0"/>
+        </div>
 
-            <!-- Login Form -->
-            <form class="pt-3" action="../includes/validate_userEdit.php?userID=<?=$_GET['userID']?>" method="post" autocomplete="off">
-                <?php
+        <!-- Login Form -->
+        <form class="pt-3" action="../includes/validate_userEdit.php?userID=<?=$_GET['userID']?>" method="post" autocomplete="off">
+            <?php
 
-                /* Error handler */
+            /* Error handler */
 
-                if (isset($_GET["error"])) {
+            if (isset($_GET["error"])) {
 
-                    if ($_GET["error"] == "userTaken") {
+                if ($_GET["error"] == "userTaken") {
 
-                        echo '<div class="login-error-div">
-                                              <p class="login-error-text">Es gibt schon einen Benutzer mit diesen Namen</p>
-                                        </div>
-                                        ';
-
-                    }
-
-                    if ($_GET["error"] == "passLen") {
-
-                        echo '<div class="login-error-div">
-                                              <p class="login-error-text">Passwort muss grösser als 8 und kleiner als 255 sein</p>
-                                        </div>
-                                        ';
-
-                    }
-
-                    if ($_GET["error"] == "invalidUsername") {
-
-                        echo '<div class="login-error-div">
-                                              <p class="login-error-text">Dieser Benutzername kann nicht benutzt werden.</p>
-                                        </div>
-                                        ';
-
-                    }
-
-                    if ($_GET["error"] == "emptyFields") {
-
-                        echo '<div class="login-error-div">
-                                              <p class="login-error-text">Füllen Sie bitte mindestens den Benutzername aus.</p>
-                                        </div>
-                                        ';
-
-                    }
+                    echo '<div class="login-error-div">
+                                          <p class="login-error-text">Es gibt schon einen Benutzer mit diesen Namen</p>
+                                    </div>
+                                    ';
 
                 }
-                ?>
-                <label for="username"></label><input type="text" value="<?= getUserByID($_GET['userID'])["userName"]?>" id="username" class="fadeIn second" name="newUsername" placeholder="Username">
-                <label for="password"></label><input type="password" id="password" class="fadeIn third" name="newPass" placeholder="New Password or empty for no changes">
-                <input type="submit" name="submit" class="fadeIn fourth mt-4" value="Edit">
-            </form>
 
-        </div>
+                if ($_GET["error"] == "passLen") {
+
+                    echo '<div class="login-error-div">
+                                          <p class="login-error-text">Passwort muss grösser als 8 und kleiner als 255 sein</p>
+                                    </div>
+                                    ';
+
+                }
+
+                if ($_GET["error"] == "invalidUsername") {
+
+                    echo '<div class="login-error-div">
+                                          <p class="login-error-text">Dieser Benutzername kann nicht benutzt werden.</p>
+                                    </div>
+                                    ';
+
+                }
+
+                if ($_GET["error"] == "emptyFields") {
+
+                    echo '<div class="login-error-div">
+                                          <p class="login-error-text">Füllen Sie bitte mindestens den Benutzername aus.</p>
+                                    </div>
+                                    ';
+
+                }
+
+            }
+            ?>
+            <label for="username"></label><input type="text" value="<?= getUserByID($_GET['userID'])["userName"]?>" id="username" class="fadeIn second" name="newUsername" placeholder="Username">
+            <label for="password"></label><input type="password" id="password" class="fadeIn third" name="newPass" placeholder="New Password or empty for no changes">
+            <input type="submit" name="submit" class="fadeIn fourth mt-4" value="Edit">
+        </form>
+
     </div>
 </div>
 </body>
