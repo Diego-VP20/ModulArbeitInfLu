@@ -50,7 +50,7 @@ if(!isset($_GET["userID"]) or $_GET["userID"] == ""){
 <body>
 
 <nav class="navbar navbar-dark navbar-expand-md navigation-clean-button">
-    <div class="container"><a class="navbar-brand" href="../index.php"><img class="navbar-image" src="../assets/images/login_book_dm.png" alt="">Do It Now!</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+    <div class="container"><a class="navbar-brand" href="../index.php"><img class="navbar-image" src="../bootstrapAssets/images/login_book_dm.png" alt="">Do It Now!</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navcol-1">
             <ul class="nav navbar-nav mr-auto">
                 <li class="nav-item"><a class="nav-link" href="showUsers.php">Manage Users</a></li>
@@ -65,7 +65,7 @@ if(!isset($_GET["userID"]) or $_GET["userID"] == ""){
 
         <!-- Icon -->
         <div class="fadeIn first">
-            <img src="../assets/images/login_book_dm.png" id="icon" alt="User Icon" style="width: 100px; height: auto; margin: 20px 0 15px 0"/>
+            <img src="../bootstrapAssets/images/login_book_dm.png" id="icon" alt="User Icon" style="width: 100px; height: auto; margin: 20px 0 15px 0"/>
         </div>
 
         <!-- Login Form -->

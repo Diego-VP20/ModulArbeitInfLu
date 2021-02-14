@@ -52,7 +52,7 @@ if(!isset($_GET["userID"])){
     <div id="formContent">
         <!-- Icon -->
         <div class="fadeIn first">
-            <img src="../assets/images/login_book_dm.png" id="icon" alt="User Icon" style="width: 100px; height: auto; margin: 20px 0 15px 0"/>
+            <img src="../bootstrapAssets/images/login_book_dm.png" id="icon" alt="User Icon" style="width: 100px; height: auto; margin: 20px 0 15px 0"/>
         </div>
 
         <form action="../includes/addCategory.php?userID=<?=$_GET['userID']?>" method="post" autocomplete="off">

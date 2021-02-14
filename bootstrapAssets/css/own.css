@@ -1,0 +1,27 @@
+.paginationButtons {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.2fr;
+    gap: 0 0;
+    grid-template-areas:
+    "First Prev Next Last";
+}
+
+.First { grid-area: First; }
+
+.Prev { grid-area: Prev; }
+
+.Next { grid-area: Next; }
+
+.Last { grid-area: Last; }
+
+div#userTable_wrapper > div:nth-of-type(1){
+
+    position: relative;
+
+}
+
+div#userTable_filter{
+
+
+}

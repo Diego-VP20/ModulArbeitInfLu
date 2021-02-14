@@ -28,7 +28,7 @@ function listTodos(){
         return '
             
             <div class="card" style="width: 18rem; top: 25%; left: 38%; opacity: 0.9;max-height: 200px;">
-              <img src="../assets/images/login_book_dm.png" class="card-img-top" alt="...">
+              <img src="../bootstrapAssets/images/login_book_dm.png" class="card-img-top" alt="...">
               <div class="card-body" style="background-color: #3e3e3e">
                 <h5 class="card-title" style="color: white;">' . $row["title"] . '</h5>
                 <p class="card-text" style="color:white;">' . $row["content"] . '</p>

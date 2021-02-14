@@ -2,12 +2,11 @@
 <project version="4">
   <component name="dataSourceStorageLocal">
     <data-source name="todo" uuid="ec43f74a-d96b-42fe-9c74-17bdcc6bd75a">
-      <database-info product="MariaDB" version="10.4.14-MariaDB" jdbc-version="4.2" driver-name="MariaDB Connector/J" driver-version="2.6.0" dbms="MARIADB" exact-version="10.4.14" exact-driver-version="2.6">
+      <database-info product="MariaDB" version="10.4.17-MariaDB" jdbc-version="4.2" driver-name="MariaDB Connector/J" driver-version="2.6.0" dbms="MARIADB" exact-version="10.4.17" exact-driver-version="2.6">
         <extra-name-characters>#@</extra-name-characters>
         <identifier-quote-string>`</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower" />
-      <secret-storage>master_key</secret-storage>
       <user-name>todoDBAdmin</user-name>
       <schema-mapping>
         <introspection-scope>

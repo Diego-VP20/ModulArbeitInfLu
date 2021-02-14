@@ -220,16 +220,15 @@ function isUserAdmin($userID): ?bool
 
 }
 
-function getUsersToDisplay($offset, $nrOfPages){
+function getUsersToDisplay(){
 
     global $conn;
 
     $stmt = mysqli_stmt_init($conn);
 
-    if (mysqli_stmt_prepare($stmt, 'SELECT ID, userName FROM users LIMIT ?,?')) {
+    if (mysqli_stmt_prepare($stmt, 'SELECT ID, userName FROM users')) {
 
         /* bind parameters for markers */
-        mysqli_stmt_bind_param($stmt, "ii", $offset, $nrOfPages);
 
         /* execute query */
         mysqli_stmt_execute($stmt);
