@@ -168,10 +168,17 @@ function loginUser($user, $pass){
         session_start();
         $_SESSION["userID"] = $userArray["ID"];
         $_SESSION["username"] = $userArray["userName"];
-        // I won't put that in here so if a user is turned into an admin no relog is needed.
-        //$_SESSION["admin"] = $userArray["admin"];
-        header("location: ../index.php");
-        exit();
+
+        if(isUserAdmin($_SESSION['userID'])){
+
+            header("location: ../admin_area/table.php");
+
+        }else {
+
+            header("location: ../index.php");
+            exit();
+
+        }
     }
 
 }

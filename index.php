@@ -2,7 +2,15 @@
 
 session_start();
 session_regenerate_id();
-require_once("includes/utilities.php")
+
+require_once("includes/utilities.php");
+
+if(!isset($_SESSION["userID"])){
+
+    header("location: session/login.php?error=notLogged");
+    exit();
+
+}
 
 ?>
 
@@ -34,7 +42,7 @@ require_once("includes/utilities.php")
             </ul><span class="navbar-text actions"><a class="btn btn-light action-button" role="button" href="session/logout.php">Log out</a></span>
             <?php endif; ?>
             <?php if(!isset($_SESSION["username"])): ?>
-                </ul><span class="navbar-text actions"> <a class="login" href="session/login.php">Log In</a><a class="btn btn-light action-button" role="button" href="session/register.php">Sign Up</a></span>
+                </ul><span class="navbar-text actions"> <a class="login" href="session/login2.php">Log In</a><a class="btn btn-light action-button" role="button" href="session/register.php">Sign Up</a></span>
             <?php elseif(isset($_SESSION["username"]) and isUserAdmin($_SESSION["userID"]) == 0):?>
                 <li class="nav-item"><a class="nav-link" href="show_todos.php">TODO's</a></li>
                 </ul><span class="navbar-text actions"><a class="btn btn-light action-button" role="button" href="session/logout.php">Log out</a></span>

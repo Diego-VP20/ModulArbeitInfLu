@@ -12,101 +12,182 @@ if(isset($_SESSION["userID"])){
 
 ?>
 
+
 <!DOCTYPE html>
-<html lang="de">
-
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Login</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/styles.css">
+	<title>Login</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="assets/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="assets/fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="assets/vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="assets/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="assets/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="assets/vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="assets/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="assets/css/util.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/main.css">
+    <script src="assets/js/sweetalert2.all.min.js"></script>
 
+    <!--===============================================================================================-->
 </head>
-
 <body>
-<nav class="navbar navbar-dark navbar-expand-md navigation-clean-button">
-    <div class="container"><a class="navbar-brand" href="../index.php"><img class="navbar-image" src="../bootstrapAssets/images/login_book_dm.png" alt="">Do It Now!</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="navcol-1">
-            <ul class="nav navbar-nav mr-auto">
-                <li class="nav-item"><a class="nav-link" href="#">TODO's</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Admin</a></li>
-            </ul><span class="navbar-text actions"><a class="btn btn-light action-button" role="button" href="register.php">Sign Up</a></span>
-        </div>
-    </div>
-</nav>
 
-<div class="wrapper fadeInDown">
-    <div id="formContent">
-        <!-- Tabs Titles -->
+    <?php
 
-        <!-- Icon -->
-        <div class="fadeIn first">
-            <img src="../bootstrapAssets/images/login_book_dm.png" id="icon" alt="User Icon" style="width: 100px; height: auto; margin: 20px 0 15px 0"/>
-        </div>
+    /* Error handler */
 
-        <!-- Login Form -->
-        <form action="../includes/validate_login.php" method="post" autocomplete="off">
-            <label for="login"></label><input type="text" id="login" class="fadeIn second" name="user" placeholder="Username">
-            <label for="password"></label><input type="password" id="password" class="fadeIn third" name="pass" placeholder="Password">
-            <input type="submit" name="submit" class="fadeIn fourth mt-4" value="Log In">
-        </form>
+    if (isset($_GET["error"])) {
 
-        <?php
 
-        /* Error handler */
+        if ($_GET["error"] == "emptyInput") {
 
-        if (isset($_GET["error"])) {
+            echo"<script>
+                Swal.fire({
+                
+                    title: 'Fehler',
+                    icon: 'error',
+                    html: 'Bitte füllen Sie alle Felder aus.'+'<br><br>',
+                    backdrop: 'rgb(255,255,255)',
+                    timer: 2500,
+                    showConfirmButton: false
+                
+                });
+                </script>";
 
-            if ($_GET["error"] == "emptyInput") {
-
-                echo '<div class="login-error-div">
-                                  <p class="login-error-text">Eins oder mehrere Pflichtfelder wurden ausgelassen!</p>
-                            </div>
-                            ';
-
-            }
-
-            if ($_GET["error"] == "logout") {
-
-                echo '<div class="login-success-div">
-                                  <p class="login-success-text">Sie haben sich erfolgreich abgemeldet!</p>
-                            </div>
-                            ';
-
-            }
-
-            if ($_GET["error"] == "wrongPass" || $_GET["error"] == "userNotExists") {
-
-                echo '<div class="login-error-div">
-                                  <p class="login-error-text">Diesen Benutzer gibt es nicht oder das Passwort ist falsch!</p>
-                            </div>
-                            ';
-
-            }
-
-            if ($_GET["error"] == "notLogged") {
-
-                echo '<div class="login-error-div">
-                                  <p class="login-error-text">Sie sind nicht eingeloggt!</p>
-                            </div>
-                            ';
-
-            }
         }
 
-        ?>
+        if ($_GET["error"] == "logout") {
 
-        <!-- Create Account -->
-        <div id="formFooter">
-            <a class="underlineHover" href="register.php">Not registered yet? Sign up!</a>
-        </div>
+            echo"<script>
+                Swal.fire({
+                
+                    title: 'Auf wiedersehen',
+                    icon: 'success',
+                    html: 'Sie haben sich erfolgreich ausgeloggt!'+'<br><br>',
+                    backdrop: 'rgb(255,255,255)',
+                    timer: 2500,
+                    showConfirmButton: false
+                
+                });
+                </script>";
 
-    </div>
-</div>
+        }
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.bundle.min.js"></script>
+        if ($_GET["error"] == "wrongPass" || $_GET["error"] == "userNotExists") {
+
+            echo"<script>
+                Swal.fire({
+                
+                    title: 'Fehler',
+                    icon: 'error',
+                    html: 'Password falsch oder Benutzer nicht existent.'+'<br><br>',
+                    backdrop: 'rgb(255,255,255)',
+                    timer: 2500,
+                    showConfirmButton: false
+                
+                });
+                </script>";
+
+        }
+
+        if ($_GET["error"] == "notLogged") {
+
+            echo"<script>
+                Swal.fire({
+                
+                    title: 'Fehler',
+                    icon: 'error',
+                    html: 'Sie sind nicht eingeloggt!'+'<br><br>',
+                    backdrop: 'rgb(255,255,255)',
+                    timer: 2500,
+                    showConfirmButton: false
+                
+                });
+                </script>";
+
+        }
+    }
+
+    ?>
+
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('assets/images/bg-01.jpg');">
+			<div class="wrap-login100">
+				<form action="../includes/validate_login.php" method="post" class="login100-form validate-form" autocomplete="off">
+					<span class="login100-form-logo">
+						<img src="../bootstrapAssets/images/login_book_lm.png" alt="" width="100px"/>
+					</span>
+
+					<span class="login100-form-title p-b-34 p-t-27">
+						Log in
+					</span>
+
+					<div class="wrap-input100 validate-input" data-validate = "Enter username">
+						<input class="input100" type="text" name="user" placeholder="Username">
+						<span class="focus-input100" data-placeholder="&#xf207;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<input class="input100" type="password" name="pass" placeholder="Password">
+						<span class="focus-input100" data-placeholder="&#xf191;"></span>
+					</div>
+
+					<div class="contact100-form-checkbox">
+						<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+						<label class="label-checkbox100" for="ckb1">
+							Remember me
+						</label>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<button type="submit" name="submit" class="login100-form-btn">
+							Login
+						</button>
+					</div>
+
+					<div class="text-center p-t-90">
+						<a class="txt1" href="register.php">
+							Don't have an account?
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+
+	<div id="dropDownSelect1"></div>
+	
+<!--===============================================================================================-->
+	<script src="assets/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="assets/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="assets/vendor/bootstrap/js/popper.js"></script>
+	<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="assets/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="assets/vendor/daterangepicker/moment.min.js"></script>
+	<script src="assets/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="assets/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+    <script src="assets/js/main.js"></script>
+
 </body>
-
 </html>

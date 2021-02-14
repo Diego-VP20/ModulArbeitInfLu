@@ -54,7 +54,7 @@ session_start();
 
                 }else {
 
-                    header("location: ../session/login.php");
+                    header("location: ../session/login2.php");
                     exit();
 
                 }
