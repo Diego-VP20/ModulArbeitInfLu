@@ -160,7 +160,7 @@ if(isset($_SESSION["userID"])){
 					</div>
 
 					<div class="text-center p-t-90">
-						<a class="txt1" href="register.php">
+						<a class="txt1" href="createUser.php">
 							Don't have an account?
 						</a>
 					</div>

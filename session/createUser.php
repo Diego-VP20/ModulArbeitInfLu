@@ -3,9 +3,9 @@
 session_start();
 session_regenerate_id();
 
-if(isset($_SESSION["userID"])){
+if(!isset($_SESSION["userID"])){
 
-    header("location: ../index.php");
+    header("location: login.php");
     exit();
 
 }
@@ -16,7 +16,7 @@ if(isset($_SESSION["userID"])){
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login</title>
+	<title>Benutzer Erstellen</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -56,20 +56,11 @@ if(isset($_SESSION["userID"])){
 
             echo"<script>
                 Swal.fire({
-                    title: 'Benutzer schon vorhanden',
-                    text: 'Wollen Sie sich einloggen?',
+                    title: 'Benutzer schon vorhanden!',
                     icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    cancelButtonText: 'Nein',
-                    confirmButtonText: 'Ja, bitte!'
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            
-                            window.location.href = 'login.php';
-                            
-                        }
+                    backdrop: 'rgb(255,255,255)',
+                    timer: 2500,
+                    showConfirmButton: false
                     })
                 </script>";
 
@@ -175,7 +166,7 @@ if(isset($_SESSION["userID"])){
 					</span>
 
 					<span class="login100-form-title p-b-34 p-t-27">
-						Sign Up
+						Benutzer Hinzufügen
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Enter username">
@@ -187,23 +178,15 @@ if(isset($_SESSION["userID"])){
 						<input class="input100" type="password" name="pass" placeholder="Password">
 						<span class="focus-input100" data-placeholder="&#xf191;"></span>
 					</div>
-
-					<div class="contact100-form-checkbox">
-						<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-						<label class="label-checkbox100" for="ckb1">
-							Remember me
-						</label>
-					</div>
-
 					<div class="container-login100-form-btn">
 						<button type="submit" name="submit" value="Sign Up" class="login100-form-btn">
-							Sign Up
+							Hinzufügen
 						</button>
 					</div>
 
 					<div class="text-center p-t-90">
-						<a class="txt1" href="login.php">
-							Already have an account?
+						<a class="txt1" href="../admin_area/table.php">
+							Zurück zum Menu
 						</a>
 					</div>
 				</form>

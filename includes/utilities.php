@@ -58,7 +58,7 @@ function checkForUser($user){
 
     if (!mysqli_stmt_prepare($stmt, $sql)){
 
-        header("location: ../session/register.php?error=usernameCheckFailed");
+        header("location: ../session/createUser.php?error=usernameCheckFailed");
         exit();
 
     }
@@ -92,7 +92,7 @@ function getUserByID($userID){
 
     if (!mysqli_stmt_prepare($stmt, $sql)){
 
-        header("location: ../session/register.php?error=usernameCheckFailed");
+        header("location: ../session/createUser.php?error=usernameCheckFailed");
         exit();
 
     }
@@ -126,7 +126,7 @@ function createUser($user, $pass){
 
     if (!mysqli_stmt_prepare($stmt, $sql)){
 
-        header("location: ../session/register.php?error=createUserFailed");
+        header("location: ../session/createUser.php?error=createUserFailed");
         exit();
 
     }
@@ -136,7 +136,7 @@ function createUser($user, $pass){
     mysqli_stmt_bind_param($stmt, "ss", $user, $hashedPass);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    header("location: ../session/register.php?error=success");
+    header("location: ../session/createUser.php?error=success");
     exit();
 
 
@@ -248,6 +248,40 @@ function getUsersToDisplay(){
         return $result;
 
     }
+
+    return null;
+}
+
+function getTodosToDisplay($userID){
+
+    global $conn;
+
+    $stmt = mysqli_stmt_init($conn);
+
+    if (mysqli_stmt_prepare($stmt, 'SELECT todo.* FROM todo
+                            WHERE todo.categoryID IN (
+                                SELECT category.ID from users
+                                INNER JOIN users_category ON users.ID = users_category.userID
+                                INNER JOIN category on users_category.categoryID = category.ID
+                                WHERE users.ID = ?
+                            )'))
+    {
+
+        /* bind parameters for markers */
+
+        /* execute query */
+        mysqli_stmt_execute($stmt);
+
+        $result = mysqli_stmt_get_result($stmt);
+
+        /* close statement */
+        mysqli_stmt_close($stmt);
+
+        return $result;
+
+    }
+
+    return null;
 }
 
 function getPagesForUserDisplay($usersPerSite){

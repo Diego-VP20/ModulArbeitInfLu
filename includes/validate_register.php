@@ -9,28 +9,28 @@ if(isset($_POST["submit"]) && $_POST["submit"] == "Sign Up") {
 
     if(emptySignup($user, $pass) !== false){
 
-        header("location: ../session/register.php?error=emptyFields");
+        header("location: ../session/createUser.php?error=emptyFields");
         exit();
 
     }
 
     if(invalidUsername($user) !== false){
 
-        header("location: ../session/register.php?error=invalidUser");
+        header("location: ../session/createUser.php?error=invalidUser");
         exit();
 
     }
 
     if(checkForUser($user) !== false){
 
-        header("location: ../session/register.php?error=usernameTaken");
+        header("location: ../session/createUser.php?error=usernameTaken");
         exit();
 
     }
 
     if(passLen($pass) !== false){
 
-        header("location: ../session/register.php?error=passLen");
+        header("location: ../session/createUser.php?error=passLen");
         exit();
 
     }
@@ -39,6 +39,6 @@ if(isset($_POST["submit"]) && $_POST["submit"] == "Sign Up") {
 
 }else{
 
-    header("location: ../session/register.php");
+    header("location: ../session/createUser.php");
 
 }

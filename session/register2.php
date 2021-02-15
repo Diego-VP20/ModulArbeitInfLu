@@ -130,7 +130,7 @@ if(isset($_SESSION["userID"])){
 
         <!-- Create Account -->
         <div id="formFooter">
-            <a class="underlineHover" href="register.php">Not registered yet? Sign up!</a>
+            <a class="underlineHover" href="createUser.php">Not registered yet? Sign up!</a>
         </div>
 
     </div>

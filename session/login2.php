@@ -31,7 +31,7 @@ if(isset($_SESSION["userID"])){
             <ul class="nav navbar-nav mr-auto">
                 <li class="nav-item"><a class="nav-link" href="#">TODO's</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Admin</a></li>
-            </ul><span class="navbar-text actions"><a class="btn btn-light action-button" role="button" href="register.php">Sign Up</a></span>
+            </ul><span class="navbar-text actions"><a class="btn btn-light action-button" role="button" href="createUser.php">Sign Up</a></span>
         </div>
     </div>
 </nav>
@@ -99,7 +99,7 @@ if(isset($_SESSION["userID"])){
 
         <!-- Create Account -->
         <div id="formFooter">
-            <a class="underlineHover" href="register.php">Not registered yet? Sign up!</a>
+            <a class="underlineHover" href="createUser.php">Not registered yet? Sign up!</a>
         </div>
 
     </div>
