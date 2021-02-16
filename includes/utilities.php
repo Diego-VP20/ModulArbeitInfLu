@@ -53,16 +53,9 @@ function checkForUser($user){
 
     global $conn;
 
-    $sql = "SELECT * FROM users WHERE userName = ?;";
     $stmt = mysqli_stmt_init($conn);
 
-    if (!mysqli_stmt_prepare($stmt, $sql)){
-
-        header("location: ../session/createUser.php?error=usernameCheckFailed");
-        exit();
-
-    }
-
+    mysqli_stmt_prepare($stmt,"SELECT * FROM users WHERE userName = ?;");
     mysqli_stmt_bind_param($stmt, "s", $user);
     mysqli_stmt_execute($stmt);
 
@@ -87,16 +80,9 @@ function getUserByID($userID){
 
     global $conn;
 
-    $sql = "SELECT * FROM users WHERE ID = ?;";
     $stmt = mysqli_stmt_init($conn);
 
-    if (!mysqli_stmt_prepare($stmt, $sql)){
-
-        header("location: ../session/createUser.php?error=usernameCheckFailed");
-        exit();
-
-    }
-
+    mysqli_stmt_prepare($stmt, "SELECT * FROM users WHERE ID = ?;");
     mysqli_stmt_bind_param($stmt, "i", $userID);
     mysqli_stmt_execute($stmt);
 
@@ -121,15 +107,9 @@ function createUser($user, $pass){
 
     global $conn;
 
-    $sql = "INSERT INTO users(userName, passwordHash) values(?,?);";
     $stmt = mysqli_stmt_init($conn);
 
-    if (!mysqli_stmt_prepare($stmt, $sql)){
-
-        header("location: ../session/createUser.php?error=createUserFailed");
-        exit();
-
-    }
+    mysqli_stmt_prepare($stmt, "INSERT INTO users(userName, passwordHash) values(?,?);");
 
     $hashedPass = password_hash($pass, PASSWORD_DEFAULT);
 
@@ -235,14 +215,11 @@ function getUsersToDisplay(){
 
     if (mysqli_stmt_prepare($stmt, 'SELECT ID, userName FROM users')) {
 
-        /* bind parameters for markers */
 
-        /* execute query */
         mysqli_stmt_execute($stmt);
 
         $result = mysqli_stmt_get_result($stmt);
 
-        /* close statement */
         mysqli_stmt_close($stmt);
 
         return $result;
@@ -258,30 +235,25 @@ function getTodosToDisplay($userID){
 
     $stmt = mysqli_stmt_init($conn);
 
-    if (mysqli_stmt_prepare($stmt, 'SELECT todo.* FROM todo
-                            WHERE todo.categoryID IN (
-                                SELECT category.ID from users
-                                INNER JOIN users_category ON users.ID = users_category.userID
-                                INNER JOIN category on users_category.categoryID = category.ID
-                                WHERE users.ID = ?
-                            )'))
-    {
+    mysqli_stmt_prepare($stmt, 'SELECT todo.* FROM todo
+                                WHERE todo.categoryID IN (
+                                    SELECT category.ID from users
+                                    INNER JOIN users_category ON users.ID = users_category.userID
+                                    INNER JOIN category on users_category.categoryID = category.ID
+                                    WHERE users.ID = ?
+                                )');
 
-        /* bind parameters for markers */
 
-        /* execute query */
-        mysqli_stmt_execute($stmt);
+    mysqli_stmt_bind_param($stmt, "i", $userID);
 
-        $result = mysqli_stmt_get_result($stmt);
+    mysqli_stmt_execute($stmt);
 
-        /* close statement */
-        mysqli_stmt_close($stmt);
+    $result = mysqli_stmt_get_result($stmt);
 
-        return $result;
+    mysqli_stmt_close($stmt);
 
-    }
+    return $result;
 
-    return null;
 }
 
 function getPagesForUserDisplay($usersPerSite){
@@ -450,4 +422,14 @@ function getCategoriesFromUser($UserID){
 
 
 
+}
+
+function daysTillExpiry($expiryDate) {
+    $expiryDate = new DateTime($expiryDate);
+    $now = new DateTime();
+    if($expiryDate->format("y-m-d") === $now->format("y-m-d")) return 0;
+
+    $daysDiff = $now->diff($expiryDate)->format("%R%a");
+    if($daysDiff >= 0) $daysDiff++;
+    return $daysDiff;
 }

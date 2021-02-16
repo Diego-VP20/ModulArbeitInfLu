@@ -57,7 +57,7 @@ if(isset($_SESSION["username"])){
 <body>
 
 <div class="wrapper">
-    <div class="sidebar" data-color="azure" data-image="assets/img/sidebar-5.jpg">
+    <div class="sidebar" data-color="azure" data-image="../session/assets/images/bg-01.jpg">
 
     <!--   you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple" -->
 
@@ -125,7 +125,7 @@ if(isset($_SESSION["username"])){
                                 <table id="userTable" class="table table-hover table-striped">
                                     <thead>
                                     <tr>
-                                        <th></th>
+                                        <th>ID</th>
                                         <th>Von</th>
                                         <th>Status</th>
                                         <th>Aktionen</th>
@@ -141,33 +141,23 @@ if(isset($_SESSION["username"])){
                                         $pageNr = 1;
                                     }
 
-                                    $result = getUsersToDisplay();
+                                    $result = getTodosToDisplay($_SESSION['userID']);
 
                                     while($row = mysqli_fetch_array($result)):?>
 
                                         <tr>
                                             <td><b><?=$row["ID"]?></b></td>
-                                            <td><?=$row["userName"]?></td>
+                                            <td><?=getUserByID($row['fromUser'])['userName']?></td>
                                             <td>
-                                                <?php if(isUserAdmin($row["ID"]) == 0): ?>
-                                                    <a href="addCategoryForm.php?userID=<?=$row['ID']?>"><i class="fas fa-plus-square mr-2"></i></a>
-                                                    <?php if(sizeof(getCategoriesFromUser($row['ID']))>0): ?>
-                                                        <a href="removeCategoryForm.php?userID=<?=$row['ID']?>"><i class="fas fa-minus-square"></i></a>
-                                                    <?php endif; ?>
-                                                <?php endif; ?>
-
+                                                <p><?=daysTillExpiry($row['expiryDate'])?></p>
                                             </td>
 
                                             <td>
-                                                <?php if(isUserAdmin($row['ID']) == false): ?>
-                                                    <a href="editUser.php?userID=<?=$row["ID"]?>"><i class="fas fa-edit mr-2"></i></a>
-                                                    <a href="editUser.php?userID=<?=$row["ID"]?>"><i class="fas fa-archive mr-2"></i></a>
-                                                    <a href="removeUser.php?userID=<?=$row["ID"]?>"><i class="fas fa-trash-alt"></i></a>
-                                                <?php elseif(isUserAdmin($row['ID']) == true): ?>
-                                                    <h5><span class="badge badge-warning"> Admin</span></h5>
-
-                                                <?php endif; ?>
-
+                                                    <?php if($_SESSION['userID'] == $row['fromUser']): ?>
+                                                    <a href="editTodo.php?todoID=<?=$row["ID"]?>"><i class="fas fa-edit mr-2"></i></a>
+                                                    <a href="archiveTodo.php?todoID=<?=$row["ID"]?>"><i class="fas fa-archive mr-2"></i></a>
+                                                    <a href="removeTodo.php?todoID=<?=$row["ID"]?>"><i class="fas fa-trash-alt"></i></a>
+                                                    <?php endif; ?>
                                             </td>
 
                                         </tr>
