@@ -40,9 +40,6 @@ if(isset($_SESSION["username"])){
     <!-- Bootstrap core CSS     -->
     <link href="../bootstrapAssets/css/bootstrap.min.css" rel="stylesheet" />
 
-    <!-- Animation library for notifications   -->
-    <link href="../bootstrapAssets/css/animate.min.css" rel="stylesheet"/>
-
     <!--  Light Bootstrap Table core CSS    -->
     <link href="../bootstrapAssets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>
     <link href="../session/assets/css/test.css" rel="stylesheet"/>
@@ -125,9 +122,12 @@ if(isset($_SESSION["username"])){
                                 <table id="userTable" class="table table-hover table-striped">
                                     <thead>
                                     <tr>
-                                        <th>ID</th>
                                         <th>Von</th>
                                         <th>Status</th>
+                                        <th>Text</th>
+                                        <th>Titel</th>
+                                        <th>Priorität</th>
+                                        <th>Erstellt am</th>
                                         <th>Aktionen</th>
                                     </tr>
                                     </thead>
@@ -143,14 +143,41 @@ if(isset($_SESSION["username"])){
 
                                     $result = getTodosToDisplay($_SESSION['userID']);
 
+
                                     while($row = mysqli_fetch_array($result)):?>
 
+                                        <?php
+
+                                        $creationDate = new DateTime($row["creationDate"]);
+                                        $fromUser = getUserByID($row['fromUser'])['userName'];
+                                        $daysUntilExpiration = daysTillExpiry($row['expiryDate']);
+                                        $priority = $row['priority'];
+
+                                        ?>
+
                                         <tr>
-                                            <td><b><?=$row["ID"]?></b></td>
-                                            <td><?=getUserByID($row['fromUser'])['userName']?></td>
+                                            <td><?=$fromUser?></td>
                                             <td>
-                                                <p><?=daysTillExpiry($row['expiryDate'])?></p>
+                                                <p><?=$daysUntilExpiration?></p>
                                             </td>
+
+                                            <td><?=$row['text']?></td>
+                                            <td><?=$row['title']?></td>
+
+                                            <?php if($priority == 1): ?>
+                                                <td><p class="badge badge-primary" style="background-color: green;"><?='Unwichtig ('. $priority . ')'?></p></td>
+                                            <?php elseif($priority == 2): ?>
+                                            <td><p class="badge badge-primary" style="background-color: lightgreen; color: black"><?='Nicht sehr Wichtig ('. $priority . ')'?></p></td>
+                                            <?php elseif($priority == 3): ?>
+                                                <td><p class="badge badge-primary" style="background-color: yellow; color: black"><?='Etwas wichtig ('. $priority . ')'?></p></td>
+                                            <?php elseif($priority == 4): ?>
+                                                <td><p class="badge badge-primary" style="background-color: orange; color: black"><?='Wichtig ('. $priority . ')'?></p></td>
+                                            <?php elseif($priority == 5): ?>
+                                                <td><p class="badge badge-primary" style="background-color: red; color: white"><?='Sehr wichtig ('. $priority . ')'?></p></td>
+                                            <?php else: ?>
+                                            <td><p><?=$priority?></p></td>
+                                            <?php endif; ?>
+                                            <td><?= $creationDate->format('d/m/y') ?></td>
 
                                             <td>
                                                     <?php if($_SESSION['userID'] == $row['fromUser']): ?>
@@ -192,7 +219,6 @@ if(isset($_SESSION["username"])){
     <script src="../bootstrapAssets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
 	<script src="../bootstrapAssets/js/bootstrap.min.js" type="text/javascript"></script>
     <!-- MDBootstrap Datatables  -->
-    <script type="text/javascript" src="js/addons/datatables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
 
@@ -201,7 +227,7 @@ if(isset($_SESSION["username"])){
 
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
 	<script src="../bootstrapAssets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
-    <script src="../bootstrapAssets/js/dataTableScript.js"></script>
+    <script src="../bootstrapAssets/js/dataTableScriptTodos.js"></script>
 
 
 
