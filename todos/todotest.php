@@ -7,7 +7,7 @@ include_once("../includes/utilities.php");
 
 if(isset($_SESSION["username"])){
 
-    if(isUserAdmin($_SESSION["userID"]) != 1){
+    if(isUserAdmin($_SESSION["userID"]) != 0){
 
         header("location: ../index.php");
         exit();
@@ -44,8 +44,9 @@ if(isset($_SESSION["username"])){
     <link href="../bootstrapAssets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>
     <link href="../session/assets/css/test.css" rel="stylesheet"/>
 
-  
 
+    <script src="../session/assets/js/sweetalert2.all.min.js"></script>
+    <script src="../bootstrapAssets/js/eventListeners.js"></script>
 
     <!--     Fonts and icons     -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
@@ -53,8 +54,33 @@ if(isset($_SESSION["username"])){
 </head>
 <body>
 
+<!-- TODO ADD ERROR HANDLERS -->
+
+<?php
+
+    /* Error handler */
+
+    if (isset($_GET["error"])) {
+
+        if ($_GET["error"] == "noPermission") {
+
+            echo "<script>
+                Swal.fire({
+                    title: 'Keine Rechte!',
+                    html: '<p><b>Sie haben keine Rechte um diesen TODO zu Archivieren / Löschen.</b></p>',
+                    icon: 'error',
+                    backdrop: 'rgb(255,255,255)',
+                    timer: 3000,
+                    showConfirmButton: false
+                    })
+                </script>";
+
+        }
+    }
+    ?>
+
 <div class="wrapper">
-    <div class="sidebar" data-color="azure" data-image="../session/assets/images/bg-01.jpg">
+    <div class="sidebar" data-color="azure" data-image="../bootstrapAssets/images/login_background_dm.jpg" >
 
     <!--   you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple" -->
 
@@ -68,7 +94,7 @@ if(isset($_SESSION["username"])){
 
             <ul class="nav">
                 <li class="active">
-                    <a href="table.php">
+                    <a href="../admin_area/table.php">
                         <i class="fas fa-users"></i>
                         <p>Benutzer und Kategorien</p>
                     </a>
@@ -158,7 +184,26 @@ if(isset($_SESSION["username"])){
                                         <tr>
                                             <td><?=$fromUser?></td>
                                             <td>
-                                                <p><?=$daysUntilExpiration?></p>
+                                                <?php if(strpos($daysUntilExpiration, "-") !== false): ?>
+                                                <p style="color: red">
+                                                    <?php if($daysUntilExpiration==-1):?>
+                                                    <?= 'Seit ' . str_replace("-", "", $daysUntilExpiration) . ' Tag fällig.'?>
+                                                    <?php elseif($daysUntilExpiration<-1):?>
+                                                    <?= 'Seit ' . str_replace("-", "", $daysUntilExpiration) . ' Tagen fällig.'?>
+                                                </p>
+                                                <?php endif; ?>
+
+                                                <?php elseif(strpos($daysUntilExpiration, "-") === false): ?>
+                                                <?php if($daysUntilExpiration==1): ?>
+                                                    <p style="color: green"><?='Noch ' . $daysUntilExpiration . ' Tag übrig.'?></p>
+                                                <?php elseif($daysUntilExpiration==0): ?>
+                                                    <p style="color: green">Heute Fällig</p>
+                                                <?php elseif($daysUntilExpiration>0): ?>
+                                                    <p style="color: green"><?='Noch ' . $daysUntilExpiration . ' Tagen übrig.'?></p>
+
+                                                <?php endif;?>
+                                                <?php endif;?>
+
                                             </td>
 
                                             <td><?=$row['text']?></td>
@@ -182,8 +227,8 @@ if(isset($_SESSION["username"])){
                                             <td>
                                                     <?php if($_SESSION['userID'] == $row['fromUser']): ?>
                                                     <a href="editTodo.php?todoID=<?=$row["ID"]?>"><i class="fas fa-edit mr-2"></i></a>
-                                                    <a href="archiveTodo.php?todoID=<?=$row["ID"]?>"><i class="fas fa-archive mr-2"></i></a>
-                                                    <a href="removeTodo.php?todoID=<?=$row["ID"]?>"><i class="fas fa-trash-alt"></i></a>
+                                                    <a id='archiveTodo'><i class="fas fa-archive mr-2"></i></a>
+                                                    <a id='removeTodo' href="removeTodo.php?todoID=<?=$row["ID"]?>"><i class="fas fa-trash-alt"></i></a>
                                                     <?php endif; ?>
                                             </td>
 

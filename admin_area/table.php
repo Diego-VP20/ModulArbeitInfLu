@@ -83,7 +83,7 @@ if(isset($_SESSION["username"])){
                     </a>
                 </li>
                 <li>
-                    <a href="todotest.php">
+                    <a href="../todos/todotest.php">
                         <i class="fas fa-user-plus"></i>
                         <p>Todo's</p>
                     </a>

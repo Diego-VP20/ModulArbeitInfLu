@@ -4,9 +4,9 @@ $(document).ready(function () {
         "info": false,
         "lengthChange": false,
         "pageLength": 7,
-        "order": [[ 3, 'desc' ], [ 4, 'asc' ]],
+        "order": [[ 5, 'desc' ], [ 6, 'asc' ]],
         "columnDefs": [
-            { "searchable": false, "targets": [0,1,4,5] },
+            { "searchable": false, "targets": [0,1,4,5,6] },
             { "visible": false, "targets": [2,3] }
         ]
 

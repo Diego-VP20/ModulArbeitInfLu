@@ -236,7 +236,7 @@ function getTodosToDisplay($userID){
     $stmt = mysqli_stmt_init($conn);
 
     mysqli_stmt_prepare($stmt, 'SELECT todo.* FROM todo
-                                WHERE todo.categoryID IN (
+                                WHERE todo.isArchived = 0 AND todo.categoryID IN (
                                     SELECT category.ID from users
                                     INNER JOIN users_category ON users.ID = users_category.userID
                                     INNER JOIN category on users_category.categoryID = category.ID
@@ -421,6 +421,53 @@ function getCategoriesFromUser($UserID){
     return $result;
 
 
+
+}
+
+function isOwnerOfTodo($todoID, $userID){
+
+    global $conn;
+
+    $stmt = mysqli_stmt_init($conn);
+
+    mysqli_stmt_prepare($stmt, 'SELECT * FROM todo WHERE ID=? AND fromUser=?');
+    mysqli_stmt_bind_param($stmt, "ii", $todoID,$userID);
+    mysqli_stmt_execute($stmt);
+
+    $result = mysqli_stmt_get_result($stmt);
+    $result = mysqli_fetch_all($result);
+
+    mysqli_stmt_close($stmt);
+
+    return $result;
+
+
+
+}
+
+function archiveTodo($todoID){
+
+    global $conn;
+
+    $stmt = mysqli_stmt_init($conn);
+
+    mysqli_stmt_prepare($stmt, 'UPDATE todo SET isArchived = 1 WHERE ID=?');
+    mysqli_stmt_bind_param($stmt, "i", $todoID);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+
+}
+
+function removeTodo($todoID){
+
+    global $conn;
+
+    $stmt = mysqli_stmt_init($conn);
+
+    mysqli_stmt_prepare($stmt, 'DELETE FROM todo WHERE ID=?');
+    mysqli_stmt_bind_param($stmt, "i", $todoID);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
 
 }
 

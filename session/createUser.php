@@ -3,11 +3,18 @@
 session_start();
 session_regenerate_id();
 
+include_once("../includes/utilities.php");
+
 if(!isset($_SESSION["userID"])){
 
     header("location: login.php");
     exit();
 
+}elseif(isset($_SESSION["userID"])){
+    if(isUserAdmin($_SESSION["userID"]) == 0) {
+        header("location: ../index.php");
+        exit();
+    }
 }
 
 ?>
