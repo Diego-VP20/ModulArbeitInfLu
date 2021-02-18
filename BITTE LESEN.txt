@@ -1,0 +1,25 @@
+Jegliches JavaScript, dass in dieser Arbeit zu sehen ist und NICHT zu standart Libraries gehört (JQuery.....) habe ich
+selber geschrieben. Als Beispiel die Confirmation-Pop-Up's für das Löschen oder Archivieren der Todo's. Ich habe mir die
+dazugehörigen Documentationen angeschaut und angewendet. Ich habe sonst keinen Code WILLENTLICH oder unter Bewusste Wille
+kopiert.
+
+Sollte sich herausstellen, dass irgend ein Code Fragment kopiert wurde, bitte ich Ihnen mir das sofort mitzuteilen und mit
+mir ein Gespräch zu vereinbaren.
+
+JavaScript Code's die 100% ich geschrieben habe (mit Hilfe von Libraries):
+    DataTable -> Macht eine Tabelle "intelligent". Erlaubt Suche bestimmter Felder usw.
+        Sie werden sehen, dass sie den Inhalt des Todo's suchen können, obwohl es nicht in der Tabelle auftaucht.
+        Grund ist, dass diese Spalte (mit dem Text) ausgeblendet ist :).
+
+    Popup's -> Ich habe mir die Logik (ausserhalb der gegebenen Library Methoden) selber ausgedacht.
+               Ist ja auch keine schwierige Logik.
+
+
+    Bootstrap -> Das Dashboard ist ein Template den ich gefunden habe und ich ABGEÄNDERT habe. Ich habe Inhalt gelöscht
+    und hinzugefügt. Für das Loginformular bzw. das "Benutzer hinzufügen" Formular habe ich komplett kopiert und etwas
+    abgeändert.
+
+    Sofern ich weiss, werden Sie keine Code's oder Dateien finden (Ausser libraries) die "kopiert" wurden.
+
+Sollte irgendwo jedoch aus Versehen ein Plagiat entstanden sein, bitte ich um Verständnis und eine Chance mich dazu zu
+äussern.

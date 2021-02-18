@@ -236,12 +236,12 @@ function getTodosToDisplay($userID){
     $stmt = mysqli_stmt_init($conn);
 
     mysqli_stmt_prepare($stmt, 'SELECT todo.* FROM todo
-                                WHERE todo.isArchived = 0 AND todo.categoryID IN (
-                                    SELECT category.ID from users
-                                    INNER JOIN users_category ON users.ID = users_category.userID
-                                    INNER JOIN category on users_category.categoryID = category.ID
-                                    WHERE users.ID = ?
-                                )');
+                                        WHERE todo.isArchived = 0 AND todo.categoryID IN (
+                                            SELECT category.ID from users
+                                            INNER JOIN users_category ON users.ID = users_category.userID
+                                            INNER JOIN category on users_category.categoryID = category.ID
+                                            WHERE users.ID = ?)
+                                        ORDER BY todo.priority DESC, todo.creationDate ASC');
 
 
     mysqli_stmt_bind_param($stmt, "i", $userID);

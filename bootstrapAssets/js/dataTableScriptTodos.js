@@ -4,7 +4,7 @@ $(document).ready(function () {
         "info": false,
         "lengthChange": false,
         "pageLength": 7,
-        "order": [[ 5, 'desc' ], [ 6, 'asc' ]],
+        "ordering": false,
         "columnDefs": [
             { "searchable": false, "targets": [0,1,4,5,6] },
             { "visible": false, "targets": [2,3] }

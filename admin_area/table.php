@@ -108,6 +108,11 @@ if(isset($_SESSION["username"])){
 
                     <ul class="nav navbar-nav navbar-right">
                         <li>
+                            <a>
+                                <p class="badge badge-primary" style="background-color: orangered">Admin: &nbsp <?=$_SESSION["username"]?> </p>
+                            </a>
+                        </li>
+                        <li>
                             <a href="../session/logout.php">
                                 <p>Log out</p>
                             </a>
