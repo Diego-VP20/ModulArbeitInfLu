@@ -64,7 +64,7 @@ if(isset($_SESSION["username"])){
 
     	<div class="sidebar-wrapper">
             <div class="logo">
-                <a href="../index.php" class="simple-text">
+                <a href="#" class="simple-text">
                     Do it Now!
                 </a>
             </div>
@@ -83,7 +83,7 @@ if(isset($_SESSION["username"])){
                     </a>
                 </li>
                 <li>
-                    <a href="../todos/todotest.php">
+                    <a href="../todotest.php">
                         <i class="fas fa-user-plus"></i>
                         <p>Todo's</p>
                     </a>

@@ -15,7 +15,7 @@ if(isset($_SESSION["username"])){
 
 }else{
 
-    header("location: ../index.php");
+    header("location: ../session/login.php?error=notLogged");
     exit();
 
 }
@@ -41,7 +41,7 @@ if(isset($_SESSION["username"])){
     <body>
 
     <nav class="navbar navbar-dark navbar-expand-md navigation-clean-button">
-        <div class="container"><a class="navbar-brand" href="../index.php"><img class="navbar-image" src="../bootstrapAssets/images/login_book_dm.png" alt="">Do It Now!</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container"><a class="navbar-brand" href="#"><img class="navbar-image" src="../bootstrapAssets/images/login_book_dm.png" alt="">Do It Now!</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav mr-auto">
                 </ul><span class="navbar-text actions"><a class="btn btn-light action-button" role="button" href="../session/logout.php">Log out</a></span>

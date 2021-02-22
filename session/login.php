@@ -20,7 +20,7 @@ if(isset($_SESSION["userID"])){
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="assets/images/icons/favicon.ico"/>
+	<link rel="icon" type="image/png" href="../bootstrapAssets/images/login_book_dm.png"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
@@ -160,7 +160,19 @@ if(isset($_SESSION["userID"])){
 					</div>
 
 					<div class="text-center p-t-90">
-						<a class="txt1" href="createUser.php">
+						<a onclick="
+
+                            Swal.fire({
+
+                                title: 'Achtung!',
+                                icon: 'warning',
+                                html: 'Leider kann nur der Administrator neue Benutzer hinzufügen.<br> Bitten Sie Ihn um einen Benutzernamen und Passwort.'+'<br><br>',
+                                backdrop: 'rgb(255,255,255)',
+                                showConfirmButton: true
+
+                            });
+
+                            " href="#" class="txt1">
 							Don't have an account?
 						</a>
 					</div>

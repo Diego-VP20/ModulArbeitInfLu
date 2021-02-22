@@ -12,11 +12,11 @@ if(isset($_GET['todoID'])){
     if(!empty(isOwnerOfTodo($todoID, $_SESSION['userID']))){
 
         removeTodo($todoID);
-        header("location: todotest.php?error=removalSuccessful");
+        header("location: index.php?error=removalSuccessful");
 
     }else{
 
-        header("location: todotest.php?error=noPermission");
+        header("location: index.php?error=noPermission");
 
     }
 
