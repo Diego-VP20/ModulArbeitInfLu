@@ -301,25 +301,20 @@ function changePassword($ID, $newPassword){
 
     if(passLen($newPassword) !== false){
 
-        header("location: ../admin_area/editUser.php?userID=".$ID."&error=passLen");
+        header("location: ../admin_area/changePassword.php?userID=".$ID."&error=passLen");
         exit();
 
     }
 
-    $sql = "UPDATE users SET passwordHash = ? where userID = ?";
     $stmt = mysqli_stmt_init($conn);
 
-    if (!mysqli_stmt_prepare($stmt, $sql)){
+    $newPassword = password_hash($newPassword, PASSWORD_DEFAULT);
 
-        header("location: ../admin_area/showUsers.php");
-        exit;
-
-    }
-
+    mysqli_stmt_prepare($stmt, 'UPDATE users SET passwordHash = ? where ID = ?');
     mysqli_stmt_bind_param($stmt, "si", $newPassword, $ID);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    header("location: ../admin_area/showUsers.php");
+    header("location: ../index.php");
     exit;
 
 }
@@ -330,77 +325,26 @@ function changeUsername($ID, $newUsername){
 
     if(invalidUsername($newUsername) !== false){
 
-        header("location: ../admin_area/editUser.php?userID=".$ID."&error=invalidUsername");
+        header("location: ../admin_area/changeUsername.php?userID=".$ID."&error=invalidUsername");
         exit();
 
     }
 
     if(checkForUser($newUsername) !== false){
 
-        header("location: ../admin_area/editUser.php?userID=".$ID."&error=usernameTaken");
+        header("location: ../admin_area/changeUsername.php?userID=".$ID."&error=usernameTaken");
         exit;
-
-    }else {
-
-        $sql = "UPDATE users SET userName = ? where userID = ?";
-        $stmt = mysqli_stmt_init($conn);
-
-        if (!mysqli_stmt_prepare($stmt, $sql)) {
-
-            header("location: ../admin_area/showUsers.php");
-            exit;
-
-        }
-
-        mysqli_stmt_bind_param($stmt, "si", $newUsername, $ID);
-        mysqli_stmt_execute($stmt);
-        mysqli_stmt_close($stmt);
-        header("location: ../admin_area/showUsers.php");
-        exit;
-    }
-}
-
-function changeUsernameAndPassword($ID, $newUsername, $newPassword){
-
-    global $conn;
-
-    if(invalidUsername($newUsername) !== false){
-
-        header("location: ../admin_area/editUser.php?userID=".$ID."&error=invalidUsername");
-        exit();
 
     }
 
-    if(passLen($newPassword) !== false){
+    $stmt = mysqli_stmt_init($conn);
+    mysqli_stmt_prepare($stmt, 'UPDATE users SET userName = ? where ID = ?');
+    mysqli_stmt_bind_param($stmt, "si", $newUsername, $ID);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    header("location: ../index.php");
+    exit;
 
-        header("location: ../admin_area/editUser.php?userID=".$ID."&error=passLen");
-        exit();
-
-    }
-
-    if(checkForUser($newUsername) !== false){
-
-        header("location: ../admin_area/editUser.php?userID=".$ID."&error=usernameTaken");
-        exit;
-
-    }else {
-
-        $sql = "UPDATE users SET userName = ?, passwordHash = ? where userID = ?";
-        $stmt = mysqli_stmt_init($conn);
-
-        if (!mysqli_stmt_prepare($stmt, $sql)) {
-
-            header("location: ../admin_area/showUsers.php");
-            exit;
-
-        }
-
-        mysqli_stmt_bind_param($stmt, "ssi", $newUsername, $newPassword, $ID);
-        mysqli_stmt_execute($stmt);
-        mysqli_stmt_close($stmt);
-        header("location: ../admin_area/showUsers.php");
-        exit;
-    }
 }
 
 function getCategoriesFromUser($UserID){

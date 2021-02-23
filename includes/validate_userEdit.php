@@ -21,39 +21,16 @@ if(isset($_SESSION["username"])){
 
 }
 
-if(isset($_GET["userID"], $_POST["newPass"], $_POST["newUsername"])){
+if(isUserAdmin($_GET['userID']) == 1) header("location: ../index.php");
 
-    $oldInformationArray = getUserByID($_GET["userID"]);
-    $newPass = $_POST["newPass"];
-    $newUsername = $_POST["newUsername"];
+if(isset($_POST['submit']) && $_POST['submit'] == 'changeUName' && isset($_POST['newUsername']) && !empty($_POST['newUsername'])){
 
-    if(empty($newPass) and empty($newUsername)){
+    changeUsername($_GET["userID"], $_POST['newUsername']);
 
-        header("location: ../admin_area/editUser.php?userID=".$_GET['userID']."&error=emptyFields");
-        exit;
+}if(isset($_POST['submit']) && $_POST['submit'] == 'changePWord' && isset($_POST['newPassword']) && !empty($_POST['newPassword'])){
 
-    }elseif(empty($newPass) and $newUsername == $oldInformationArray["userName"]){
-
-        header("location: ../admin_area/showUsers.php");
-        exit;
-
-        // Only the password was changed in this case.
-    }elseif(!empty($newPass) and $oldInformationArray["passwordHash"] != password_hash($newPass, PASSWORD_DEFAULT)
-        and !empty($newUsername) and $newUsername == $oldInformationArray["userName"]){
-
-        changePassword($oldInformationArray["ID"], $newPass);
-
-        // Only the username was changed.
-    }elseif(empty($newPass) and !empty($newUsername) and $newUsername != $oldInformationArray["userName"]){
-
-        changeUsername($oldInformationArray["ID"], $newPass);
-
-        // Both user and password are new
-    }elseif(!empty($newPass) and !empty($newUsername) and $oldInformationArray["passwordHash"] != password_hash($newPass, PASSWORD_DEFAULT)
-        and $newUsername != $oldInformationArray["userName"]){
-
-        changeUsernameAndPassword($oldInformationArray["ID"], $newUsername, $newPass);
-
-    }
+    changePassword($_GET['userID'], $_POST['newPassword']);
 
 }
+
+

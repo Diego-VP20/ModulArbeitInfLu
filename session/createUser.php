@@ -147,7 +147,7 @@ if(!isset($_SESSION["userID"])){
             echo"<script>
                 Swal.fire({
                 
-                    title: 'Erfolgreich Registriert',
+                    title: 'Erfolgreich Hinzugefügt.',
                     icon: 'success',
                     html: '<b>Sie werden weitergeleitet!</b>'+'<br><br>',
                     showConfirmButton: false,
@@ -156,7 +156,7 @@ if(!isset($_SESSION["userID"])){
                 });
                 </script>";
 
-            header("Refresh: 4; ../session/login.php");
+            header("Refresh: 3; ../index.php");
 
 
         }

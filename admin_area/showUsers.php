@@ -84,9 +84,9 @@ if(isset($_SESSION["username"])){
                             <td><?=$row["userName"]?></td>
                             <td class="text-center">
                             <?php if(isUserAdmin($row["ID"]) == 0): ?>
-                            <a href="addCategoryForm.php?userID=<?=$row['ID']?>"><i class="fas fa-plus-square mr-2"></i></a>
+                            <a href="addCategory2.php?userID=<?=$row['ID']?>"><i class="fas fa-plus-square mr-2"></i></a>
                             <?php if(sizeof(getCategoriesFromUser($row['ID']))>0): ?>
-                                <a href="removeCategoryForm.php?userID=<?=$row['ID']?>"><i class="fas fa-minus-square"></i></a>
+                                <a href="removeCategory2.php?userID=<?=$row['ID']?>"><i class="fas fa-minus-square"></i></a>
                             <?php endif; ?>
                             <?php endif; ?>
 
@@ -94,7 +94,7 @@ if(isset($_SESSION["username"])){
 
                             <td class="text-center">
                                 <?php if(isUserAdmin($row['ID']) == false): ?>
-                                    <a href="editUser.php?userID=<?=$row["ID"]?>"><i class="fas fa-edit mr-2"></i></a>
+                                    <a href="changeUsername.php?userID=<?=$row["ID"]?>"><i class="fas fa-edit mr-2"></i></a>
                                     <a href="removeUser.php?userID=<?=$row["ID"]?>"><i class="fas fa-trash-alt"></i></a>
                                 <?php elseif(isUserAdmin($row['ID']) == true): ?>
                                     <h5><span class="badge badge-warning"> Admin</span></h5>

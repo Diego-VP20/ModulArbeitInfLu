@@ -32,7 +32,7 @@ if(isset($_SESSION["username"])){
 	<link rel="icon" type="image/png" href="bootstrapAssets/images/login_book_dm.png">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-	<title>Manage User</title>
+	<title>Todo's</title>
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
 
@@ -45,15 +45,14 @@ if(isset($_SESSION["username"])){
     <link href="bootstrapAssets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>
     <link href="session/assets/css/test.css" rel="stylesheet"/>
 
-
     <script src="session/assets/js/sweetalert2.all.min.js"></script>
+    <script src="includes/clock.js"></script>
+
 
     <!--     Fonts and icons     -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
 </head>
 <body>
-
-<!-- TODO ADD ERROR HANDLERS -->
 
 <?php
 
@@ -75,11 +74,42 @@ if(isset($_SESSION["username"])){
                 </script>";
 
         }
+
+        if ($_GET["error"] == "removalSuccessful") {
+
+            echo "<script>
+                Swal.fire({
+                    title: 'Erfolgreich',
+                    html: '<p><b>Sie haben Ihren Todo erfolgreich gelöscht.</b></p>',
+                    icon: 'success',
+                    backdrop: 'rgb(255,255,255)',
+                    timer: 3000,
+                    showConfirmButton: false
+                    })
+                </script>";
+
+        }
+
+        if ($_GET["error"] == "archiveSuccessful") {
+
+            echo "<script>
+                Swal.fire({
+                    title: 'Erfolgreich',
+                    html: '<p><b>Sie haben Ihren Todo erfolgreich archiviert.</b></p>',
+                    icon: 'success',
+                    backdrop: 'rgb(255,255,255)',
+                    timer: 3000,
+                    showConfirmButton: false
+                    })
+                </script>";
+
+        }
+
     }
     ?>
 
 <div class="wrapper">
-    <div class="sidebar" data-color="purple" data-image="../bootstrapAssets/images/login_background_dm.jpg" >
+    <div class="sidebar" data-color="purple" data-image="bootstrapAssets/images/login_background_dm.jpg" >
 
     <!--   you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple" -->
 
@@ -95,7 +125,13 @@ if(isset($_SESSION["username"])){
                 <li class="active">
                     <a href="admin_area/table.php">
                         <i class="fas fa-users"></i>
-                        <p>Benutzer und Kategorien</p>
+                        <p>Todo's</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="todos/addTodo.php">
+                        <i class="fas fa-plus"></i>
+                        <p>Todo hinzufügen</p>
                     </a>
                 </li>
             </ul>
@@ -117,6 +153,25 @@ if(isset($_SESSION["username"])){
                 <div class="collapse navbar-collapse">
 
                     <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a>
+                                <span id="day">00</span>
+                                <span> / </span>
+                                <span id="month">00</span>
+                                <span> / </span>
+                                <span id="year">00</span>
+                                <span>  </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a>
+                                <span id="hours">00</span>
+                                <span> : </span>
+                                <span id="minutes">00</span>
+                                <span> : </span>
+                                <span id="seconds">00</span>
+                            </a>
+                        </li>
                         <li>
                             <a>
                                 <p class="badge badge-primary" style="background-color: green">User: &nbsp <?=$_SESSION["username"]?> </p>
@@ -244,7 +299,7 @@ if(isset($_SESSION["username"])){
 
                                                             if (result.isConfirmed) {
 
-                                                            window.location.replace('archiveTodo.php?todoID=<?= $row["ID"] ?>');
+                                                            window.location.replace('todos/archiveTodo.php?todoID=<?= $row["ID"] ?>');
 
                                                             }
 
@@ -269,7 +324,7 @@ if(isset($_SESSION["username"])){
 
                                                         if (result.isConfirmed) {
 
-                                                        window.location.replace('removeTodo.php?todoID=<?= $row["ID"] ?>');
+                                                        window.location.replace('todos/removeTodo.php?todoID=<?= $row["ID"] ?>');
 
                                                         }
 
@@ -320,6 +375,7 @@ if(isset($_SESSION["username"])){
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
 	<script src="bootstrapAssets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
     <script src="bootstrapAssets/js/dataTableScriptTodos.js"></script>
+
 
 
 </html>

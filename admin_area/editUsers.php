@@ -76,16 +76,16 @@ if(isset($_SESSION["username"])){
                         <p>Kategorien der Benutzer verwalten</p>
                     </a>
                 </li>
-                <li>
-                    <a href="../session/createUser.php">
-                        <i class="fas fa-user-plus"></i>
-                        <p>Benutzer hinzufügen</p>
-                    </a>
-                </li>
                 <li class="active">
                     <a href="#">
                         <i class="fas fa-edit"></i>
                         <p>Benutzer Editieren</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="../session/createUser.php">
+                        <i class="fas fa-user-plus"></i>
+                        <p>Benutzer hinzufügen</p>
                     </a>
                 </li>
             </ul>
@@ -102,11 +102,30 @@ if(isset($_SESSION["username"])){
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Table List</a>
+                    <a class="navbar-brand" href="#">Benutzer Editieren</a>
                 </div>
                 <div class="collapse navbar-collapse">
 
                     <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a>
+                                <span id="day"></span>
+                                <span> / </span>
+                                <span id="month"></span>
+                                <span> / </span>
+                                <span id="year"></span>
+                                <span>  </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a>
+                                <span id="hr">00</span>
+                                <span> : </span>
+                                <span id="min">00</span>
+                                <span> : </span>
+                                <span id="sec">00</span>
+                            </a>
+                        </li>
                         <li>
                             <a>
                                 <p class="badge badge-primary" style="background-color: orangered">Admin: &nbsp <?=$_SESSION["username"]?> </p>
@@ -128,9 +147,10 @@ if(isset($_SESSION["username"])){
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Benutzer</h4>
-                                <p class="category">Hier können Sie Benutzer löschen und denen Kategorien zuweisen.</p>
-                                <p class="category">Durch das klicken auf ID, Benutzername usw. können Sie die Einträge so sortieren.</p>
+                                <h4 class="title">Benutzerliste</h4>
+                                <p class="category">Hier können Sie Benutzernamen und Passwörter der Benutzer editieren.</p>
+                                <p class="category">Sie können bestimmte Benutzer suchen oder durch das Klicken auf die Titel der Spalten die Nutzer so sortieren.</p>
+
                             </div>
                             <div class="content table-responsive table-full-width">
                                 <table id="userTable" class="table table-hover table-striped">
@@ -139,6 +159,7 @@ if(isset($_SESSION["username"])){
                                         <th>ID</th>
                                         <th>Benutzername</th>
                                         <th>Passwort</th>
+                                        <th>Löschen</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -158,14 +179,23 @@ if(isset($_SESSION["username"])){
                                         <tr>
                                             <td><b><?=$row["ID"]?></b></td>
                                             <?php if(isUserAdmin($row['ID']) == false): ?>
-                                            <td><?=$row["userName"]?>  <a href="removeUser.php?userID=<?=$row["ID"]?>"><i class="fas fa-edit"></i></a></td>
+                                            <td><?=$row["userName"]?>  <a href="changeUsername.php?userID=<?=$row["ID"]?>"><i class="fas fa-edit"></i></a></td>
                                             <?php else: ?>
                                             <td><?=$row["userName"]?></td>
                                             <?php endif; ?>
 
                                             <td>
                                                 <?php if(isUserAdmin($row['ID']) == false): ?>
-                                                    <a href="removeUser.php?userID=<?=$row["ID"]?>"><i class="fas fa-edit"></i></a>
+                                                    <a href="changePassword.php?userID=<?=$row["ID"]?>"><i class="fas fa-edit"></i></a>
+                                                <?php elseif(isUserAdmin($row['ID']) == true): ?>
+
+
+                                                <?php endif; ?>
+
+                                            </td>
+                                            <td>
+                                                <?php if(isUserAdmin($row['ID']) == false): ?>
+                                                    <a href="removeUser.php?userID=<?=$row["ID"]?>"><i class="fas fa-trash-alt"></i></a>
                                                 <?php elseif(isUserAdmin($row['ID']) == true): ?>
                                                     <h5><span class="badge badge-warning" style="background-color: orangered"> Admin</span></h5>
 
@@ -216,6 +246,7 @@ if(isset($_SESSION["username"])){
 	<script src="../bootstrapAssets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
     <script src="../bootstrapAssets/js/dataTableScriptUsers.js"></script>
 
+    <script src="../includes/clock.js"></script>
 
 
 </html>

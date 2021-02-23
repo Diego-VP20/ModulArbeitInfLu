@@ -10,18 +10,33 @@ if(isset($_SESSION["username"])){
     if(isUserAdmin($_SESSION["userID"]) != 1){
 
         header("location: ../index.php");
-        exit();
+        exit;
 
     }
 
 }else{
 
     header("location: ../index.php");
-    exit();
+    exit;
 
 }
 
+if(!isset($_GET["userID"])){
+
+    header("location: ../index.php");
+    exit;
+
+}
+
+if(isUserAdmin($_GET['userID']) == 1){
+
+    header("location: ../index.php");
+    exit;
+
+}
+
+
 deleteUser($_GET["userID"]);
-header("location: showUsers.php");
+header("location: ../index.php");
 
 ?>
