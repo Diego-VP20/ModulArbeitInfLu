@@ -110,9 +110,7 @@ if(isset($_SESSION["username"])){
                         <li>
                             <a>
                                 <span id="day"></span>
-                                <span> / </span>
                                 <span id="month"></span>
-                                <span> / </span>
                                 <span id="year"></span>
                                 <span>  </span>
                             </a>

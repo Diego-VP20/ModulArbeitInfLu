@@ -46,7 +46,6 @@ if(isset($_SESSION["username"])){
     <link href="session/assets/css/test.css" rel="stylesheet"/>
 
     <script src="session/assets/js/sweetalert2.all.min.js"></script>
-    <script src="includes/clock.js"></script>
 
 
     <!--     Fonts and icons     -->
@@ -155,21 +154,19 @@ if(isset($_SESSION["username"])){
                     <ul class="nav navbar-nav navbar-right">
                         <li>
                             <a>
-                                <span id="day">00</span>
-                                <span> / </span>
-                                <span id="month">00</span>
-                                <span> / </span>
-                                <span id="year">00</span>
+                                <span id="day"></span>
+                                <span id="month"></span>
+                                <span id="year"></span>
                                 <span>  </span>
                             </a>
                         </li>
                         <li>
                             <a>
-                                <span id="hours">00</span>
+                                <span id="hr"></span>
                                 <span> : </span>
-                                <span id="minutes">00</span>
+                                <span id="min"></span>
                                 <span> : </span>
-                                <span id="seconds">00</span>
+                                <span id="sec"></span>
                             </a>
                         </li>
                         <li>
@@ -375,6 +372,7 @@ if(isset($_SESSION["username"])){
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
 	<script src="bootstrapAssets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
     <script src="bootstrapAssets/js/dataTableScriptTodos.js"></script>
+    <script src="includes/clock.js"></script>
 
 
 
