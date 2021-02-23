@@ -57,7 +57,7 @@ if(!isset($_GET["userID"])){
 
         <form action="../includes/addCategory.php?userID=<?=$_GET['userID']?>" method="post" autocomplete="off">
             <label for="login"></label><input  type="text" disabled="disabled" value="<?=getUserByID($_GET['userID'])['userName']?>" id="login" class="fadeIn second" placeholder="Username">
-            <label for="categoryName"></label><input type="text" id="categoryName" class="fadeIn third" name="categoryName" placeholder="Name of the Category to add">
+            <label for="categoryName"></label><input type="text" class="fadeIn third" name="categoryName" placeholder="Name of the Category to add">
             <input type="submit" name="submit" class="fadeIn fourth mt-4" value="Add Category">
         </form>
 

@@ -5,7 +5,15 @@ session_regenerate_id();
 
 require_once("../includes/utilities.php");
 
-if(isset($_SESSION["username"])){
+
+if(!isset($_GET["userID"], $_POST["categoryName"]) or empty($_POST["categoryName"])){
+
+    header("location: ../index.php");
+    exit;
+
+}
+
+if(isset($_SESSION["userID"])){
 
     if(isUserAdmin($_SESSION["userID"]) != 1){
 
@@ -13,17 +21,12 @@ if(isset($_SESSION["username"])){
         exit;
 
     }
+    if(isUserAdmin($_GET['userID']) == 1) header("location: ../index.php");
+
 
 }else{
 
     header("location: ../index.php");
-    exit;
-
-}
-
-if(!isset($_GET["userID"], $_POST["categoryName"]) or empty($_POST["categoryName"])){
-
-    header("location: showUsers.php");
     exit;
 
 }
@@ -96,12 +99,12 @@ function addToCategory($result){
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
 
-        header("location: ../admin_area/showUsers.php");
+        header("location: ../index.php");
 
     // User already in category
     }elseif(sizeof($result)>0){
 
-        header("location: ../admin_area/showUsers.php");
+        header("location: ../index.php");
 
     }
 

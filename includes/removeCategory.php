@@ -23,12 +23,16 @@ if(isset($_SESSION["username"])){
 
 if(!isset($_GET["userID"], $_POST["categoryName"]) or empty($_POST["categoryName"])){
 
-    header("location: showUsers.php");
+    header("location: ../index.php");
     exit;
 
 }
 
+if(isUserAdmin($_GET['userID']) == 1) header("location: ../index.php");
+
+
 global $conn;
+
 // When user taken out from category then his TODO's shouldn't be visible
 
 $stmt = mysqli_stmt_init($conn);
@@ -45,7 +49,7 @@ mysqli_stmt_bind_param($stmt, "ii", $_GET["userID"], $_POST["categoryName"]);
 mysqli_stmt_execute($stmt);
 mysqli_stmt_close($stmt);
 
-header("location: ../admin_area/showUsers.php");
+header("location: ../index.php");
 exit;
 
 ?>

@@ -58,7 +58,9 @@ if(!isset($_GET["userID"])){
         <form action="../includes/removeCategory.php?userID=<?=$_GET['userID']?>" method="post" autocomplete="off">
             <label for="login"></label><input  type="text" disabled="disabled" value="<?=getUserByID($_GET['userID'])['userName']?>" id="login" class="fadeIn second" placeholder="Username">
             <br><br><label for="categoryName"></label>
-            <select style="width: 375px" id="categoryName" class="form-control m-auto fadeIn third" name="categoryName"><?php foreach (getCategoriesFromUser($_GET['userID']) as $category):?>
+            <select style="width: 375px" id="categoryName" class="form-control m-auto fadeIn third" name="categoryName">
+
+                <?php foreach (getCategoriesFromUser($_GET['userID']) as $category):?>
 
                 <option value="<?=$category[1]?>"><?=$category[0]?></option>
                 <?php endforeach; ?>

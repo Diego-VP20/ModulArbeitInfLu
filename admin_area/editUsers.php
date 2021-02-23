@@ -31,7 +31,7 @@ if(isset($_SESSION["username"])){
 	<link rel="icon" type="image/png" href="../bootstrapAssets/images/login_book_dm.png">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-	<title>Manage User</title>
+	<title>Edit Users</title>
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
 
@@ -70,10 +70,10 @@ if(isset($_SESSION["username"])){
             </div>
 
             <ul class="nav">
-                <li class="active">
+                <li>
                     <a href="table.php">
                         <i class="fas fa-users"></i>
-                        <p>Benutzer und Kategorien</p>
+                        <p>Kategorien der Benutzer verwalten</p>
                     </a>
                 </li>
                 <li>
@@ -82,8 +82,8 @@ if(isset($_SESSION["username"])){
                         <p>Benutzer hinzufügen</p>
                     </a>
                 </li>
-                <li>
-                    <a href="editUsers.php">
+                <li class="active">
+                    <a href="#">
                         <i class="fas fa-edit"></i>
                         <p>Benutzer Editieren</p>
                     </a>
@@ -138,8 +138,7 @@ if(isset($_SESSION["username"])){
                                     <tr>
                                         <th>ID</th>
                                         <th>Benutzername</th>
-                                        <th>Kategorien</th>
-                                        <th>Aktionen</th>
+                                        <th>Passwort</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -158,20 +157,15 @@ if(isset($_SESSION["username"])){
 
                                         <tr>
                                             <td><b><?=$row["ID"]?></b></td>
+                                            <?php if(isUserAdmin($row['ID']) == false): ?>
+                                            <td><?=$row["userName"]?>  <a href="removeUser.php?userID=<?=$row["ID"]?>"><i class="fas fa-edit"></i></a></td>
+                                            <?php else: ?>
                                             <td><?=$row["userName"]?></td>
-                                            <td>
-                                                <?php if(isUserAdmin($row["ID"]) == 0): ?>
-                                                    <a href="addCategory2.php?userID=<?=$row['ID']?>"><i class="fas fa-plus-square mr-2"></i></a>
-                                                    <?php if(sizeof(getCategoriesFromUser($row['ID']))>0): ?>
-                                                        <a href="removeCategory2.php?userID=<?=$row['ID']?>"><i class="fas fa-minus-square"></i></a>
-                                                    <?php endif; ?>
-                                                <?php endif; ?>
-
-                                            </td>
+                                            <?php endif; ?>
 
                                             <td>
                                                 <?php if(isUserAdmin($row['ID']) == false): ?>
-                                                    <a href="removeUser.php?userID=<?=$row["ID"]?>"><i class="fas fa-trash-alt"></i></a>
+                                                    <a href="removeUser.php?userID=<?=$row["ID"]?>"><i class="fas fa-edit"></i></a>
                                                 <?php elseif(isUserAdmin($row['ID']) == true): ?>
                                                     <h5><span class="badge badge-warning" style="background-color: orangered"> Admin</span></h5>
 
@@ -211,6 +205,7 @@ if(isset($_SESSION["username"])){
     <script src="../bootstrapAssets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
 	<script src="../bootstrapAssets/js/bootstrap.min.js" type="text/javascript"></script>
     <!-- MDBootstrap Datatables  -->
+    <script type="text/javascript" src="js/addons/datatables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
 
