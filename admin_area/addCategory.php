@@ -13,15 +13,15 @@ if(!isset($_SESSION['userID'])){
 
 if(!isset($_GET['userID'])){
 
-    header("location: ../index.php");
+    header('location: ../index.php');
     exit;
 
 }
 
-if(isset($_SESSION["userID"])){
+if(isset($_SESSION['userID'])){
     if(isUserAdmin($_SESSION['userID']) != 1) {
 
-        header("location: ../index.php");
+        header('location: ../index.php');
         exit;
     }
 }else{
@@ -31,7 +31,7 @@ if(isset($_SESSION["userID"])){
 
 }
 
-if(isUserAdmin($_GET['userID']) == 1) header("location: ../index.php");
+if(isUserAdmin($_GET['userID']) == 1) header('location: ../index.php');
 
 
 ?>
@@ -41,10 +41,13 @@ if(isUserAdmin($_GET['userID']) == 1) header("location: ../index.php");
 <html lang="en">
 <head>
 	<title>Kategorie Hinzufügen</title>
+
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<link rel="icon" type="image/png" href="../assets/images/login_book_dm.png"/>
+    <script src="../assets/js/sweetalert2.all.min.js"></script>
+
+    <link rel="icon" type="image/png" href="../assets/images/login_book_dm.png"/>
 	<link rel="stylesheet" type="text/css" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="../assets/fonts/iconic/css/material-design-iconic-font.min.css">
@@ -52,9 +55,6 @@ if(isUserAdmin($_GET['userID']) == 1) header("location: ../index.php");
     <link rel="stylesheet" type="text/css" href="../assets/css/util.css">
 	<link rel="stylesheet" type="text/css" href="../assets/css/main.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/categoryPages.css">
-
-
-    <script src="../assets/js/sweetalert2.all.min.js"></script>
 
 </head>
 <body>
@@ -75,6 +75,7 @@ if(isUserAdmin($_GET['userID']) == 1) header("location: ../index.php");
 						<input class="input100" disabled="disabled" type="text" value="<?=getUserByID($_GET['userID'])['userName']?>" name="user" placeholder="Username">
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>
 					</div>
+
 					<div class="wrap-input100 validate-input" style="outline: none" data-validate="Select Category">
                         <input class="input100" type="text" name="categoryName" placeholder="Name of the Category to add">
                         <span class="focus-input100" data-placeholder="&#xf116;"></span>

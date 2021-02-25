@@ -13,16 +13,17 @@ if(!isset($_SESSION['userID'])){
 
 if(!isset($_GET['userID'])){
 
-    header("location: ../index.php");
+    header('location: ../index.php');
     exit;
 
 }
 
-if(isset($_SESSION["userID"])){
+if(isset($_SESSION['userID'])){
     if(isUserAdmin($_SESSION['userID']) != 1) {
 
-        header("location: ../index.php");
+        header('location: ../index.php');
         exit;
+
     }
 }else{
 
@@ -31,7 +32,7 @@ if(isset($_SESSION["userID"])){
 
 }
 
-if(isUserAdmin($_GET['userID']) == 1) header("location: ../index.php");
+if(isUserAdmin($_GET['userID']) == 1) header('location: ../index.php');
 
 
 ?>
@@ -40,9 +41,13 @@ if(isUserAdmin($_GET['userID']) == 1) header("location: ../index.php");
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <title>Benutzername ändern</title>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="../assets/js/sweetalert2.all.min.js"></script>
 
     <link rel="icon" type="image/png" href="../assets/images/login_book_dm.png"/>
     <link rel="stylesheet" type="text/css" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
@@ -53,9 +58,6 @@ if(isUserAdmin($_GET['userID']) == 1) header("location: ../index.php");
     <link rel="stylesheet" type="text/css" href="../assets/css/main.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/categoryPages.css">
 
-
-    <script src="../assets/js/sweetalert2.all.min.js"></script>
-
 </head>
 <body>
 
@@ -63,7 +65,7 @@ if(isUserAdmin($_GET['userID']) == 1) header("location: ../index.php");
 
 if(isset($_GET['error'])){
 
-    if ($_GET["error"] == "usernameTaken") {
+    if ($_GET['error'] == 'usernameTaken') {
 
         echo"<script>
                 Swal.fire({
@@ -77,7 +79,7 @@ if(isset($_GET['error'])){
 
     }
 
-    if ($_GET["error"] == "invalidUsername") {
+    if ($_GET['error'] == 'invalidUsername') {
 
         echo"<script>
                 Swal.fire({

@@ -71,12 +71,12 @@ if(!empty(isOwnerOfTodo($_GET['todoID'], $_SESSION['userID']))){
 
         $stmt = mysqli_stmt_init($conn);
 
-        mysqli_stmt_prepare($stmt, "UPDATE todo SET fromUser=?,categoryID=?,expiryDate=?,creationDate=?,title=?,text=?,priority=? WHERE ID=?");
+        mysqli_stmt_prepare($stmt, 'UPDATE todo SET fromUser=?,categoryID=?,expiryDate=?,creationDate=?,title=?,text=?,priority=? WHERE ID=?');
 
-        mysqli_stmt_bind_param($stmt, "iissssii", $userID, $category, $expiryDate, $creationDate, $title, $content, $priority, $todoID);
+        mysqli_stmt_bind_param($stmt, 'iissssii', $userID, $category, $expiryDate, $creationDate, $title, $content, $priority, $todoID);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
-        header("location: ../index.php?error=editSuccess");
+        header('location: ../index.php?error=editSuccess');
         exit;
     }
 }else{

@@ -52,11 +52,11 @@ if(!in_array($category, $allowedCategoriesID)){
 
     $stmt = mysqli_stmt_init($conn);
 
-    mysqli_stmt_prepare($stmt, "insert into todo(fromUser,categoryID,expiryDate,title,text,priority) values(?,?,?,?,?,?)");
+    mysqli_stmt_prepare($stmt, 'insert into todo(fromUser,categoryID,expiryDate,title,text,priority) values(?,?,?,?,?,?)');
 
-    mysqli_stmt_bind_param($stmt, "iisssi", $userID, $category, $expiryDate, $title, $content, $priority);
+    mysqli_stmt_bind_param($stmt, 'iisssi', $userID, $category, $expiryDate, $title, $content, $priority);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    header("location: ../index.php?error=success");
+    header('location: ../index.php?error=success');
     exit;
 }

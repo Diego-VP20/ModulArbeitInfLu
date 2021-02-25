@@ -12,16 +12,19 @@ if(isset($_GET['todoID'])){
     if(!empty(isOwnerOfTodo($todoID, $_SESSION['userID']))){
 
         archiveTodo($todoID);
-        header("location: ../index.php?error=archiveSuccessful");
+        header('location: ../index.php?error=archiveSuccessful');
+        exit;
 
     }else{
 
-        header("location: ../index.php?error=noPermission");
-
+        header('location: ../index.php?error=noPermission');
+        exit;
+        
     }
 
 }else{
 
-    header("location: ../index.php");
-
+    header('location: ../index.php');
+    exit;
+    
 }

@@ -13,15 +13,15 @@ if(!isset($_SESSION['userID'])){
 
 if(!isset($_GET['userID'])){
 
-    header("location: ../index.php");
+    header('location: ../index.php');
     exit;
 
 }
 
-if(isset($_SESSION["userID"])){
+if(isset($_SESSION['userID'])){
     if(isUserAdmin($_SESSION['userID']) != 1) {
 
-        header("location: ../index.php");
+        header('location: ../index.php');
         exit;
     }
 }else{
@@ -31,7 +31,7 @@ if(isset($_SESSION["userID"])){
 
 }
 
-if(isUserAdmin($_GET['userID']) == 1) header("location: ../index.php");
+if(isUserAdmin($_GET['userID']) == 1) header('location: ../index.php');
 
 
 ?>
@@ -40,9 +40,13 @@ if(isUserAdmin($_GET['userID']) == 1) header("location: ../index.php");
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 	<title>Kategorie Entfernen</title>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="../assets/js/sweetalert2.all.min.js"></script>
 
     <link rel="icon" type="image/png" href="../assets/images/login_book_dm.png"/>
     <link rel="stylesheet" type="text/css" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
@@ -53,16 +57,13 @@ if(isUserAdmin($_GET['userID']) == 1) header("location: ../index.php");
     <link rel="stylesheet" type="text/css" href="../assets/css/main.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/categoryPages.css">
 
-
-    <script src="../assets/js/sweetalert2.all.min.js"></script>
-
 </head>
 <body>
 
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('../assets/images/bg-01.jpg');">
 			<div class="wrap-login100">
-				<form action="../includes/removeCategory.php?userID=<?=$_GET['userID']?>" method="post" class="login100-form validate-form" autocomplete="off">
+				<form action="../includes/removeCategory.php?userID=<?= $_GET['userID'] ?>" method="post" class="login100-form validate-form" autocomplete="off">
 					<span class="login100-form-logo">
 						<img src="../assets/images/login_book_lm.png" alt="" width="100"/>
 					</span>
@@ -72,7 +73,7 @@ if(isUserAdmin($_GET['userID']) == 1) header("location: ../index.php");
 					</span>
 
 					<div class="wrap-input100">
-						<input class="input100" disabled="disabled" type="text" value="<?=getUserByID($_GET['userID'])['userName']?>" name="user" placeholder="Username">
+						<input class="input100" disabled="disabled" type="text" value="<?= getUserByID($_GET['userID'])['userName'] ?>" name="user" placeholder="Username">
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>
 					</div>
 					<div id="selectContainer" class="wrap-input100 validate-input" style="outline: none" data-validate="Select Category">

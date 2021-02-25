@@ -3,10 +3,10 @@
 session_start();
 session_regenerate_id();
 
-if(isset($_SESSION["userID"])){
+if(isset($_SESSION['userID'])){
 
-    header("location: ../index.php");
-    exit();
+    header('location: ../index.php');
+    exit;
 
 }
 
@@ -16,9 +16,12 @@ if(isset($_SESSION["userID"])){
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 	<title>Login</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="../assets/js/sweetalert2.all.min.js"></script>
 
     <link rel="icon" type="image/png" href="../assets/images/login_book_dm.png"/>
     <link rel="stylesheet" type="text/css" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
@@ -28,8 +31,6 @@ if(isset($_SESSION["userID"])){
     <link rel="stylesheet" type="text/css" href="../assets/css/util.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/main.css">
 
-    <script src="../assets/js/sweetalert2.all.min.js"></script>
-
 </head>
 <body>
 
@@ -37,10 +38,10 @@ if(isset($_SESSION["userID"])){
 
     /* Error handler */
 
-    if (isset($_GET["error"])) {
+    if (isset($_GET['error'])) {
 
 
-        if ($_GET["error"] == "emptyInput") {
+        if ($_GET['error'] == 'emptyInput') {
 
             echo"<script>
                 Swal.fire({
@@ -57,7 +58,7 @@ if(isset($_SESSION["userID"])){
 
         }
 
-        if ($_GET["error"] == "logout") {
+        if ($_GET['error'] == 'logout') {
 
             echo"<script>
                 Swal.fire({
@@ -74,7 +75,7 @@ if(isset($_SESSION["userID"])){
 
         }
 
-        if ($_GET["error"] == "wrongPass" || $_GET["error"] == "userNotExists") {
+        if ($_GET['error'] == 'wrongPass' || $_GET['error'] == 'userNotExists') {
 
             echo"<script>
                 Swal.fire({
@@ -91,7 +92,7 @@ if(isset($_SESSION["userID"])){
 
         }
 
-        if ($_GET["error"] == "notLogged") {
+        if ($_GET['error'] == 'notLogged') {
 
             echo"<script>
                 Swal.fire({

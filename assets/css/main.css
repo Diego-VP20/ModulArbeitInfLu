@@ -6,22 +6,22 @@
 [ FONT ]*/
 
 @font-face {
-  font-family: Poppins-Regular;
+  font-family: "Lucida Sans Unicode", sans-serif;
   src: url('../fonts/poppins/Poppins-Regular.ttf'); 
 }
 
 @font-face {
-  font-family: Poppins-Medium;
+  font-family: "Lucida Sans Unicode", sans-serif;
   src: url('../fonts/poppins/Poppins-Medium.ttf'); 
 }
 
 @font-face {
-  font-family: Poppins-Bold;
+  font-family: "Lucida Sans Unicode", sans-serif;
   src: url('../fonts/poppins/Poppins-Bold.ttf'); 
 }
 
 @font-face {
-  font-family: Poppins-SemiBold;
+  font-family: "Lucida Sans Unicode", sans-serif;
   src: url('../fonts/poppins/Poppins-SemiBold.ttf'); 
 }
 
@@ -39,12 +39,12 @@
 
 body, html {
 	height: 100%;
-	font-family: Poppins-Regular, sans-serif;
+  font-family: "Lucida Sans Unicode", sans-serif;
 }
 
 /*---------------------------------------------*/
 a {
-	font-family: Poppins-Regular;
+	font-family: "Lucida Sans Unicode", sans-serif;;
 	font-size: 14px;
 	line-height: 1.7;
 	color: #666666;
@@ -70,7 +70,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 p {
-	font-family: Poppins-Regular;
+	font-family: "Lucida Sans Unicode", sans-serif;;
 	font-size: 14px;
 	line-height: 1.7;
 	color: #666666;
@@ -142,7 +142,7 @@ iframe {
 /*//////////////////////////////////////////////////////////////////
 [ Utility ]*/
 .txt1 {
-  font-family: Poppins-Regular;
+  font-family: "Lucida Sans Unicode", sans-serif;;
   font-size: 13px;
   color: #e5e5e5;
   line-height: 1.5;
@@ -226,8 +226,7 @@ iframe {
 }
 
 .login100-form-title {
-  font-family: Poppins-Medium;
-  font-size: 30px;
+  font-family: "Lucida Sans Unicode", sans-serif;  font-size: 30px;
   color: #fff;
   line-height: 1.2;
   text-align: center;
@@ -248,7 +247,7 @@ iframe {
 }
 
 .input100 {
-  font-family: Poppins-Regular;
+  font-family: "Lucida Sans Unicode", sans-serif;;
   font-size: 16px;
   color: #fff;
   line-height: 1.2;
@@ -348,7 +347,7 @@ iframe {
 }
 
 .label-checkbox100 {
-  font-family: Poppins-Regular;
+  font-family: "Lucida Sans Unicode", sans-serif;;
   font-size: 13px;
   color: #fff;
   line-height: 1.2;
@@ -405,8 +404,7 @@ iframe {
 }
 
 .login100-form-btn {
-  font-family: Poppins-Medium;
-  font-size: 16px;
+  font-family: "Lucida Sans Unicode", sans-serif;  font-size: 16px;
   color: #555555;
   line-height: 1.2;
 
@@ -495,7 +493,7 @@ iframe {
   right: 0px;
   pointer-events: none;
 
-  font-family: Poppins-Regular;
+  font-family: "Lucida Sans Unicode", sans-serif;;
   color: #c80000;
   font-size: 13px;
   line-height: 1.4;

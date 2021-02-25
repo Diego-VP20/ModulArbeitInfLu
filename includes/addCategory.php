@@ -3,42 +3,42 @@
 session_start();
 session_regenerate_id();
 
-require_once("../includes/utilities.php");
+require_once('../includes/utilities.php');
 
 
-if(!isset($_GET["userID"], $_POST["categoryName"]) or empty($_POST["categoryName"])){
+if(!isset($_GET['userID'], $_POST['categoryName']) or empty($_POST['categoryName'])){
 
-    header("location: ../index.php");
+    header('location: ../index.php');
     exit;
 
 }
 
-if(isset($_SESSION["userID"])){
+if(isset($_SESSION['userID'])){
 
-    if(isUserAdmin($_SESSION["userID"]) != 1){
+    if(isUserAdmin($_SESSION['userID']) != 1){
 
-        header("location: ../index.php");
+        header('location: ../index.php');
         exit;
 
     }
-    if(isUserAdmin($_GET['userID']) == 1) header("location: ../index.php");
+    if(isUserAdmin($_GET['userID']) == 1) header('location: ../index.php');
 
 
 }else{
 
-    header("location: ../index.php");
+    header('location: ../index.php');
     exit;
 
 }
 
-$nameOfCategoryToAdd = trim($_POST["categoryName"]);
+$nameOfCategoryToAdd = trim($_POST['categoryName']);
 
 global $conn;
 
 $stmt = mysqli_stmt_init($conn);
 
 mysqli_stmt_prepare($stmt, 'SELECT ID, name FROM category where name=?');
-mysqli_stmt_bind_param($stmt, "s",$nameOfCategoryToAdd);
+mysqli_stmt_bind_param($stmt, 's',$nameOfCategoryToAdd);
 mysqli_stmt_execute($stmt);
 
 $result = mysqli_stmt_get_result($stmt);
@@ -52,14 +52,14 @@ if(sizeof($result) < 1) {
     $stmt = mysqli_stmt_init($conn);
 
     mysqli_stmt_prepare($stmt, 'INSERT INTO category(name) VALUES(?)');
-    mysqli_stmt_bind_param($stmt, "s",$nameOfCategoryToAdd);
+    mysqli_stmt_bind_param($stmt, 's',$nameOfCategoryToAdd);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 
     $stmt = mysqli_stmt_init($conn);
 
     mysqli_stmt_prepare($stmt, 'SELECT ID, name FROM category where name=?');
-    mysqli_stmt_bind_param($stmt, "s",$nameOfCategoryToAdd);
+    mysqli_stmt_bind_param($stmt, 's',$nameOfCategoryToAdd);
     mysqli_stmt_execute($stmt);
 
     $result = mysqli_stmt_get_result($stmt);
@@ -81,7 +81,7 @@ function addToCategory($result){
 
     $categoryID = $result[0][0];
     mysqli_stmt_prepare($stmt, 'SELECT UserID, CategoryID FROM users_category where UserID=? and CategoryID=?');
-    mysqli_stmt_bind_param($stmt, "ii",$_GET["userID"],$categoryID);
+    mysqli_stmt_bind_param($stmt, 'ii',$_GET['userID'],$categoryID);
     mysqli_stmt_execute($stmt);
 
     $result = mysqli_stmt_get_result($stmt);
@@ -95,19 +95,17 @@ function addToCategory($result){
         $stmt = mysqli_stmt_init($conn);
 
         mysqli_stmt_prepare($stmt, 'INSERT INTO users_category VALUES(?,?)');
-        mysqli_stmt_bind_param($stmt, "ii",$_GET["userID"],$categoryID);
+        mysqli_stmt_bind_param($stmt, 'ii',$_GET['userID'],$categoryID);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
 
-        header("location: ../index.php");
+        header('location: ../index.php');
 
     // User already in category
     }elseif(sizeof($result)>0){
 
-        header("location: ../index.php");
+        header('location: ../index.php');
 
     }
 
 }
-
-?>

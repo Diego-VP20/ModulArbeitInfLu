@@ -1,15 +1,16 @@
 // Dieser Code wurde mit Hilfe von Matt Field gemacht. Ich hatte ein anderer Code zuerst, dass er dann so wie hier zu sehen ist
 // editiert hat. Ich gebe Matt Field alle Credits.
-let animate;
+
+let animate,d;
 
 const timeObj = {},// timeObj object populated inside our `init()` function
-    clockEls = { // put all the DOM elements for the clock in an object with the keys refering to the relevant value in our timeObj object
-        s: document.querySelector("#sec"),
-        m: document.querySelector("#min"),
-        h: document.querySelector("#hr"),
-        day: document.querySelector("#day"),
-        month: document.querySelector("#month"),
-        year: document.querySelector("#year")
+    clockEls = { // put all the DOM elements for the clock in an object with the keys referring to the relevant value in our timeObj object
+        s: document.querySelector('#sec'),
+        m: document.querySelector('#min'),
+        h: document.querySelector('#hr'),
+        day: document.querySelector('#day'),
+        month: document.querySelector('#month'),
+        year: document.querySelector('#year')
     },
     init = () => {
 
@@ -23,11 +24,11 @@ const timeObj = {},// timeObj object populated inside our `init()` function
         timeObj.month = d.toLocaleString('DE', { month: 'long' });
         timeObj.year = d.getFullYear()
 
-        clock(); // call clock immediatly
-        animate = setInterval(clock, 1000); // set clock to run one every second (1000ms afetrwards)
+        clock(); // call clock immediately
+        animate = setInterval(clock, 1000); // set clock to run one every second (1000ms afterwards)
     },
-    changeValue = (el, val) => { // function to change the value - padStart is a string prototype function which adds a specified character to make the string a certain length (e.g. adding), so we convert our number to a string and add a leading "0" if required to make it two characters long
-        el.textContent = String(val).padStart(2, "0")
+    changeValue = (el, val) => { // function to change the value - padStart is a string prototype function which adds a specified character to make the string a certain length (e.g. adding), so we convert our number to a string and add a leading '0' if required to make it two characters long
+        el.textContent = String(val).padStart(2, '0')
     },
     clock = () => {
 
@@ -52,5 +53,5 @@ const timeObj = {},// timeObj object populated inside our `init()` function
         for (const [unit, el] of Object.entries(clockEls)) changeValue(el, timeObj[unit])
     }
 
-// Inital call of the function.  window.onload() is outdated - as long as you use "type=module" on your <script> tag in your HTML
+// Initial call of the function.  window.onload() is outdated - as long as you use 'type=module' on your <script> tag in your HTML
 init();

@@ -3,22 +3,22 @@
 session_start();
 session_regenerate_id();
 
-include_once("includes/utilities.php");
+include_once('includes/utilities.php');
 
-if(isset($_SESSION["username"])){
+if(isset($_SESSION['username'])){
 
     // User is admin.
-    if(isUserAdmin($_SESSION["userID"]) != 0){
+    if(isUserAdmin($_SESSION['userID']) != 0){
 
-        header("location: admin_area/adminPage.php");
-        exit();
+        header('location: admin_area/adminPage.php');
+        exit;
 
     }
 
 }else{
 
-    header("location: session/login.php");
-    exit();
+    header('location: session/login.php?error=notLogged');
+    exit;
 
 }
 
@@ -28,22 +28,21 @@ if(isset($_SESSION["username"])){
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="utf-8" />
-	<link rel="icon" type="image/png" href="assets/images/login_book_dm.png">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-	<title>Todo's</title>
+    <title>Todo's</title>
+    
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
 
     <script src="https://kit.fontawesome.com/0914a3a2ee.js" crossorigin="anonymous"></script>
+    <script src="assets/js/sweetalert2.all.min.js"></script>
 
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-
+    <link rel="icon" type="image/png" href="assets/images/login_book_dm.png">
     <link href="assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>
     <link href="assets/css/tableSearchbar.css" rel="stylesheet"/>
-
-    <script src="assets/js/sweetalert2.all.min.js"></script>
 
 </head>
 <body>
@@ -52,9 +51,9 @@ if(isset($_SESSION["username"])){
 
     /* Error handler */
 
-    if (isset($_GET["error"])) {
+    if (isset($_GET['error'])) {
 
-        if ($_GET["error"] == "noPermission") {
+        if ($_GET['error'] == 'noPermission') {
 
             echo "<script>
                 Swal.fire({
@@ -69,7 +68,7 @@ if(isset($_SESSION["username"])){
 
         }
 
-        if ($_GET["error"] == "removalSuccessful") {
+        if ($_GET['error'] == 'removalSuccessful') {
 
             echo "<script>
                 Swal.fire({
@@ -84,7 +83,7 @@ if(isset($_SESSION["username"])){
 
         }
 
-        if ($_GET["error"] == "archiveSuccessful") {
+        if ($_GET['error'] == 'archiveSuccessful') {
 
             echo "<script>
                 Swal.fire({
@@ -99,7 +98,7 @@ if(isset($_SESSION["username"])){
 
         }
 
-        if ($_GET["error"] == "editSuccess") {
+        if ($_GET['error'] == 'editSuccess') {
 
             echo "<script>
                 Swal.fire({
@@ -114,7 +113,7 @@ if(isset($_SESSION["username"])){
 
         }
 
-        if ($_GET["error"] == "success") {
+        if ($_GET['error'] == 'success') {
 
             echo "<script>
                 Swal.fire({
@@ -129,7 +128,7 @@ if(isset($_SESSION["username"])){
 
         }
 
-        if ($_GET["error"] == "unArchiveSuccessful") {
+        if ($_GET['error'] == 'unArchiveSuccessful') {
 
             echo "<script>
                 Swal.fire({
@@ -151,8 +150,7 @@ if(isset($_SESSION["username"])){
     <div class="sidebar" data-color="purple" data-image="assets/images/sideBarBG.jpg" >
 
     <!--   you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple" -->
-
-
+        
     	<div class="sidebar-wrapper">
             <div class="logo">
                 <a href="#" class="simple-text">
@@ -233,160 +231,156 @@ if(isset($_SESSION["username"])){
 
         <div class="content">
             <div class="container-fluid">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="header">
-                                <h4 class="title">Todo's</h4>
-                                <p class="category">Hier können Sie alle Todo's sehen, die zur Ihnen hinzugefügten Kategorien gehören.</p>
-                                <p class="category">Sie können den Titel oder Inhalt Ihres Todo's suchen und Sie werden es finden.</p>
-                                <p class="category">Sie werden den Text nicht sehen, macht alles etwas schöner :)</p>
-                            </div>
-                            <div class="content table-responsive table-full-width">
-                                <table id="userTable" class="table table-hover table-striped">
-                                    <thead>
-                                    <tr>
-                                        <th>Von</th>
-                                        <th>Status</th>
-                                        <th>Text</th>
-                                        <th>Titel</th>
-                                        <th>Priorität</th>
-                                        <th>Erstellt am</th>
-                                        <th>Aktionen</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title">Todo's</h4>
+                            <p class="category">Hier können Sie alle Todo's sehen, die zur Ihnen hinzugefügten Kategorien gehören.</p>
+                            <p class="category">Sie können den Titel oder Inhalt Ihres Todo's suchen und Sie werden es finden.</p>
+                            <p class="category">Sie werden den Text nicht sehen, macht alles etwas schöner :)</p>
+                        </div>
+                        <div class="content table-responsive table-full-width">
+                            <table id="userTable" class="table table-hover table-striped">
+                                <thead>
+                                <tr>
+                                    <th>Von</th>
+                                    <th>Status</th>
+                                    <th>Text</th>
+                                    <th>Titel</th>
+                                    <th>Priorität</th>
+                                    <th>Erstellt am</th>
+                                    <th>Aktionen</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                <?php
+
+                                if (isset($_GET['pageNr'])) {
+                                    $pageNr = $_GET['pageNr'];
+                                } else {
+                                    $pageNr = 1;
+                                }
+
+                                $result = getTodosToDisplay($_SESSION['userID']);
+
+
+                                while($row = mysqli_fetch_array($result)):?>
 
                                     <?php
 
-                                    if (isset($_GET['pageNr'])) {
-                                        $pageNr = $_GET['pageNr'];
-                                    } else {
-                                        $pageNr = 1;
-                                    }
+                                    $creationDate = new DateTime($row['creationDate']);
+                                    $fromUser = getUserByID($row['fromUser'])['userName'];
+                                    $daysUntilExpiration = daysTillExpiry($row['expiryDate']);
+                                    $priority = $row['priority'];
 
-                                    $result = getTodosToDisplay($_SESSION['userID']);
+                                    ?>
 
-
-                                    while($row = mysqli_fetch_array($result)):?>
-
-                                        <?php
-
-                                        $creationDate = new DateTime($row["creationDate"]);
-                                        $fromUser = getUserByID($row['fromUser'])['userName'];
-                                        $daysUntilExpiration = daysTillExpiry($row['expiryDate']);
-                                        $priority = $row['priority'];
-
-                                        ?>
-
-                                        <tr>
-                                            <td id="dontOverExtend"><?=$fromUser?></td>
-                                            <td>
-                                                <?php if(strpos($daysUntilExpiration, "-") !== false): ?>
-                                                <p style="color: red">
-                                                    <?php if($daysUntilExpiration==-1):?>
-                                                    <?= 'Seit ' . str_replace("-", "", $daysUntilExpiration) . ' Tag fällig.'?>
-                                                    <?php elseif($daysUntilExpiration<-1):?>
-                                                    <?= 'Seit ' . str_replace("-", "", $daysUntilExpiration) . ' Tagen fällig.'?>
-                                                </p>
-                                                <?php endif; ?>
-
-                                                <?php elseif(strpos($daysUntilExpiration, "-") === false): ?>
-                                                <?php if($daysUntilExpiration==1): ?>
-                                                    <p style="color: green"><?='Noch ' . $daysUntilExpiration . ' Tag übrig.'?></p>
-                                                <?php elseif($daysUntilExpiration==0): ?>
-                                                    <p style="color: green">Heute fällig</p>
-                                                <?php elseif($daysUntilExpiration>0): ?>
-                                                    <p style="color: green"><?='Noch ' . $daysUntilExpiration . ' Tagen übrig.'?></p>
-
-                                                <?php endif;?>
-                                                <?php endif;?>
-
-                                            </td>
-
-                                            <td><?=$row['text']?></td>
-                                            <td id="dontOverExtend"><?=$row['title']?></td>
-
-                                            <?php if($priority == 1): ?>
-                                                <td><p class="badge badge-primary" style="background-color: green;"><?='Unwichtig ('. $priority . ')'?></p></td>
-                                            <?php elseif($priority == 2): ?>
-                                            <td><p class="badge badge-primary" style="background-color: lightgreen; color: black"><?='Nicht sehr Wichtig ('. $priority . ')'?></p></td>
-                                            <?php elseif($priority == 3): ?>
-                                                <td><p class="badge badge-primary" style="background-color: yellow; color: black"><?='Etwas wichtig ('. $priority . ')'?></p></td>
-                                            <?php elseif($priority == 4): ?>
-                                                <td><p class="badge badge-primary" style="background-color: orange; color: black"><?='Wichtig ('. $priority . ')'?></p></td>
-                                            <?php elseif($priority == 5): ?>
-                                                <td><p class="badge badge-primary" style="background-color: red; color: white"><?='Sehr wichtig ('. $priority . ')'?></p></td>
-                                            <?php else: ?>
-                                            <td><p><?=$priority?></p></td>
+                                    <tr>
+                                        <td id="dontOverExtend"><?= $fromUser ?></td>
+                                        <td>
+                                            <?php if(strpos($daysUntilExpiration, '-') !== false): ?>
+                                            <p style="color: red">
+                                                <?php if($daysUntilExpiration==-1): ?>
+                                                <?= 'Seit ' . str_replace('-', '', $daysUntilExpiration) . ' Tag fällig.' ?>
+                                                <?php elseif($daysUntilExpiration<-1): ?>
+                                                <?= 'Seit ' . str_replace('-', '', $daysUntilExpiration) . ' Tagen fällig.' ?>
+                                            </p>
                                             <?php endif; ?>
-                                            <td><?= $creationDate->format('d/m/y') ?></td>
 
-                                            <td>
-                                                    <?php if($_SESSION['userID'] == $row['fromUser']): ?>
-                                                    <a href="todos/editTodo.php?todoID=<?=$row["ID"]?>"><i class="fas fa-edit mr-2" style="color: #7250b4"></i></a>
-                                                    <a onclick="
+                                            <?php elseif(strpos($daysUntilExpiration, '-') === false): ?>
+                                            <?php if($daysUntilExpiration==1): ?>
+                                                <p style="color: green"><?= 'Noch ' . $daysUntilExpiration . ' Tag übrig.' ?></p>
+                                            <?php elseif($daysUntilExpiration==0): ?>
+                                                <p style="color: green">Heute fällig</p>
+                                            <?php elseif($daysUntilExpiration>0): ?>
+                                                <p style="color: green"><?= 'Noch ' . $daysUntilExpiration . ' Tagen übrig.' ?></p>
 
-                                                        Swal.fire({
-                                                            title: 'Sind Sie sicher?',
-                                                            icon: 'warning',
-                                                            backdrop: 'rgb(255,255,255)',
-                                                            target: 'body',
-                                                            html: '<b>Nachdem Sie ihr Todo archiviert haben, können Sie ihn nicht mehr hier sehen.</b>',
-                                                            showCancelButton: true,
-                                                            focusConfirm: false,
-                                                            confirmButtonText: 'Archivieren',
-                                                            cancelButtonText: 'Nicht archivieren',
-                                                            confirmButtonColor: '#007938',
-                                                            cancelButtonColor: '#ff0059'
-                                                        }).then((result) => {
+                                            <?php endif;?>
+                                            <?php endif;?>
 
-                                                            if (result.isConfirmed) {
+                                        </td>
 
-                                                            window.location.replace('todos/archiveTodo.php?todoID=<?= $row["ID"] ?>');
+                                        <td><?= $row['text'] ?></td>
+                                        <td id="dontOverExtend"><?= $row['title'] ?></td>
 
-                                                            }
+                                        <?php if($priority == 1): ?>
+                                            <td><p class="badge badge-primary" style="background-color: green;">Unwichtig (<?= $priority ?>)</p></td>
+                                        <?php elseif($priority == 2): ?>
+                                        <td><p class="badge badge-primary" style="background-color: lightgreen; color: black">Nicht sehr Wichtig (<?= $priority ?>)</p></td>
+                                        <?php elseif($priority == 3): ?>
+                                            <td><p class="badge badge-primary" style="background-color: yellow; color: black">Etwas wichtig (<?= $priority ?>)</p></td>
+                                        <?php elseif($priority == 4): ?>
+                                            <td><p class="badge badge-primary" style="background-color: orange; color: black">Wichtig (<?= $priority ?>)</p></td>
+                                        <?php elseif($priority == 5): ?>
+                                            <td><p class="badge badge-primary" style="background-color: red; color: white">Sehr wichtig (<?= $priority ?>)</p></td>
+                                        <?php else: ?>
+                                        <td><p><?= $priority ?></p></td>
+                                        <?php endif; ?>
+                                        <td><?= $creationDate->format('d/m/y') ?></td>
 
-                                                        });
+                                        <td>
+                                                <?php if($_SESSION['userID'] == $row['fromUser']): ?>
+                                                <a href="todos/editTodo.php?todoID=<?= $row['ID'] ?>"><i class="fas fa-edit mr-2" style="color: #7250b4"></i></a>
+                                                <a onclick="
 
-                                                    "><i class="fas fa-archive mr-2" style="color: #7250b4"></i></a>
-                                                    <a onclick="
-
-                                                        Swal.fire({
+                                                    Swal.fire({
                                                         title: 'Sind Sie sicher?',
                                                         icon: 'warning',
                                                         backdrop: 'rgb(255,255,255)',
                                                         target: 'body',
-                                                        html: '<b>Nachdem Sie ihr Todo gelöscht haben können Sie ihn nicht mehr sehen.</b>',
+                                                        html: '<b>Nachdem Sie ihr Todo archiviert haben, können Sie ihn nicht mehr hier sehen.</b>',
                                                         showCancelButton: true,
                                                         focusConfirm: false,
-                                                        confirmButtonText: 'Löschen',
-                                                        cancelButtonText: 'Nicht löschen',
+                                                        confirmButtonText: 'Archivieren',
+                                                        cancelButtonText: 'Nicht archivieren',
                                                         confirmButtonColor: '#007938',
                                                         cancelButtonColor: '#ff0059'
-                                                        }).then((result) => {
+                                                    }).then((result) => {
 
                                                         if (result.isConfirmed) {
 
-                                                        window.location.replace('todos/removeTodo.php?todoID=<?= $row["ID"] ?>');
+                                                        window.location.replace('todos/archiveTodo.php?todoID=<?= $row['ID'] ?>');
 
                                                         }
 
-                                                        });
+                                                    });
 
-                                                    "><i class="fas fa-trash-alt" style="color: #7250b4"></i></a>
-                                                    <?php endif; ?>
-                                            </td>
+                                                "><i class="fas fa-archive mr-2" style="color: #7250b4"></i></a>
+                                                <a onclick="
 
-                                        </tr>
-                                    <?php endwhile;?>
-                                    </tbody>
-                                </table>
-                            </div>
+                                                    Swal.fire({
+                                                    title: 'Sind Sie sicher?',
+                                                    icon: 'warning',
+                                                    backdrop: 'rgb(255,255,255)',
+                                                    target: 'body',
+                                                    html: '<b>Nachdem Sie ihr Todo gelöscht haben können Sie ihn nicht mehr sehen.</b>',
+                                                    showCancelButton: true,
+                                                    focusConfirm: false,
+                                                    confirmButtonText: 'Löschen',
+                                                    cancelButtonText: 'Nicht löschen',
+                                                    confirmButtonColor: '#007938',
+                                                    cancelButtonColor: '#ff0059'
+                                                    }).then((result) => {
+
+                                                    if (result.isConfirmed) {
+
+                                                    window.location.replace('todos/removeTodo.php?todoID=<?= $row["ID"] ?>');
+
+                                                    }
+
+                                                    });
+
+                                                "><i class="fas fa-trash-alt" style="color: #7250b4"></i></a>
+                                                <?php endif; ?>
+                                        </td>
+                                    </tr>
+                                <?php endwhile;?>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-
-
-
+                </div>
             </div>
         </div>
 

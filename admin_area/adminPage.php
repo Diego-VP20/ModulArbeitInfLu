@@ -3,21 +3,21 @@
 session_start();
 session_regenerate_id();
 
-include_once("../includes/utilities.php");
+include_once('../includes/utilities.php');
 
-if(isset($_SESSION["username"])){
+if(isset($_SESSION['username'])){
 
-    if(isUserAdmin($_SESSION["userID"]) != 1){
+    if(isUserAdmin($_SESSION['userID']) != 1){
 
-        header("location: ../index.php");
-        exit();
+        header('location: ../index.php');
+        exit;
 
     }
 
 }else{
 
-    header("location: ../index.php");
-    exit();
+    header('location: ../index.php');
+    exit;
 
 }
 
@@ -27,23 +27,21 @@ if(isset($_SESSION["username"])){
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="utf-8" />
-	<link rel="icon" type="image/png" href="../assets/images/login_book_dm.png">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-	<title>Manage User</title>
+    <title>Admin Area</title>
+
+    <meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
 
     <script src="https://kit.fontawesome.com/0914a3a2ee.js" crossorigin="anonymous"></script>
-
-    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
-
-    <link href="../assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>
-    <link href="../assets/css/tableSearchbar.css" rel="stylesheet"/>
-
     <script src="../assets/js/sweetalert2.all.min.js"></script>
 
+    <link rel="icon" type="image/png" href="../assets/images/login_book_dm.png">
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>
+    <link href="../assets/css/tableSearchbar.css" rel="stylesheet"/>
 
 </head>
 <body>
@@ -52,7 +50,6 @@ if(isset($_SESSION["username"])){
     <div class="sidebar" data-color="blue" data-image="../assets/images/sideBarBG.jpg">
 
     <!--   you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple" -->
-
 
     	<div class="sidebar-wrapper">
             <div class="logo">
@@ -81,6 +78,7 @@ if(isset($_SESSION["username"])){
                     </a>
                 </li>
             </ul>
+
     	</div>
     </div>
 
@@ -118,7 +116,7 @@ if(isset($_SESSION["username"])){
                         </li>
                         <li>
                             <a>
-                                <p class="badge badge-primary" style="background-color: cornflowerblue">Admin: &nbsp; <?=$_SESSION["username"]?> </p>
+                                <p class="badge badge-primary" style="background-color: cornflowerblue">Admin: &nbsp; <?=$_SESSION['username']?> </p>
                             </a>
                         </li>
                         <li>
@@ -134,60 +132,57 @@ if(isset($_SESSION["username"])){
 
         <div class="content">
             <div class="container-fluid">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="header">
-                                <h4 class="title">Benutzerliste</h4>
-                                <p class="category">Hier können Sie Benutzer löschen und denen Kategorien zuweisen.</p>
-                                <p class="category">Durch das klicken auf ID, Benutzername usw. können Sie die Einträge so sortieren.</p>
-                            </div>
-                            <div class="content table-responsive table-full-width">
-                                <table id="userTable" class="table table-hover table-striped">
-                                    <thead>
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title">Benutzerliste</h4>
+                            <p class="category">Hier können Sie Benutzer löschen und denen Kategorien zuweisen.</p>
+                            <p class="category">Durch das klicken auf ID, Benutzername usw. können Sie die Einträge so sortieren.</p>
+                        </div>
+                        <div class="content table-responsive table-full-width">
+                            <table id="userTable" class="table table-hover table-striped">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Benutzername</th>
+                                    <th>Kategorien</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                <?php
+
+                                if (isset($_GET['pageNr'])) {
+                                    $pageNr = $_GET['pageNr'];
+                                } else {
+                                    $pageNr = 1;
+                                }
+
+                                $result = getUsersToDisplay();
+
+                                while($row = mysqli_fetch_array($result)):?>
+
                                     <tr>
-                                        <th>ID</th>
-                                        <th>Benutzername</th>
-                                        <th>Kategorien</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-
-                                    <?php
-
-                                    if (isset($_GET['pageNr'])) {
-                                        $pageNr = $_GET['pageNr'];
-                                    } else {
-                                        $pageNr = 1;
-                                    }
-
-                                    $result = getUsersToDisplay();
-
-                                    while($row = mysqli_fetch_array($result)):?>
-
-                                        <tr>
-                                            <td><b><?=$row["ID"]?></b></td>
-                                            <td><?=$row["userName"]?></td>
-                                            <td>
-                                                <?php if(isUserAdmin($row["ID"]) == 0): ?>
-                                                    <a href="addCategory.php?userID=<?=$row['ID']?>"><i class="fas fa-plus-square mr-2" style="color:#285fa5;"></i></a>
-                                                    <?php if(sizeof(getCategoriesFromUser($row['ID']))>0): ?>
-                                                        <a href="removeCategory.php?userID=<?=$row['ID']?>"><i class="fas fa-minus-square" style="color:#285fa5;"></i></a>
-                                                    <?php endif; ?>
-                                                <?php elseif(isUserAdmin($row['ID']) == 1): ?>
-                                                    <h5><span class="badge badge-warning" style="background-color: cornflowerblue"> Admin</span></h5>
+                                        <td><b><?=$row["ID"]?></b></td>
+                                        <td><?=$row["userName"]?></td>
+                                        <td>
+                                            <?php if(isUserAdmin($row['ID']) == 0): ?>
+                                                <a href="addCategory.php?userID=<?=$row['ID']?>"><i class="fas fa-plus-square mr-2" style="color:#285fa5;"></i></a>
+                                                <?php if(sizeof(getCategoriesFromUser($row['ID']))>0): ?>
+                                                    <a href="removeCategory.php?userID=<?=$row['ID']?>"><i class="fas fa-minus-square" style="color:#285fa5;"></i></a>
                                                 <?php endif; ?>
+                                            <?php elseif(isUserAdmin($row['ID']) == 1): ?>
+                                                <h5><span class="badge badge-warning" style="background-color: cornflowerblue"> Admin</span></h5>
+                                            <?php endif; ?>
 
-                                            </td>
-                                        </tr>
-                                    <?php endwhile;?>
-                                    </tbody>
-                                </table>
-                            </div>
+                                        </td>
+                                    </tr>
+                                <?php endwhile;?>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-
-
-
+                </div>
             </div>
         </div>
 
@@ -198,7 +193,6 @@ if(isset($_SESSION["username"])){
                 </p>
             </div>
         </footer>
-
 
     </div>
 </div>

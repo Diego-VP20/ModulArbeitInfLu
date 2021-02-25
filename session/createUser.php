@@ -24,9 +24,13 @@ if(isset($_SESSION['userID'])){
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 	<title>Benutzer Erstellen</title>
+
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="../assets/js/sweetalert2.all.min.js"></script>
 
     <link rel="icon" type="image/png" href="../assets/images/login_book_dm.png"/>
     <link rel="stylesheet" type="text/css" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
@@ -36,7 +40,6 @@ if(isset($_SESSION['userID'])){
     <link rel="stylesheet" type="text/css" href="../assets/css/util.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/main.css">
 
-    <script src="../assets/js/sweetalert2.all.min.js"></script>
 </head>
 <body>
 
@@ -44,9 +47,9 @@ if(isset($_SESSION['userID'])){
 
     /* Error handler */
 
-    if (isset($_GET["error"])) {
+    if (isset($_GET['error'])) {
 
-        if ($_GET["error"] == "usernameTaken") {
+        if ($_GET['error'] == 'usernameTaken') {
 
             echo"<script>
                 Swal.fire({
@@ -60,7 +63,7 @@ if(isset($_SESSION['userID'])){
 
         }
 
-        if ($_GET["error"] == "emptyInput") {
+        if ($_GET['error'] == 'emptyInput') {
 
             echo"<script>
                 Swal.fire({
@@ -77,7 +80,7 @@ if(isset($_SESSION['userID'])){
 
         }
 
-        if ($_GET["error"] == "passLen") {
+        if ($_GET['error'] == 'passLen') {
 
             echo"<script>
                 Swal.fire({
@@ -95,7 +98,7 @@ if(isset($_SESSION['userID'])){
         }
 
 
-        if ($_GET["error"] == "createUserFailed") {
+        if ($_GET['error'] == 'createUserFailed') {
 
             echo"<script>
                 Swal.fire({
@@ -112,7 +115,7 @@ if(isset($_SESSION['userID'])){
 
         }
 
-        if ($_GET["error"] == "invalidUser") {
+        if ($_GET['error'] == 'invalidUser') {
 
             echo"<script>
                 Swal.fire({
@@ -129,7 +132,7 @@ if(isset($_SESSION['userID'])){
 
         }
 
-        if ($_GET["error"] == "success") {
+        if ($_GET['error'] == 'success') {
 
             echo"<script>
                 Swal.fire({
@@ -143,7 +146,7 @@ if(isset($_SESSION['userID'])){
                 });
                 </script>";
 
-            header("Refresh: 3; ../index.php");
+            header('Refresh: 3; ../index.php');
 
 
         }

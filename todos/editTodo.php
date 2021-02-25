@@ -3,22 +3,22 @@
 session_start();
 session_regenerate_id();
 
-include_once("../includes/utilities.php");
+include_once('../includes/utilities.php');
 
-if(isset($_SESSION["username"])){
+if(isset($_SESSION['username'])){
 
     // User is admin.
-    if(isUserAdmin($_SESSION["userID"]) != 0){
+    if(isUserAdmin($_SESSION['userID']) != 0){
 
-        header("location: ../index.php");
-        exit();
+        header('location: ../index.php');
+        exit;
 
     }
 
 }else{
 
-    header("location: session/login.php");
-    exit();
+    header('location: session/login.php');
+    exit;
 
 }
 
@@ -36,25 +36,23 @@ if(empty(isOwnerOfTodo($_GET['todoID'], $_SESSION['userID']))){
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/png" href="../assets/images/login_book_dm.png">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-    <title>Todo erstellen</title>
+    <title>Todo editieren</title>
+
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
     <script src="https://kit.fontawesome.com/0914a3a2ee.js" crossorigin="anonymous"></script>
+    <script src="../assets/js/sweetalert2.all.min.js"></script>
+    <script src="../assets/js/the-datepicker.js"></script>
 
+    <link rel="icon" type="image/png" href="../assets/images/login_book_dm.png">
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="../assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>
-
-    <script src="../assets/js/sweetalert2.all.min.js"></script>
-
     <link href="../assets/css/the-datepicker.css" rel="stylesheet" />
     <link href="../assets/css/addTodoPage.css" rel="stylesheet" />
-
-    <script src="../assets/js/the-datepicker.js"></script>
 
 </head>
 <body>
@@ -63,9 +61,9 @@ if(empty(isOwnerOfTodo($_GET['todoID'], $_SESSION['userID']))){
 
 /* Error handler */
 
-if (isset($_GET["error"])) {
+if (isset($_GET['error'])) {
 
-    if ($_GET["error"] == "noAccessToCat") {
+    if ($_GET['error'] == 'noAccessToCat') {
 
         echo "<script>
                 Swal.fire({
@@ -89,11 +87,10 @@ if (isset($_GET["error"])) {
 
         <!--   you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple" -->
 
-
         <div class="sidebar-wrapper">
             <div class="logo">
                 <a href="#" class="simple-text">
-                    <img src="../assets/images/login_book_dm.png" alt="" width="30px"> &nbsp Do it Now!
+                    <img src="../assets/images/login_book_dm.png" alt="" width="30"> &nbsp Do it Now!
                 </a>
             </div>
 
@@ -154,7 +151,7 @@ if (isset($_GET["error"])) {
                         </li>
                         <li>
                             <a>
-                                <p class="badge badge-primary" style="background-color: mediumpurple">User: &nbsp <?=$_SESSION["username"]?> </p>
+                                <p class="badge badge-primary" style="background-color: mediumpurple">User: &nbsp <?= $_SESSION['username'] ?> </p>
                             </a>
                         </li>
                         <li>
@@ -176,21 +173,21 @@ if (isset($_GET["error"])) {
                             <h1 class="text-white">Todo Editieren</h1>
                         </div>
                         <div class="container">
-                            <form action="../includes/editTodo.php?todoID=<?=$_GET['todoID']?>" method="post" autocomplete="off">
-                                <?php $result = getTodoInformation($_GET['todoID']); ?>
+                            <form action="../includes/editTodo.php?todoID=<?= $_GET['todoID'] ?>" method="post" autocomplete="off">
+                                <?php $result = getTodoInformation($_GET['todoID']) ?>
 
                                 <div class="controls">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="form_name">Titel</label>
-                                                <input id="form_name" type="text" value="<?=$result[5]?>" name="titel" class="form-control" placeholder="Titel des Todo's" required="required"">
+                                                <input id="form_name" type="text" value="<?= $result[5] ?>" name="titel" class="form-control" placeholder="Titel des Todo's" required="required"">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="form_lastname">Priorität (1-5)</label>
-                                                <input id="form_lastname" type="number" value="<?=$result[7]?>" min="1" max="5" name="priority" class="form-control" required="required">
+                                                <input id="form_lastname" type="number" value="<?= $result[7] ?>" min="1" max="5" name="priority" class="form-control" required="required">
                                             </div>
                                         </div>
                                     </div>
@@ -199,11 +196,11 @@ if (isset($_GET["error"])) {
                                             <div class="form-group">
                                                 <label for="form_need">Kategorie</label>
                                                 <select id="form_need" name="category" class="form-control" required="required">
-                                                    <?php foreach (getCategoriesFromUser($_SESSION['userID']) as $category):?>
+                                                    <?php foreach (getCategoriesFromUser($_SESSION['userID']) as $category): ?>
                                                     <?php if($category[1]==$result[2]): ?>
-                                                    <option value="<?=$category[1]?>" selected><?=$category[0]?></option>
+                                                    <option value="<?= $category[1] ?>" selected><?= $category[0] ?></option>
                                                     <?php else: ?>
-                                                    <option value="<?=$category[1]?>"><?=$category[0]?></option>
+                                                    <option value="<?= $category[1] ?>"><?= $category[0] ?></option>
                                                     <?php endif; ?>
                                                     <?php endforeach; ?>
                                                 </select>
@@ -212,7 +209,7 @@ if (isset($_GET["error"])) {
                                         <div class="col-md-6">
 
                                             <div class="form-group">
-                                                <label for="form_name">Ablaufdatum</label>
+                                                <label for="datePicker">Ablaufdatum</label>
                                                 <input id="datePicker" type="text" name="expiryDate"
                                                        class="form-control" placeholder="Ablaufdatum des Todo's"
                                                        required="required"/>
@@ -223,7 +220,7 @@ if (isset($_GET["error"])) {
                                                 const input = document.getElementById('datePicker');
                                                 const datepicker = new TheDatepicker.Datepicker(input);
                                                 datepicker.options.setInputFormat('y-m-d');
-                                                datepicker.options.setInitialDate('<?=$result[4]?>')
+                                                datepicker.options.setInitialDate('<?= $result[4] ?>')
                                                 datepicker.render();
 
                                             </script>

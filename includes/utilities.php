@@ -1,6 +1,7 @@
 <?php
 
-require_once("dbch.php");
+require_once('dbch.php');
+
 
 function emptySignup($user, $pass): bool
 {
@@ -20,7 +21,7 @@ function emptySignup($user, $pass): bool
 function invalidUsername($user): bool
 {
 
-    if (!preg_match("/^[a-zA-Z0-9]*$/", $user)){
+    if (!preg_match('/^[a-zA-Z0-9]*$/', $user)){
 
         return true;
 
@@ -55,8 +56,8 @@ function checkForUser($user){
 
     $stmt = mysqli_stmt_init($conn);
 
-    mysqli_stmt_prepare($stmt,"SELECT * FROM users WHERE userName = ?;");
-    mysqli_stmt_bind_param($stmt, "s", $user);
+    mysqli_stmt_prepare($stmt,'SELECT * FROM users WHERE userName = ?;');
+    mysqli_stmt_bind_param($stmt, 's', $user);
     mysqli_stmt_execute($stmt);
 
     $result = mysqli_stmt_get_result($stmt);
@@ -82,8 +83,8 @@ function getUserByID($userID){
 
     $stmt = mysqli_stmt_init($conn);
 
-    mysqli_stmt_prepare($stmt, "SELECT * FROM users WHERE ID = ?;");
-    mysqli_stmt_bind_param($stmt, "i", $userID);
+    mysqli_stmt_prepare($stmt, 'SELECT * FROM users WHERE ID = ?;');
+    mysqli_stmt_bind_param($stmt, 'i', $userID);
     mysqli_stmt_execute($stmt);
 
     $result = mysqli_stmt_get_result($stmt);
@@ -109,15 +110,15 @@ function createUser($user, $pass){
 
     $stmt = mysqli_stmt_init($conn);
 
-    mysqli_stmt_prepare($stmt, "INSERT INTO users(userName, passwordHash) values(?,?);");
+    mysqli_stmt_prepare($stmt, 'INSERT INTO users(userName, passwordHash) values(?,?);');
 
     $hashedPass = password_hash($pass, PASSWORD_DEFAULT);
 
-    mysqli_stmt_bind_param($stmt, "ss", $user, $hashedPass);
+    mysqli_stmt_bind_param($stmt, 'ss', $user, $hashedPass);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    header("location: ../session/createUser.php?error=success");
-    exit();
+    header('location: ../session/createUser.php?error=success');
+    exit;
 
 
 }
@@ -130,33 +131,33 @@ function loginUser($user, $pass){
 
     if($userArray === false){
 
-        header("location: ../session/login.php?error=userNotExists");
-        exit();
+        header('location: ../session/login.php?error=userNotExists');
+        exit;
 
     }
 
-    $passHashed = $userArray["passwordHash"];
+    $passHashed = $userArray['passwordHash'];
     $checkPass = password_verify($pass, $passHashed);
 
     if($checkPass === false){
 
-        header("location: ../session/login.php?error=wrongPass");
-        exit();
+        header('location: ../session/login.php?error=wrongPass');
+        exit;
 
     }else{
 
         session_start();
-        $_SESSION["userID"] = $userArray["ID"];
-        $_SESSION["username"] = $userArray["userName"];
+        $_SESSION['userID'] = $userArray['ID'];
+        $_SESSION['username'] = $userArray['userName'];
 
         if(isUserAdmin($_SESSION['userID'])){
 
-            header("location: ../admin_area/adminPage.php");
+            header('location: ../admin_area/adminPage.php');
 
         }else {
 
-            header("location: ../index.php");
-            exit();
+            header('location: ../index.php');
+            exit;
 
         }
     }
@@ -173,7 +174,7 @@ function isUserAdmin($userID): ?bool
     if (mysqli_stmt_prepare($stmt, 'SELECT admin FROM users WHERE ID=?')) {
 
         /* bind parameters for markers */
-        mysqli_stmt_bind_param($stmt, "i", $userID);
+        mysqli_stmt_bind_param($stmt, 'i', $userID);
 
         /* execute query */
         mysqli_stmt_execute($stmt);
@@ -244,7 +245,7 @@ function getTodosToDisplay($userID){
                                         ORDER BY todo.priority DESC, todo.creationDate ASC');
 
 
-    mysqli_stmt_bind_param($stmt, "i", $userID);
+    mysqli_stmt_bind_param($stmt, 'i', $userID);
 
     mysqli_stmt_execute($stmt);
 
@@ -265,7 +266,7 @@ function getArchivedTodos($userID){
     mysqli_stmt_prepare($stmt, 'SELECT * FROM todo WHERE fromUser=? AND isArchived = 1');
 
 
-    mysqli_stmt_bind_param($stmt, "i", $userID);
+    mysqli_stmt_bind_param($stmt, 'i', $userID);
 
     mysqli_stmt_execute($stmt);
 
@@ -287,7 +288,7 @@ function getTodoInformation($todoID): ?array
     mysqli_stmt_prepare($stmt, 'SELECT * FROM todo WHERE ID=?');
 
 
-    mysqli_stmt_bind_param($stmt, "i", $todoID);
+    mysqli_stmt_bind_param($stmt, 'i', $todoID);
 
     mysqli_stmt_execute($stmt);
 
@@ -305,19 +306,19 @@ function deleteUser($userID){
 
     $stmt = mysqli_stmt_init($conn);
     mysqli_stmt_prepare($stmt, 'DELETE FROM todo WHERE fromUser = ?');
-    mysqli_stmt_bind_param($stmt, "i", $userID);
+    mysqli_stmt_bind_param($stmt, 'i', $userID);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 
     $stmt = mysqli_stmt_init($conn);
     mysqli_stmt_prepare($stmt, 'DELETE FROM users_category WHERE UserID = ?');
-    mysqli_stmt_bind_param($stmt, "i", $userID);
+    mysqli_stmt_bind_param($stmt, 'i', $userID);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 
     $stmt = mysqli_stmt_init($conn);
     mysqli_stmt_prepare($stmt, 'DELETE FROM users WHERE ID = ?');
-    mysqli_stmt_bind_param($stmt, "i", $userID);
+    mysqli_stmt_bind_param($stmt, 'i', $userID);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 
@@ -331,8 +332,8 @@ function changePassword($ID, $newPassword){
 
     if(passLen($newPassword) !== false){
 
-        header("location: ../admin_area/changePassword.php?userID=".$ID."&error=passLen");
-        exit();
+        header('location: ../admin_area/changePassword.php?userID='.$ID.'&error=passLen');
+        exit;
 
     }
 
@@ -341,10 +342,10 @@ function changePassword($ID, $newPassword){
     $newPassword = password_hash($newPassword, PASSWORD_DEFAULT);
 
     mysqli_stmt_prepare($stmt, 'UPDATE users SET passwordHash = ? where ID = ?');
-    mysqli_stmt_bind_param($stmt, "si", $newPassword, $ID);
+    mysqli_stmt_bind_param($stmt, 'si', $newPassword, $ID);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    header("location: ../index.php");
+    header('location: ../index.php');
     exit;
 
 }
@@ -355,24 +356,24 @@ function changeUsername($ID, $newUsername){
 
     if(invalidUsername($newUsername) !== false){
 
-        header("location: ../admin_area/changeUsername.php?userID=".$ID."&error=invalidUsername");
-        exit();
+        header('location: ../admin_area/changeUsername.php?userID='.$ID.'&error=invalidUsername');
+        exit;
 
     }
 
     if(checkForUser($newUsername) !== false){
 
-        header("location: ../admin_area/changeUsername.php?userID=".$ID."&error=usernameTaken");
+        header('location: ../admin_area/changeUsername.php?userID='.$ID.'&error=usernameTaken');
         exit;
 
     }
 
     $stmt = mysqli_stmt_init($conn);
     mysqli_stmt_prepare($stmt, 'UPDATE users SET userName = ? where ID = ?');
-    mysqli_stmt_bind_param($stmt, "si", $newUsername, $ID);
+    mysqli_stmt_bind_param($stmt, 'si', $newUsername, $ID);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    header("location: ../index.php");
+    header('location: ../index.php');
     exit;
 
 }
@@ -385,7 +386,7 @@ function getCategoriesFromUser($UserID): array
     $stmt = mysqli_stmt_init($conn);
 
     mysqli_stmt_prepare($stmt, 'select c.name, c.ID, uc.userID from users_category uc left join category c on c.ID = uc.categoryID where userID=?');
-    mysqli_stmt_bind_param($stmt, "s",$UserID);
+    mysqli_stmt_bind_param($stmt, 's',$UserID);
     mysqli_stmt_execute($stmt);
 
     $result = mysqli_stmt_get_result($stmt);
@@ -407,7 +408,7 @@ function isOwnerOfTodo($todoID, $userID): array
     $stmt = mysqli_stmt_init($conn);
 
     mysqli_stmt_prepare($stmt, 'SELECT * FROM todo WHERE ID=? AND fromUser=?');
-    mysqli_stmt_bind_param($stmt, "ii", $todoID,$userID);
+    mysqli_stmt_bind_param($stmt, 'ii', $todoID,$userID);
     mysqli_stmt_execute($stmt);
 
     $result = mysqli_stmt_get_result($stmt);
@@ -429,7 +430,7 @@ function hasAccessToCategory($userID): array
     $stmt = mysqli_stmt_init($conn);
 
     mysqli_stmt_prepare($stmt, 'select categoryID from users_category where userID=?');
-    mysqli_stmt_bind_param($stmt, "i", $userID);
+    mysqli_stmt_bind_param($stmt, 'i', $userID);
     mysqli_stmt_execute($stmt);
 
     $result = mysqli_stmt_get_result($stmt);
@@ -449,7 +450,7 @@ function archiveTodo($todoID){
     $stmt = mysqli_stmt_init($conn);
 
     mysqli_stmt_prepare($stmt, 'UPDATE todo SET isArchived = 1 WHERE ID=?');
-    mysqli_stmt_bind_param($stmt, "i", $todoID);
+    mysqli_stmt_bind_param($stmt, 'i', $todoID);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 
@@ -462,7 +463,7 @@ function unArchiveTodo($todoID){
     $stmt = mysqli_stmt_init($conn);
 
     mysqli_stmt_prepare($stmt, 'UPDATE todo SET isArchived = 0 WHERE ID=?');
-    mysqli_stmt_bind_param($stmt, "i", $todoID);
+    mysqli_stmt_bind_param($stmt, 'i', $todoID);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 
@@ -476,18 +477,21 @@ function removeTodo($todoID){
     $stmt = mysqli_stmt_init($conn);
 
     mysqli_stmt_prepare($stmt, 'DELETE FROM todo WHERE ID=?');
-    mysqli_stmt_bind_param($stmt, "i", $todoID);
+    mysqli_stmt_bind_param($stmt, 'i', $todoID);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 
 }
 
 function daysTillExpiry($expiryDate) {
-    $expiryDate = new DateTime($expiryDate);
+    try {
+        $expiryDate = new DateTime($expiryDate);
+    } catch (Exception $e) {
+    }
     $now = new DateTime();
-    if($expiryDate->format("y-m-d") === $now->format("y-m-d")) return 0;
+    if($expiryDate->format('y-m-d') === $now->format('y-m-d')) return 0;
 
-    $daysDiff = $now->diff($expiryDate)->format("%R%a");
+    $daysDiff = $now->diff($expiryDate)->format('%R%a');
     if($daysDiff >= 0) $daysDiff++;
     return $daysDiff;
 }
