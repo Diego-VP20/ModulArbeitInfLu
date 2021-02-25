@@ -38,5 +38,3 @@ if(isUserAdmin($_GET['userID']) == 1){
 
 deleteUser($_GET["userID"]);
 header("location: ../index.php");
-
-?>

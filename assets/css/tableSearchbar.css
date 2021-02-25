@@ -1,0 +1,26 @@
+html{
+
+    font-size:20px
+
+}
+
+body{
+
+    overflow-y: hidden
+
+}
+
+div#userTable_filter{
+
+    float: right;
+    margin-right: 30px;
+
+}
+
+#dontOverExtend{
+
+    max-width: 150px;
+    overflow: hidden;
+    word-break: break-word;
+
+}

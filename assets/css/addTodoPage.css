@@ -1,0 +1,11 @@
+textarea{
+
+    resize: vertical;
+
+}
+
+body{
+
+    overflow-y: hidden
+
+}

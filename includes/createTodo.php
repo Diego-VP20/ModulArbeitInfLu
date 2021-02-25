@@ -27,6 +27,8 @@ if(!isset($_POST['titel'], $_POST['priority'], $_POST['category'], $_POST['expir
 
 }
 
+global $conn;
+
 $userID = $_SESSION['userID'];
 $title = $_POST['titel'];
 $priority = $_POST['priority'];
@@ -34,14 +36,27 @@ $category = $_POST['category'];
 $expiryDate = $_POST['expiryDate'];
 $content = $_POST['inhalt'];
 
-global $conn;
+$allowedCategoriesID = array();
 
-$stmt = mysqli_stmt_init($conn);
+foreach (hasAccessToCategory($_SESSION['userID']) as $value){
 
-mysqli_stmt_prepare($stmt, "insert into todo(fromUser,categoryID,expiryDate,title,text,priority) values(?,?,?,?,?,?)");
+    array_push($allowedCategoriesID,$value[0]);
 
-mysqli_stmt_bind_param($stmt, "iisssi", $userID, $category, $expiryDate, $title, $content, $priority);
-mysqli_stmt_execute($stmt);
-mysqli_stmt_close($stmt);
-header("location: ../session/createUser.php?error=success");
-exit();
+}
+
+if(!in_array($category, $allowedCategoriesID)){
+
+    header('location: ../todos/addTodo.php?error=noAccessToCat&content='.$content);
+
+}else {
+
+    $stmt = mysqli_stmt_init($conn);
+
+    mysqli_stmt_prepare($stmt, "insert into todo(fromUser,categoryID,expiryDate,title,text,priority) values(?,?,?,?,?,?)");
+
+    mysqli_stmt_bind_param($stmt, "iisssi", $userID, $category, $expiryDate, $title, $content, $priority);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    header("location: ../index.php?error=success");
+    exit;
+}

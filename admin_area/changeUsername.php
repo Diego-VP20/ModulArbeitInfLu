@@ -18,10 +18,16 @@ if(!isset($_GET['userID'])){
 
 }
 
-if(isset($_SESSION["userID"]) & isUserAdmin($_SESSION['userID']) != 1){
+if(isset($_SESSION["userID"])){
+    if(isUserAdmin($_SESSION['userID']) != 1) {
 
-    header("location: ../index.php");
-    exit();
+        header("location: ../index.php");
+        exit;
+    }
+}else{
+
+    header('location: ../session/login.php');
+    exit;
 
 }
 
@@ -37,32 +43,19 @@ if(isUserAdmin($_GET['userID']) == 1) header("location: ../index.php");
     <title>Benutzername ändern</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="../bootstrapAssets/images/login_book_dm.png"/>
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../session/assets/vendor/bootstrap/css/bootstrap.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../session/assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../session/assets/fonts/iconic/css/material-design-iconic-font.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../session/assets/vendor/animate/animate.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../session/assets/vendor/css-hamburgers/hamburgers.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../session/assets/vendor/animsition/css/animsition.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../session/assets/vendor/select2/select2.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../session/assets/vendor/daterangepicker/daterangepicker.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../session/assets/css/util.css">
-    <link rel="stylesheet" type="text/css" href="../session/assets/css/main.css">
-    <link rel="stylesheet" type="text/css" href="css/categoryPages.css">
 
-    <script src="../session/assets/js/sweetalert2.all.min.js"></script>
+    <link rel="icon" type="image/png" href="../assets/images/login_book_dm.png"/>
+    <link rel="stylesheet" type="text/css" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/fonts/iconic/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/vendor/select2/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/util.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/categoryPages.css">
 
-    <!--===============================================================================================-->
+
+    <script src="../assets/js/sweetalert2.all.min.js"></script>
+
 </head>
 <body>
 
@@ -105,11 +98,11 @@ if(isset($_GET['error'])){
 ?>
 
 <div class="limiter">
-    <div class="container-login100" style="background-image: url('../session/assets/images/bg-01.jpg');">
+    <div class="container-login100" style="background-image: url('../assets/images/bg-01.jpg');">
         <div class="wrap-login100">
             <form action="../includes/validate_userEdit.php?userID=<?=$_GET['userID']?>" method="post" class="login100-form validate-form" autocomplete="off">
 					<span class="login100-form-logo">
-						<img src="../bootstrapAssets/images/login_book_lm.png" alt="" width="100px"/>
+						<img src="../assets/images/login_book_lm.png" alt="" width="100"/>
 					</span>
 
                 <span class="login100-form-title p-b-34 p-t-27">
@@ -142,25 +135,11 @@ if(isset($_GET['error'])){
     </div>
 </div>
 
-
-<div id="dropDownSelect1"></div>
-
-<!--===============================================================================================-->
-<script src="../session/assets/vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-<script src="../session/assets/vendor/animsition/js/animsition.min.js"></script>
-<!--===============================================================================================-->
-<script src="../session/assets/vendor/bootstrap/js/popper.js"></script>
-<script src="../session/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-<script src="../session/assets/vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
-<script src="../session/assets/vendor/daterangepicker/moment.min.js"></script>
-<script src="../session/assets/vendor/daterangepicker/daterangepicker.js"></script>
-<!--===============================================================================================-->
-<script src="../session/assets/vendor/countdowntime/countdowntime.js"></script>
-<!--===============================================================================================-->
-<script src="../session/assets/js/main.js"></script>
+<script src="../assets/vendor/jquery/jquery-3.2.1.min.js"></script>
+<script src="../assets/vendor/bootstrap/js/popper.js"></script>
+<script src="../assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="../assets/vendor/select2/select2.min.js"></script>
+<script src="../assets/js/main.js"></script>
 
 </body>
 </html>

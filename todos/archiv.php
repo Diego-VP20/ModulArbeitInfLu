@@ -3,21 +3,21 @@
 session_start();
 session_regenerate_id();
 
-include_once("includes/utilities.php");
+include_once("../includes/utilities.php");
 
 if(isset($_SESSION["username"])){
 
     // User is admin.
     if(isUserAdmin($_SESSION["userID"]) != 0){
 
-        header("location: admin_area/adminPage.php");
+        header("location: ../admin_area/adminPage.php");
         exit();
 
     }
 
 }else{
 
-    header("location: session/login.php");
+    header("location: ../session/login.php");
     exit();
 
 }
@@ -29,7 +29,7 @@ if(isset($_SESSION["username"])){
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-	<link rel="icon" type="image/png" href="assets/images/login_book_dm.png">
+	<link rel="icon" type="image/png" href="../assets/images/login_book_dm.png">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
 	<title>Todo's</title>
@@ -38,12 +38,11 @@ if(isset($_SESSION["username"])){
 
     <script src="https://kit.fontawesome.com/0914a3a2ee.js" crossorigin="anonymous"></script>
 
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>
+    <link href="../assets/css/tableSearchbar.css" rel="stylesheet"/>
 
-    <link href="assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>
-    <link href="assets/css/tableSearchbar.css" rel="stylesheet"/>
-
-    <script src="assets/js/sweetalert2.all.min.js"></script>
+    <script src="../assets/js/sweetalert2.all.min.js"></script>
 
 </head>
 <body>
@@ -129,26 +128,11 @@ if(isset($_SESSION["username"])){
 
         }
 
-        if ($_GET["error"] == "unArchiveSuccessful") {
-
-            echo "<script>
-                Swal.fire({
-                    title: 'Erfolgreich',
-                    html: '<p><b>Sie haben Ihren Todo erfolgreich aus dem Archiv genommen!.</b></p>',
-                    icon: 'success',
-                    backdrop: 'rgb(255,255,255)',
-                    timer: 3000,
-                    showConfirmButton: false
-                    })
-                </script>";
-
-        }
-
     }
     ?>
 
 <div class="wrapper">
-    <div class="sidebar" data-color="purple" data-image="assets/images/sideBarBG.jpg" >
+    <div class="sidebar" data-color="purple" data-image="../assets/images/sideBarBG.jpg" >
 
     <!--   you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple" -->
 
@@ -156,25 +140,25 @@ if(isset($_SESSION["username"])){
     	<div class="sidebar-wrapper">
             <div class="logo">
                 <a href="#" class="simple-text">
-                    <img src="assets/images/login_book_dm.png" alt="" width="30"> &nbsp; Do it Now!
+                    <img src="../assets/images/login_book_dm.png" alt="" width="30"> &nbsp; Do it Now!
                 </a>
             </div>
 
             <ul class="nav">
-                <li class="active">
-                    <a href="index.php">
+                <li>
+                    <a href="../index.php">
                         <i class="fas fa-users"></i>
                         <p>Todo's</p>
                     </a>
                 </li>
-                <li>
-                    <a href="todos/archiv.php">
+                <li class="active">
+                    <a href="archiv.php">
                         <i class="fas fa-archive"></i>
                         <p>Archiv</p>
                     </a>
                 </li>
                 <li>
-                    <a href="todos/addTodo.php">
+                    <a href="addTodo.php">
                         <i class="fas fa-plus"></i>
                         <p>Todo hinzufügen</p>
                     </a>
@@ -193,7 +177,7 @@ if(isset($_SESSION["username"])){
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Todo's List</a>
+                    <a class="navbar-brand" href="#">Archivierte Todo's</a>
                 </div>
                 <div class="collapse navbar-collapse">
 
@@ -221,7 +205,7 @@ if(isset($_SESSION["username"])){
                             </a>
                         </li>
                         <li>
-                            <a href="session/logout.php">
+                            <a href="../session/logout.php">
                                 <p>Log out</p>
                             </a>
                         </li>
@@ -237,9 +221,7 @@ if(isset($_SESSION["username"])){
                         <div class="card">
                             <div class="header">
                                 <h4 class="title">Todo's</h4>
-                                <p class="category">Hier können Sie alle Todo's sehen, die zur Ihnen hinzugefügten Kategorien gehören.</p>
-                                <p class="category">Sie können den Titel oder Inhalt Ihres Todo's suchen und Sie werden es finden.</p>
-                                <p class="category">Sie werden den Text nicht sehen, macht alles etwas schöner :)</p>
+                                <p class="category">Hier können Sie alle archivierte Todo's sehen, die zur Ihnen hinzugefügten Kategorien gehören.</p>
                             </div>
                             <div class="content table-responsive table-full-width">
                                 <table id="userTable" class="table table-hover table-striped">
@@ -264,7 +246,7 @@ if(isset($_SESSION["username"])){
                                         $pageNr = 1;
                                     }
 
-                                    $result = getTodosToDisplay($_SESSION['userID']);
+                                    $result = getArchivedTodos($_SESSION['userID']);
 
 
                                     while($row = mysqli_fetch_array($result)):?>
@@ -275,9 +257,7 @@ if(isset($_SESSION["username"])){
                                         $fromUser = getUserByID($row['fromUser'])['userName'];
                                         $daysUntilExpiration = daysTillExpiry($row['expiryDate']);
                                         $priority = $row['priority'];
-
                                         ?>
-
                                         <tr>
                                             <td id="dontOverExtend"><?=$fromUser?></td>
                                             <td>
@@ -323,7 +303,6 @@ if(isset($_SESSION["username"])){
 
                                             <td>
                                                     <?php if($_SESSION['userID'] == $row['fromUser']): ?>
-                                                    <a href="todos/editTodo.php?todoID=<?=$row["ID"]?>"><i class="fas fa-edit mr-2" style="color: #7250b4"></i></a>
                                                     <a onclick="
 
                                                         Swal.fire({
@@ -331,49 +310,24 @@ if(isset($_SESSION["username"])){
                                                             icon: 'warning',
                                                             backdrop: 'rgb(255,255,255)',
                                                             target: 'body',
-                                                            html: '<b>Nachdem Sie ihr Todo archiviert haben, können Sie ihn nicht mehr hier sehen.</b>',
+                                                            html: '<b>Ihr Todo wird wieder für alle ersichtlich.</b>',
                                                             showCancelButton: true,
                                                             focusConfirm: false,
-                                                            confirmButtonText: 'Archivieren',
-                                                            cancelButtonText: 'Nicht archivieren',
+                                                            confirmButtonText: 'Aus dem Archiv nehmen',
+                                                            cancelButtonText: 'Abbrechen',
                                                             confirmButtonColor: '#007938',
                                                             cancelButtonColor: '#ff0059'
                                                         }).then((result) => {
 
                                                             if (result.isConfirmed) {
 
-                                                            window.location.replace('todos/archiveTodo.php?todoID=<?= $row["ID"] ?>');
+                                                            window.location.replace('unArchiveTodo.php?todoID=<?= $row["ID"] ?>');
 
                                                             }
 
                                                         });
 
-                                                    "><i class="fas fa-archive mr-2" style="color: #7250b4"></i></a>
-                                                    <a onclick="
-
-                                                        Swal.fire({
-                                                        title: 'Sind Sie sicher?',
-                                                        icon: 'warning',
-                                                        backdrop: 'rgb(255,255,255)',
-                                                        target: 'body',
-                                                        html: '<b>Nachdem Sie ihr Todo gelöscht haben können Sie ihn nicht mehr sehen.</b>',
-                                                        showCancelButton: true,
-                                                        focusConfirm: false,
-                                                        confirmButtonText: 'Löschen',
-                                                        cancelButtonText: 'Nicht löschen',
-                                                        confirmButtonColor: '#007938',
-                                                        cancelButtonColor: '#ff0059'
-                                                        }).then((result) => {
-
-                                                        if (result.isConfirmed) {
-
-                                                        window.location.replace('todos/removeTodo.php?todoID=<?= $row["ID"] ?>');
-
-                                                        }
-
-                                                        });
-
-                                                    "><i class="fas fa-trash-alt" style="color: #7250b4"></i></a>
+                                                    "><i class="fas fa-box-open mr-2" style="color: #7250b4"></i></a>
                                                     <?php endif; ?>
                                             </td>
 
@@ -402,14 +356,13 @@ if(isset($_SESSION["username"])){
     </div>
 </div>
 
-
-<script src="assets/js/jquery.3.2.1.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
+<script src="../assets/js/jquery.3.2.1.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
-<script src="assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
-<script src="assets/js/dataTableScriptTodos.js"></script>
-<script src="includes/clock.js"></script>
+<script src="../assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
+<script src="../assets/js/dataTableScriptTodos.js"></script>
+<script src="../includes/clock.js"></script>
 
 </body>
 </html>

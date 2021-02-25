@@ -31,7 +31,7 @@ if(isset($_SESSION["username"])){
 	<link rel="icon" type="image/png" href="../assets/images/login_book_dm.png">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-	<title>Edit Users</title>
+	<title>Manage User</title>
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
 
@@ -43,6 +43,7 @@ if(isset($_SESSION["username"])){
     <link href="../assets/css/tableSearchbar.css" rel="stylesheet"/>
 
     <script src="../assets/js/sweetalert2.all.min.js"></script>
+
 
 </head>
 <body>
@@ -61,14 +62,14 @@ if(isset($_SESSION["username"])){
             </div>
 
             <ul class="nav">
-                <li>
+                <li class="active">
                     <a href="adminPage.php">
                         <i class="fas fa-users"></i>
                         <p>Kategorien der Benutzer verwalten</p>
                     </a>
                 </li>
-                <li class="active">
-                    <a href="#">
+                <li>
+                    <a href="editUsers.php">
                         <i class="fas fa-edit"></i>
                         <p>Benutzerdaten Verwalten</p>
                     </a>
@@ -93,7 +94,7 @@ if(isset($_SESSION["username"])){
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Benutzer Editieren</a>
+                    <a class="navbar-brand" href="#">Kategorien der Benutzer verwalten</a>
                 </div>
                 <div class="collapse navbar-collapse">
 
@@ -101,20 +102,18 @@ if(isset($_SESSION["username"])){
                         <li>
                             <a>
                                 <span id="day"></span>
-                                <span> / </span>
                                 <span id="month"></span>
-                                <span> / </span>
                                 <span id="year"></span>
                                 <span>  </span>
                             </a>
                         </li>
                         <li>
                             <a>
-                                <span id="hr">00</span>
+                                <span id="hr"></span>
                                 <span> : </span>
-                                <span id="min">00</span>
+                                <span id="min"></span>
                                 <span> : </span>
-                                <span id="sec">00</span>
+                                <span id="sec"></span>
                             </a>
                         </li>
                         <li>
@@ -139,9 +138,8 @@ if(isset($_SESSION["username"])){
                         <div class="card">
                             <div class="header">
                                 <h4 class="title">Benutzerliste</h4>
-                                <p class="category">Hier können Sie Benutzernamen und Passwörter der Benutzer editieren.</p>
-                                <p class="category">Sie können bestimmte Benutzer suchen oder durch das Klicken auf die Titel der Spalten die Nutzer so sortieren.</p>
-
+                                <p class="category">Hier können Sie Benutzer löschen und denen Kategorien zuweisen.</p>
+                                <p class="category">Durch das klicken auf ID, Benutzername usw. können Sie die Einträge so sortieren.</p>
                             </div>
                             <div class="content table-responsive table-full-width">
                                 <table id="userTable" class="table table-hover table-striped">
@@ -149,9 +147,7 @@ if(isset($_SESSION["username"])){
                                     <tr>
                                         <th>ID</th>
                                         <th>Benutzername</th>
-                                        <th>Benutzername</th>
-                                        <th>Passwort</th>
-                                        <th>Löschen</th>
+                                        <th>Kategorien</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -170,57 +166,18 @@ if(isset($_SESSION["username"])){
 
                                         <tr>
                                             <td><b><?=$row["ID"]?></b></td>
-                                            <?php if(isUserAdmin($row['ID']) == false): ?>
-                                            <td><?=$row["userName"]?>  </td>
-                                            <td><a href="changeUsername.php?userID=<?=$row["ID"]?>"><i class="fas fa-edit" style="color:#285fa5;"></i></a></td>
-                                            <?php else: ?>
                                             <td><?=$row["userName"]?></td>
-                                            <td></td>
-                                            <?php endif; ?>
                                             <td>
-                                                <?php if(isUserAdmin($row['ID']) == false): ?>
-                                                    <a href="changePassword.php?userID=<?=$row["ID"]?>"><i class="fas fa-edit" style="color:#285fa5;"></i></a>
-                                                <?php elseif(isUserAdmin($row['ID']) == true): ?>
-
-
-                                                <?php endif; ?>
-
-                                            </td>
-                                            <td>
-                                                <?php if(isUserAdmin($row['ID']) == false): ?>
-
-                                                    <a onclick="
-
-                                                        Swal.fire({
-                                                        title: 'Sind Sie sicher?',
-                                                        icon: 'warning',
-                                                        backdrop: 'rgb(255,255,255)',
-                                                        target: 'body',
-                                                        html: '<b>Nachdem Sie diesen Benutzer löschen werden alle seine todos gelöscht.</b>',
-                                                        showCancelButton: true,
-                                                        focusConfirm: false,
-                                                        confirmButtonText: 'Löschen',
-                                                        cancelButtonText: 'Nicht löschen',
-                                                        confirmButtonColor: '#007938',
-                                                        cancelButtonColor: '#ff0059'
-                                                        }).then((result) => {
-
-                                                        if (result.isConfirmed) {
-
-                                                            window.location.replace('removeUser.php?userID=<?=$row["ID"]?>');
-
-                                                        }
-
-                                                        });
-
-                                                    "><i class="fas fa-trash mr-2" style="color:#285fa5;"></i></a>
-                                                <?php elseif(isUserAdmin($row['ID']) == true): ?>
+                                                <?php if(isUserAdmin($row["ID"]) == 0): ?>
+                                                    <a href="addCategory.php?userID=<?=$row['ID']?>"><i class="fas fa-plus-square mr-2" style="color:#285fa5;"></i></a>
+                                                    <?php if(sizeof(getCategoriesFromUser($row['ID']))>0): ?>
+                                                        <a href="removeCategory.php?userID=<?=$row['ID']?>"><i class="fas fa-minus-square" style="color:#285fa5;"></i></a>
+                                                    <?php endif; ?>
+                                                <?php elseif(isUserAdmin($row['ID']) == 1): ?>
                                                     <h5><span class="badge badge-warning" style="background-color: cornflowerblue"> Admin</span></h5>
-
                                                 <?php endif; ?>
 
                                             </td>
-
                                         </tr>
                                     <?php endwhile;?>
                                     </tbody>

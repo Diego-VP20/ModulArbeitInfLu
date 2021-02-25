@@ -151,7 +151,7 @@ function loginUser($user, $pass){
 
         if(isUserAdmin($_SESSION['userID'])){
 
-            header("location: ../admin_area/table.php");
+            header("location: ../admin_area/adminPage.php");
 
         }else {
 
@@ -256,16 +256,46 @@ function getTodosToDisplay($userID){
 
 }
 
-function getPagesForUserDisplay($usersPerSite){
+function getArchivedTodos($userID){
 
     global $conn;
 
-    $total_pages_sql = "SELECT COUNT(*) FROM users";
-    $result = mysqli_query($conn,$total_pages_sql);
-    $total_rows = mysqli_fetch_array($result)[0];
-    $total_pages = ceil($total_rows / $usersPerSite);
+    $stmt = mysqli_stmt_init($conn);
 
-    return $total_pages;
+    mysqli_stmt_prepare($stmt, 'SELECT * FROM todo WHERE fromUser=? AND isArchived = 1');
+
+
+    mysqli_stmt_bind_param($stmt, "i", $userID);
+
+    mysqli_stmt_execute($stmt);
+
+    $result = mysqli_stmt_get_result($stmt);
+
+    mysqli_stmt_close($stmt);
+
+    return $result;
+
+}
+
+function getTodoInformation($todoID): ?array
+{
+
+    global $conn;
+
+    $stmt = mysqli_stmt_init($conn);
+
+    mysqli_stmt_prepare($stmt, 'SELECT * FROM todo WHERE ID=?');
+
+
+    mysqli_stmt_bind_param($stmt, "i", $todoID);
+
+    mysqli_stmt_execute($stmt);
+
+    $result = mysqli_stmt_get_result($stmt);
+
+    mysqli_stmt_close($stmt);
+
+    return mysqli_fetch_row($result);
 
 }
 
@@ -347,7 +377,8 @@ function changeUsername($ID, $newUsername){
 
 }
 
-function getCategoriesFromUser($UserID){
+function getCategoriesFromUser($UserID): array
+{
 
     global $conn;
 
@@ -368,7 +399,8 @@ function getCategoriesFromUser($UserID){
 
 }
 
-function isOwnerOfTodo($todoID, $userID){
+function isOwnerOfTodo($todoID, $userID): array
+{
 
     global $conn;
 
@@ -389,6 +421,27 @@ function isOwnerOfTodo($todoID, $userID){
 
 }
 
+function hasAccessToCategory($userID): array
+{
+
+    global $conn;
+
+    $stmt = mysqli_stmt_init($conn);
+
+    mysqli_stmt_prepare($stmt, 'select categoryID from users_category where userID=?');
+    mysqli_stmt_bind_param($stmt, "i", $userID);
+    mysqli_stmt_execute($stmt);
+
+    $result = mysqli_stmt_get_result($stmt);
+    $result = mysqli_fetch_all($result);
+
+    mysqli_stmt_close($stmt);
+
+    return $result;
+
+
+}
+
 function archiveTodo($todoID){
 
     global $conn;
@@ -401,6 +454,20 @@ function archiveTodo($todoID){
     mysqli_stmt_close($stmt);
 
 }
+
+function unArchiveTodo($todoID){
+
+    global $conn;
+
+    $stmt = mysqli_stmt_init($conn);
+
+    mysqli_stmt_prepare($stmt, 'UPDATE todo SET isArchived = 0 WHERE ID=?');
+    mysqli_stmt_bind_param($stmt, "i", $todoID);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+
+}
+
 
 function removeTodo($todoID){
 
