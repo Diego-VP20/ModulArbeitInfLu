@@ -1,5 +1,8 @@
 <?php
 
+use JetBrains\PhpStorm\NoReturn;
+use JetBrains\PhpStorm\Pure;
+
 require_once('dbch.php');
 
 
@@ -33,7 +36,7 @@ function invalidUsername($user): bool
 
 }
 
-function passLen($pass): bool
+#[Pure] function passLen($pass): bool
 {
 
     if (strlen($pass) < 8 and strlen($pass)<=255){
@@ -50,7 +53,8 @@ function passLen($pass): bool
 
 
 /* This function will be able to return userdata if user already exists */
-function checkForUser($user){
+function checkForUser($user): array|bool|null
+{
 
     global $conn;
 
@@ -77,7 +81,8 @@ function checkForUser($user){
 
 }
 
-function getUserByID($userID){
+function getUserByID($userID): array|bool|null
+{
 
     global $conn;
 
@@ -104,7 +109,7 @@ function getUserByID($userID){
 
 }
 
-function createUser($user, $pass){
+#[NoReturn] function createUser($user, $pass){
 
     global $conn;
 
@@ -208,7 +213,8 @@ function isUserAdmin($userID): ?bool
 
 }
 
-function getUsersToDisplay(){
+function getUsersToDisplay(): bool|mysqli_result|null
+{
 
     global $conn;
 
@@ -230,7 +236,8 @@ function getUsersToDisplay(){
     return null;
 }
 
-function getTodosToDisplay($userID){
+function getTodosToDisplay($userID): bool|mysqli_result
+{
 
     global $conn;
 
@@ -257,7 +264,8 @@ function getTodosToDisplay($userID){
 
 }
 
-function getArchivedTodos($userID){
+function getArchivedTodos($userID): bool|mysqli_result
+{
 
     global $conn;
 
@@ -326,7 +334,7 @@ function deleteUser($userID){
 
 }
 
-function changePassword($ID, $newPassword){
+#[NoReturn] function changePassword($ID, $newPassword){
 
     global $conn;
 
@@ -350,7 +358,7 @@ function changePassword($ID, $newPassword){
 
 }
 
-function changeUsername($ID, $newUsername){
+#[NoReturn] function changeUsername($ID, $newUsername){
 
     global $conn;
 
@@ -483,10 +491,11 @@ function removeTodo($todoID){
 
 }
 
-function daysTillExpiry($expiryDate) {
+function daysTillExpiry($expiryDate): int|string
+{
     try {
         $expiryDate = new DateTime($expiryDate);
-    } catch (Exception $e) {
+    } catch (Exception) {
     }
     $now = new DateTime();
     if($expiryDate->format('y-m-d') === $now->format('y-m-d')) return 0;
