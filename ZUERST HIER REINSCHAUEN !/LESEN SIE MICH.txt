@@ -1,0 +1,22 @@
+Damit das Projekt funktioniert, müssen Sie folgendes tun:
+
+Sie nehmen die .sql Datei und spielen diese in mysql ein.
+
+Die Datenbank MUSS 'todos' heissen (ohne '').
+
+Nachdem Sie das getan haben, müssen Sie den Datenbanknutzer erstellen wie folgt:
+
+CREATE USER 'todoDBAdmin'@'localhost' IDENTIFIED by '0nly1D0Ch4ng3s';
+GRANT SELECT, UPDATE, INSERT, DELETE ON todos.* TO 'todoDBAdmin'@'localhost';
+FLUSH PRIVILEGES;
+
+(Sie müssen diese commands genau so übernehmen und nicht anders!)
+
+Nachdem Sie das alles getan haben, ist die Webseite nutzungsbereit :)
+
+Anmeldedaten für das schon vorhandene Admin sind:
+
+Benutzername: FluffyPanda
+Passwort: T0d0W3bS1t3-L0g1n
+
+PD: Alle benutzte Funktionen sind in includes/utilities.php kommentiert.

@@ -5,6 +5,7 @@ use JetBrains\PhpStorm\Pure;
 
 require_once('dbch.php');
 
+// Bei Funktionen deren Namen alles aussagen werde ich nichts kommentieren.
 
 function emptySignup($user, $pass): bool
 {
@@ -36,6 +37,7 @@ function invalidUsername($user): bool
 
 }
 
+// Checks if password length is enough
 #[Pure] function passLen($pass): bool
 {
 
@@ -81,6 +83,7 @@ function checkForUser($user): array|bool|null
 
 }
 
+// Given an user ID it returns the user from the database as an associative array.
 function getUserByID($userID): array|bool|null
 {
 
@@ -169,6 +172,7 @@ function loginUser($user, $pass){
 
 }
 
+// If the user is an admin return true, else false.
 function isUserAdmin($userID): ?bool
 {
 
@@ -201,18 +205,15 @@ function isUserAdmin($userID): ?bool
 
             return true;
 
-        }else{
-
-            // If check is somehow compromised or it can't find proper value
-            // then it will always return false.
-            return false;
-
         }
     }
-    return null;
+    // If check is somehow compromised or it can't find proper value
+    // then it will always return false.
+    return false;
 
 }
 
+// Get's the data for the Admin table to display all users.
 function getUsersToDisplay(): bool|mysqli_result|null
 {
 
@@ -236,6 +237,7 @@ function getUsersToDisplay(): bool|mysqli_result|null
     return null;
 }
 
+// Get's the date for the normal users to view all the Todo's
 function getTodosToDisplay($userID): bool|mysqli_result
 {
 
@@ -264,6 +266,7 @@ function getTodosToDisplay($userID): bool|mysqli_result
 
 }
 
+// Get's all the archived todo's of a user.
 function getArchivedTodos($userID): bool|mysqli_result
 {
 
@@ -286,6 +289,7 @@ function getArchivedTodos($userID): bool|mysqli_result
 
 }
 
+// Get's all the information of a given todo ID
 function getTodoInformation($todoID): ?array
 {
 
@@ -386,6 +390,7 @@ function deleteUser($userID){
 
 }
 
+// Returns an array of categories in which the user is in.
 function getCategoriesFromUser($UserID): array
 {
 
@@ -408,6 +413,7 @@ function getCategoriesFromUser($UserID): array
 
 }
 
+// Returns a filled array if user is owner of todo, else the array will be empty.
 function isOwnerOfTodo($todoID, $userID): array
 {
 
@@ -430,6 +436,7 @@ function isOwnerOfTodo($todoID, $userID): array
 
 }
 
+// Check's if a user has still access to a category
 function hasAccessToCategory($userID): array
 {
 
@@ -491,6 +498,7 @@ function removeTodo($todoID){
 
 }
 
+// This function gets the days until expiry given an expiry date.
 function daysTillExpiry($expiryDate): int|string
 {
     try {
