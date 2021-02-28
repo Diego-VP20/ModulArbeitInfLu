@@ -253,7 +253,7 @@ if(isset($_SESSION['username'])){
                                     <tr>
                                         <td id="dontOverExtend"><?= $fromUser ?></td>
                                         <td>
-                                            <p class="badge" style="background-color: darkmagenta">Arvhieirt</p>
+                                            <p class="badge" style="background-color: darkmagenta">Archiviert</p>
                                         </td>
 
                                         <td><?= $row['text'] ?></td>
