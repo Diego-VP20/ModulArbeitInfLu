@@ -507,7 +507,7 @@ function daysTillExpiry($expiryDate)
 {
     try {
         $expiryDate = new DateTime($expiryDate);
-    } catch (Exception) {
+    } catch (Exception $e) {
     }
     $now = new DateTime();
     if($expiryDate->format('y-m-d') === $now->format('y-m-d')) return 0;
