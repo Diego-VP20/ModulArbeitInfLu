@@ -18,3 +18,9 @@ Benutzername: FluffyPanda
 Passwort: T0d0W3bS1t3-L0g1n
 
 PD: Alle benutzte Funktionen sind in includes/utilities.php kommentiert.
+
+PPD: Sie müssen das ganze im Privaten Surfmodus machen denn falls sie noch andere Sessions offen haben, wird die Seite Fehler haben.
+
+MfG
+
+Diego
