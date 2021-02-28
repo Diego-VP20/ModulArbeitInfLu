@@ -237,7 +237,6 @@ if(isset($_SESSION['username'])){
                             <h4 class="title">Todo's</h4>
                             <p class="category">Hier können Sie alle Todo's sehen, die zur Ihnen hinzugefügten Kategorien gehören.</p>
                             <p class="category">Sie können den Titel oder Inhalt Ihres Todo's suchen und Sie werden es finden.</p>
-                            <p class="category">Sie werden den Text nicht sehen, macht alles etwas schöner :)</p>
                         </div>
                         <div class="content table-responsive table-full-width">
                             <table id="userTable" class="table table-hover table-striped">
