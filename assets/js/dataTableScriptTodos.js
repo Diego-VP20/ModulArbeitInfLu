@@ -3,7 +3,7 @@ $(document).ready(function () {
         "pagingType": "simple_numbers",
         "info": false,
         "lengthChange": false,
-        "pageLength": 5,
+        "pageLength": 4,
         "ordering": false,
         "columnDefs": [
             { "searchable": false, "targets": [0,1,4,5,6] },
