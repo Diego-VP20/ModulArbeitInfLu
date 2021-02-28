@@ -1,13 +1,10 @@
 <?php
 
-use JetBrains\PhpStorm\NoReturn;
-use JetBrains\PhpStorm\Pure;
-
 require_once('dbch.php');
 
 // Bei Funktionen deren Namen alles aussagen werde ich nichts kommentieren.
 
-function emptySignup($user, $pass): bool
+function emptySignup($user, $pass)
 {
 
     if (empty($user) || empty($pass)){
@@ -22,7 +19,7 @@ function emptySignup($user, $pass): bool
 
 }
 
-function invalidUsername($user): bool
+function invalidUsername($user)
 {
 
     if (!preg_match('/^[a-zA-Z0-9]*$/', $user)){
@@ -38,7 +35,7 @@ function invalidUsername($user): bool
 }
 
 // Checks if password length is enough
-#[Pure] function passLen($pass): bool
+function passLen($pass)
 {
 
     if (strlen($pass) < 8 and strlen($pass)<=255){
@@ -55,7 +52,7 @@ function invalidUsername($user): bool
 
 
 /* This function will be able to return userdata if user already exists */
-function checkForUser($user): array|bool|null
+function checkForUser($user)
 {
 
     global $conn;
@@ -84,7 +81,7 @@ function checkForUser($user): array|bool|null
 }
 
 // Given an user ID it returns the user from the database as an associative array.
-function getUserByID($userID): array|bool|null
+function getUserByID($userID)
 {
 
     global $conn;
@@ -112,7 +109,7 @@ function getUserByID($userID): array|bool|null
 
 }
 
-#[NoReturn] function createUser($user, $pass){
+function createUser($user, $pass){
 
     global $conn;
 
@@ -176,7 +173,7 @@ function loginUser($user, $pass){
 }
 
 // If the user is an admin return true, else false.
-function isUserAdmin($userID): ?bool
+function isUserAdmin($userID)
 {
 
     global $conn;
@@ -217,7 +214,7 @@ function isUserAdmin($userID): ?bool
 }
 
 // Get's the data for the Admin table to display all users.
-function getUsersToDisplay(): bool|mysqli_result|null
+function getUsersToDisplay()
 {
 
     global $conn;
@@ -241,7 +238,7 @@ function getUsersToDisplay(): bool|mysqli_result|null
 }
 
 // Get's the date for the normal users to view all the Todo's
-function getTodosToDisplay($userID): bool|mysqli_result
+function getTodosToDisplay($userID)
 {
 
     global $conn;
@@ -270,7 +267,7 @@ function getTodosToDisplay($userID): bool|mysqli_result
 }
 
 // Get's all the archived todo's of a user.
-function getArchivedTodos($userID): bool|mysqli_result
+function getArchivedTodos($userID)
 {
 
     global $conn;
@@ -293,7 +290,7 @@ function getArchivedTodos($userID): bool|mysqli_result
 }
 
 // Get's all the information of a given todo ID
-function getTodoInformation($todoID): ?array
+function getTodoInformation($todoID)
 {
 
     global $conn;
@@ -341,7 +338,7 @@ function deleteUser($userID){
 
 }
 
-#[NoReturn] function changePassword($ID, $newPassword){
+function changePassword($ID, $newPassword){
 
     global $conn;
 
@@ -367,7 +364,7 @@ function deleteUser($userID){
 
 }
 
-#[NoReturn] function changeUsername($ID, $newUsername){
+function changeUsername($ID, $newUsername){
 
     global $conn;
 
@@ -398,7 +395,7 @@ function deleteUser($userID){
 }
 
 // Returns an array of categories in which the user is in.
-function getCategoriesFromUser($UserID): array
+function getCategoriesFromUser($UserID)
 {
 
     global $conn;
@@ -421,7 +418,7 @@ function getCategoriesFromUser($UserID): array
 }
 
 // Returns a filled array if user is owner of todo, else the array will be empty.
-function isOwnerOfTodo($todoID, $userID): array
+function isOwnerOfTodo($todoID, $userID)
 {
 
     global $conn;
@@ -444,7 +441,7 @@ function isOwnerOfTodo($todoID, $userID): array
 }
 
 // Check's if a user has still access to a category (It returns an array of categories on which the user has access to)
-function hasAccessToCategories($userID): array
+function hasAccessToCategories($userID)
 {
 
     global $conn;
@@ -506,7 +503,7 @@ function removeTodo($todoID){
 }
 
 // This function gets the days until expiry given an expiry date.
-function daysTillExpiry($expiryDate): int|string
+function daysTillExpiry($expiryDate)
 {
     try {
         $expiryDate = new DateTime($expiryDate);
