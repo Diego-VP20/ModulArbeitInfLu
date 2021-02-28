@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 28, 2021 at 03:02 PM
+-- Generation Time: Feb 28, 2021 at 03:28 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.0
 
@@ -121,6 +121,12 @@ ALTER TABLE `users_category`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `todo`
+--
+ALTER TABLE `todo`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
