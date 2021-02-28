@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 25, 2021 at 10:38 PM
+-- Generation Time: Feb 28, 2021 at 03:02 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.0
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `todos`
 --
+CREATE DATABASE IF NOT EXISTS `todos` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `todos`;
 
 -- --------------------------------------------------------
 

@@ -2,8 +2,6 @@ Damit das Projekt funktioniert, müssen Sie folgendes tun:
 
 Sie nehmen die .sql Datei und spielen diese in mysql ein.
 
-Die Datenbank MUSS 'todos' heissen (ohne '').
-
 Nachdem Sie das getan haben, müssen Sie den Datenbanknutzer erstellen wie folgt:
 
 CREATE USER 'todoDBAdmin'@'localhost' IDENTIFIED by '0nly1D0Ch4ng3s';
