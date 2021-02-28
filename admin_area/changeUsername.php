@@ -127,7 +127,7 @@ if(isset($_GET['error'])){
                 </div>
 
                 <div class="text-center p-t-90">
-                    <a href="../index.php" class="txt1">
+                    <a href="editUsers.php" class="txt1">
                         Back to the menu
                     </a>
                 </div>
