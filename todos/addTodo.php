@@ -233,6 +233,7 @@ if(isset($_SESSION['username'])){
                                                     <label for="form_need">Kategorie</label>
                                                     <select id="form_need" name="category" class="form-control" required="required">
                                                         <option value="" selected disabled>Wählen Sie eine Kategorie aus.</option>
+                                                        <?php // Go to utilities.php to see what the function does. ?>
                                                         <?php foreach (getCategoriesFromUser($_SESSION['userID']) as $category): ?>
 
                                                             <option value="<?= $category[1] ?>"><?= $category[0] ?></option>
@@ -248,7 +249,7 @@ if(isset($_SESSION['username'])){
                                                 </div>
 
                                                 <script>
-
+                                                    // Script for the Date Picker to work.
                                                     const input = document.getElementById('datePicker');
                                                     const datepicker = new TheDatepicker.Datepicker(input);
                                                     datepicker.options.setInputFormat('y-m-d');
@@ -260,7 +261,7 @@ if(isset($_SESSION['username'])){
                                         </div>
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <div class="form-group"> <label for="form_message">Inhalt</label> <textarea id="form_message" name="inhalt" class="form-control" placeholder="Inhalt des Todo's" rows="4" required="required" data-error="Please, leave us a message."><?php if(isset($_GET['content'])): ?> <?= $_GET['content'] ?> <?php endif; ?></textarea> </div>
+                                                <div class="form-group"> <label for="form_message">Inhalt</label> <textarea id="form_message" maxlength="255" name="inhalt" class="form-control" placeholder="Inhalt des Todo's" rows="4" required="required" data-error="Please, leave us a message."><?php if(isset($_GET['content'])): ?> <?= $_GET['content'] ?> <?php endif; ?></textarea> </div>
                                             </div>
                                             <div class="col-md-12"> <input type="submit" class="btn btn-primary btn-send pt-2 btn-block " value="Todo erstellen" style="color: #7250b4; border-color:#7250b4 "> </div>
                                         </div>

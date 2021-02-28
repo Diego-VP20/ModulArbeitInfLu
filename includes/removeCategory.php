@@ -16,7 +16,7 @@ if(isset($_SESSION['username'])){
 
 }else{
 
-    header('location: ../index.php');
+    header('location: ../session/login.php?error=notLogged');
     exit;
 
 }
@@ -49,5 +49,5 @@ mysqli_stmt_bind_param($stmt, 'ii', $_GET['userID'], $_POST['categoryName']);
 mysqli_stmt_execute($stmt);
 mysqli_stmt_close($stmt);
 
-header('location: ../index.php');
+header('location: ../admin_area/adminPage.php?error=categoryRemoveSuccess');
 exit;

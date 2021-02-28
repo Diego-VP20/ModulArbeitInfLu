@@ -155,6 +155,9 @@ function loginUser($user, $pass){
     }else{
 
         session_start();
+
+        // I set up important things into the $_SESSION Array.
+
         $_SESSION['userID'] = $userArray['ID'];
         $_SESSION['username'] = $userArray['userName'];
 
@@ -349,6 +352,8 @@ function deleteUser($userID){
 
     }
 
+    // Update hashed password.
+
     $stmt = mysqli_stmt_init($conn);
 
     $newPassword = password_hash($newPassword, PASSWORD_DEFAULT);
@@ -357,7 +362,7 @@ function deleteUser($userID){
     mysqli_stmt_bind_param($stmt, 'si', $newPassword, $ID);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    header('location: ../index.php');
+    header('location: ../admin_area/editUsers.php?error=passwordChangeSuccess');
     exit;
 
 }
@@ -380,12 +385,14 @@ function deleteUser($userID){
 
     }
 
+    // Update username.
+
     $stmt = mysqli_stmt_init($conn);
     mysqli_stmt_prepare($stmt, 'UPDATE users SET userName = ? where ID = ?');
     mysqli_stmt_bind_param($stmt, 'si', $newUsername, $ID);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    header('location: ../index.php');
+    header('location: ../admin_area/editUsers.php?error=usernameChangeSuccess');
     exit;
 
 }
@@ -436,8 +443,8 @@ function isOwnerOfTodo($todoID, $userID): array
 
 }
 
-// Check's if a user has still access to a category
-function hasAccessToCategory($userID): array
+// Check's if a user has still access to a category (It returns an array of categories on which the user has access to)
+function hasAccessToCategories($userID): array
 {
 
     global $conn;

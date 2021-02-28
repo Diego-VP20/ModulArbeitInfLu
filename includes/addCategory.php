@@ -37,6 +37,8 @@ global $conn;
 
 $stmt = mysqli_stmt_init($conn);
 
+// Check if there is a category with the $nameOfCategoryToAdd
+
 mysqli_stmt_prepare($stmt, 'SELECT ID, name FROM category where name=?');
 mysqli_stmt_bind_param($stmt, 's',$nameOfCategoryToAdd);
 mysqli_stmt_execute($stmt);
@@ -50,6 +52,8 @@ mysqli_stmt_close($stmt);
 if(sizeof($result) < 1) {
 
     $stmt = mysqli_stmt_init($conn);
+
+    // Create category
 
     mysqli_stmt_prepare($stmt, 'INSERT INTO category(name) VALUES(?)');
     mysqli_stmt_bind_param($stmt, 's',$nameOfCategoryToAdd);
@@ -99,12 +103,12 @@ function addToCategory($result){
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
 
-        header('location: ../index.php');
+        header('location: ../admin_area/adminPage.php?error=categoryAddSuccess');
 
     // User already in category
     }elseif(sizeof($result)>0){
 
-        header('location: ../index.php');
+        header('location: ../admin_area/adminPage.php?error=alreadyInCat');
 
     }
 

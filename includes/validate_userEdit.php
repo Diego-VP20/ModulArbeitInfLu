@@ -25,11 +25,11 @@ if(isUserAdmin($_GET['userID']) == 1) header('location: ../index.php');
 
 if(isset($_POST['submit']) && $_POST['submit'] == 'changeUName' && isset($_POST['newUsername']) && !empty($_POST['newUsername'])){
 
-    changeUsername($_GET['userID'], $_POST['newUsername']);
+    changeUsername($_GET['userID'], $_POST['newUsername']); // Go to utilities.php to get further information about the function.
 
 }if(isset($_POST['submit']) && $_POST['submit'] == 'changePWord' && isset($_POST['newPassword']) && !empty($_POST['newPassword'])){
 
-    changePassword($_GET['userID'], $_POST['newPassword']);
+    changePassword($_GET['userID'], $_POST['newPassword']); // Go to utilities.php to get further information about the function.
 
 }
 

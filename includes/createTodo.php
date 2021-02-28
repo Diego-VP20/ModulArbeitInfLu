@@ -38,7 +38,7 @@ $content = $_POST['inhalt'];
 
 $allowedCategoriesID = array();
 
-foreach (hasAccessToCategory($_SESSION['userID']) as $value){
+foreach (hasAccessToCategories($_SESSION['userID']) as $value){
 
     array_push($allowedCategoriesID,$value[0]);
 
@@ -49,6 +49,8 @@ if(!in_array($category, $allowedCategoriesID)){
     header('location: ../todos/addTodo.php?error=noAccessToCat&content='.$content);
 
 }else {
+
+    // Add todo to DB
 
     $stmt = mysqli_stmt_init($conn);
 

@@ -21,7 +21,7 @@ if(isUserAdmin($_SESSION['userID']) == 1){
 }
 
 
-$result = getTodosToDisplay($_SESSION['userID']);
+$result = getTodosToDisplay($_SESSION['userID']); // Go to utilities.php to see what this function does.
 
 
 while($row = mysqli_fetch_array($result)){
@@ -54,7 +54,7 @@ if(!empty(isOwnerOfTodo($_GET['todoID'], $_SESSION['userID']))){
 
     $allowedCategoriesID = array();
 
-    foreach (hasAccessToCategory($_SESSION['userID']) as $value){
+    foreach (hasAccessToCategories($_SESSION['userID']) as $value){
 
         array_push($allowedCategoriesID,$value[0]);
 
@@ -66,6 +66,8 @@ if(!empty(isOwnerOfTodo($_GET['todoID'], $_SESSION['userID']))){
         exit;
 
     }else {
+
+        // Edit todo in DB
 
         global $conn;
 

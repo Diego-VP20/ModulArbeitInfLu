@@ -46,6 +46,63 @@ if(isset($_SESSION['username'])){
 </head>
 <body>
 
+<?php
+
+// Error handler
+
+if(isset($_GET['error'])){
+
+    if($_GET['error'] == 'usernameChangeSuccess'){
+
+        echo "<script>
+                Swal.fire({
+                    title: 'Erfolgreich',
+                    html: '<p><b>Sie haben den Benutzernamen des Benutzers erfolgreich geändert.</b></p>',
+                    icon: 'success',
+                    backdrop: 'rgb(255,255,255)',
+                    timer: 3000,
+                    showConfirmButton: false
+                    })
+                </script>";
+
+    }
+
+    if($_GET['error'] == 'passwordChangeSuccess'){
+
+        echo "<script>
+                Swal.fire({
+                    title: 'Erfolgreich',
+                    html: '<p><b>Sie haben den Passwort des Benutzers erfolgreich geändert.</b></p>',
+                    icon: 'success',
+                    backdrop: 'rgb(255,255,255)',
+                    timer: 3000,
+                    showConfirmButton: false
+                    })
+                </script>";
+
+    }
+
+    if($_GET['error'] == 'userDeleteSuccess'){
+
+        echo "<script>
+                Swal.fire({
+                    title: 'Erfolgreich',
+                    html: '<p><b>Sie haben den Benutzer erfolgreich gelöscht.</b></p>',
+                    icon: 'success',
+                    backdrop: 'rgb(255,255,255)',
+                    timer: 3000,
+                    showConfirmButton: false
+                    })
+                </script>";
+
+    }
+
+
+
+}
+
+?>
+
 <div class="wrapper">
     <div class="sidebar" data-color="blue" data-image="../assets/images/sideBarBG.jpg">
 
@@ -154,8 +211,8 @@ if(isset($_SESSION['username'])){
                                 </thead>
                                 <tbody>
 
-                                <?php $result = getUsersToDisplay(); ?>
-                                <?php while($row = mysqli_fetch_array($result)): ?>
+                                <?php $result = getUsersToDisplay(); // Goto utilities.php for the description of the function.?>
+                                <?php /* Iterate over array for the results. */ while($row = mysqli_fetch_array($result)): ?>
 
                                     <tr>
                                         <td><b><?= $row['ID'] ?></b></td>
@@ -179,7 +236,7 @@ if(isset($_SESSION['username'])){
                                         </td>
                                         <td>
                                             <?php if(isUserAdmin($row['ID']) == false): ?>
-
+                                                <!-- Deletion Confirmation  -->
                                                 <a onclick="
 
                                                     Swal.fire({

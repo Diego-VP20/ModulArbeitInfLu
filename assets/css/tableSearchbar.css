@@ -17,6 +17,12 @@ div#userTable_filter{
 
 }
 
+.form-control-sm{
+
+    width:100%;
+
+}
+
 #dontOverExtend{
 
     max-width: 150px;

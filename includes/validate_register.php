@@ -35,7 +35,7 @@ if(isset($_POST['submit']) && $_POST['submit'] == 'Sign Up') {
 
     }
 
-    createUser($user, $pass);
+    createUser($user, $pass); // Go to utilities.php to get further information about the function.
 
 }else{
 

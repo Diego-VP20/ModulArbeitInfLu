@@ -79,6 +79,7 @@ if(isUserAdmin($_GET['userID']) == 1) header('location: ../index.php');
 					<div id="selectContainer" class="wrap-input100 validate-input" style="outline: none" data-validate="Select Category">
                         <select class="input100" style="" id="categoryName" name="categoryName">
 
+                            <?php /* Go to utilities.php for detailed information */ ?>
                             <?php foreach (getCategoriesFromUser($_GET['userID']) as $category):?>
 
                                 <option value="<?=$category[1]?>"><?=$category[0]?></option>

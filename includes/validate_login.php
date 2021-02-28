@@ -17,7 +17,7 @@ if (isset($_POST['submit'])){
         exit;
     }
 
-    loginUser($user, $pass);
+    loginUser($user, $pass); // Go to utilities.php to get further information about the function
 
 }else{
     header('location: ../session/login.php');

@@ -238,6 +238,7 @@ if(isset($_SESSION['username'])){
                                 </thead>
                                 <tbody>
 
+                                    <?php // All functions below are described in utilities.php ?>
                                     <?php $result = getArchivedTodos($_SESSION['userID']); ?>
                                     <?php while($row = mysqli_fetch_array($result)): ?>
 
@@ -252,26 +253,7 @@ if(isset($_SESSION['username'])){
                                     <tr>
                                         <td id="dontOverExtend"><?= $fromUser ?></td>
                                         <td>
-                                            <?php if(strpos($daysUntilExpiration, '-') !== false): ?>
-                                            <p style="color: red">
-                                                <?php if($daysUntilExpiration==-1): ?>
-                                                <?= 'Seit ' . str_replace('-', '', $daysUntilExpiration) . ' Tag fällig.' ?>
-                                                <?php elseif($daysUntilExpiration<-1): ?>
-                                                <?= 'Seit ' . str_replace('-', '', $daysUntilExpiration) . ' Tagen fällig.' ?>
-                                            </p>
-                                            <?php endif; ?>
-
-                                            <?php elseif(strpos($daysUntilExpiration, '-') === false): ?>
-                                            <?php if($daysUntilExpiration==1): ?>
-                                                <p style="color: green"><?='Noch ' . $daysUntilExpiration . ' Tag übrig.' ?></p>
-                                            <?php elseif($daysUntilExpiration==0): ?>
-                                                <p style="color: green">Heute fällig</p>
-                                            <?php elseif($daysUntilExpiration>0): ?>
-                                                <p style="color: green"><?='Noch ' . $daysUntilExpiration . ' Tagen übrig.' ?></p>
-
-                                            <?php endif; ?>
-                                            <?php endif; ?>
-
+                                            <p class="badge" style="background-color: darkmagenta">Arvhieirt</p>
                                         </td>
 
                                         <td><?= $row['text'] ?></td>
@@ -311,7 +293,7 @@ if(isset($_SESSION['username'])){
                                                 }).then((result) => {
 
                                                     if (result.isConfirmed) {
-
+                                                    // Acts as a redirect.
                                                     window.location.replace('unArchiveTodo.php?todoID=<?= $row['ID'] ?>');
 
                                                     }

@@ -36,5 +36,5 @@ if(isUserAdmin($_GET['userID']) == 1){
 }
 
 
-deleteUser($_GET['userID']);
-header('location: ../index.php');
+deleteUser($_GET['userID']); // Go to utilities.php for detailed information about the function.
+header('location: ../admin_area/editUsers.php?error=userDeleteSuccess');

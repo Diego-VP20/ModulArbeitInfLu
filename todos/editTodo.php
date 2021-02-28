@@ -174,6 +174,7 @@ if (isset($_GET['error'])) {
                         </div>
                         <div class="container">
                             <form action="../includes/editTodo.php?todoID=<?= $_GET['todoID'] ?>" method="post" autocomplete="off">
+                                <?php // Go to utilities.php to get further information about the function. ?>
                                 <?php $result = getTodoInformation($_GET['todoID']) ?>
 
                                 <div class="controls">
@@ -196,6 +197,7 @@ if (isset($_GET['error'])) {
                                             <div class="form-group">
                                                 <label for="form_need">Kategorie</label>
                                                 <select id="form_need" name="category" class="form-control" required="required">
+                                                    <?php // Go to utilities.php to get further information about the function. ?>
                                                     <?php foreach (getCategoriesFromUser($_SESSION['userID']) as $category): ?>
                                                     <?php if($category[1]==$result[2]): ?>
                                                     <option value="<?= $category[1] ?>" selected><?= $category[0] ?></option>
@@ -217,9 +219,12 @@ if (isset($_GET['error'])) {
 
                                             <script>
 
+                                                // Script for the Date picker to work.
+
                                                 const input = document.getElementById('datePicker');
                                                 const datepicker = new TheDatepicker.Datepicker(input);
                                                 datepicker.options.setInputFormat('y-m-d');
+                                                // Below I set the Initial date to a custom one.
                                                 datepicker.options.setInitialDate('<?= $result[4] ?>')
                                                 datepicker.render();
 

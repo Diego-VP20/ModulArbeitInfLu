@@ -46,6 +46,66 @@ if(isset($_SESSION['username'])){
 </head>
 <body>
 
+<?php
+
+// Error handler
+
+if(isset($_GET['error'])){
+
+    if($_GET['error'] == 'categoryAddSuccess'){
+
+        echo "<script>
+                Swal.fire({
+                    title: 'Erfolgreich',
+                    html: '<p><b>Sie haben dem Benutzer die Kategorie erfolgreich hinzugefügt.</b></p>',
+                    icon: 'success',
+                    backdrop: 'rgb(255,255,255)',
+                    timer: 3000,
+                    showConfirmButton: false
+                    })
+                </script>";
+
+    }
+
+    if($_GET['error'] == 'alreadyInCat'){
+
+        echo "<script>
+                Swal.fire({
+                    title: 'Achtung!',
+                    html: '<p><b>Dieser Benutzer war schon in dieser Kategorie drin. Keine Änderungen wurden getätigt.</b></p>',
+                    icon: 'warning',
+                    backdrop: 'rgb(255,255,255)',
+                    timer: 3000,
+                    showConfirmButton: false
+                    })
+                </script>";
+
+    }
+
+     if($_GET['error'] == 'categoryRemoveSuccess'){
+
+         echo "<script>
+                Swal.fire({
+                    title: 'Erfolgreich',
+                    html: '<p><b>Sie haben die Kategorie des Benutzers erfolgreich entfernt.</b></p>',
+                    icon: 'success',
+                    backdrop: 'rgb(255,255,255)',
+                    timer: 3000,
+                    showConfirmButton: false
+                    })
+                </script>";
+
+     }
+
+
+
+}
+
+
+
+
+?>
+
 <div class="wrapper">
     <div class="sidebar" data-color="blue" data-image="../assets/images/sideBarBG.jpg">
 
@@ -158,8 +218,9 @@ if(isset($_SESSION['username'])){
                                     $pageNr = 1;
                                 }
 
-                                $result = getUsersToDisplay();
+                                $result = getUsersToDisplay(); // Go to utilities.php for information about the function.
 
+                                // Array used to put in the values for every todo.
                                 while($row = mysqli_fetch_array($result)):?>
 
                                     <tr>

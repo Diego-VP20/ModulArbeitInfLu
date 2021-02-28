@@ -11,7 +11,7 @@ if(isset($_GET['todoID'])){
 
     if(!empty(isOwnerOfTodo($todoID, $_SESSION['userID']))){
 
-        unArchiveTodo($todoID);
+        unArchiveTodo($todoID); // Go to utilities.php to get further information about the function.
         header('location: ../index.php?error=unArchiveSuccessful');
         exit;
 
