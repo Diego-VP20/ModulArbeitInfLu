@@ -30,8 +30,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb2ca217-79f2-4a39-8b05-4282573be009" name="Default Changelist" comment="ich ka nid spelle">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ZUERST HIER REINSCHAUEN !/LESEN SIE MICH.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ZUERST HIER REINSCHAUEN !/LESEN SIE MICH.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_area/addCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_area/addCategory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_area/adminPage.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_area/adminPage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_area/changePassword.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_area/changePassword.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_area/changeUsername.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_area/changeUsername.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_area/editUsers.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_area/editUsers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_area/removeCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_area/removeCategory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/addTodoPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/addTodoPage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/dataTableScriptUsers.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/dataTableScriptUsers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/session/createUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/session/createUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/session/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/session/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todos/addTodo.php" beforeDir="false" afterPath="$PROJECT_DIR$/todos/addTodo.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,6 +182,7 @@
       <workItem from="1614289316814" duration="418000" />
       <workItem from="1614508584868" duration="4186000" />
       <workItem from="1614519213912" duration="2928000" />
+      <workItem from="1614580945457" duration="1974000" />
     </task>
     <task id="LOCAL-00001" summary="Test functionality of create TODO">
       <created>1603974237567</created>

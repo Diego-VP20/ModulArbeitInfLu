@@ -207,7 +207,7 @@ if(isset($_SESSION['username'])){
             <div class="container-fluid">
                     <div class="col-md-12">
                         <div class="container">
-                            <div class=" text-center mt-5 ">
+                            <div class=" text-center mt-5">
                                 <h1 class="text-white">Todo Erstellen</h1>
                             </div>
                             <div class="container">

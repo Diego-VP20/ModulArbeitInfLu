@@ -21,6 +21,10 @@ PD: Alle benutzte Funktionen sind in includes/utilities.php kommentiert.
 
 PPD: Sie müssen das ganze im Privaten Surfmodus machen denn falls sie noch andere Sessions offen haben, wird die Seite Fehler haben.
 
+PPPD: Ich empfehle Ihnen die Seite im "Fullscreen" Modus anzuschauen da sie so viel besser aussieht
+und keine scrollerien passieren. Die Seite ist für etwas grössere Bildschirme gebaut.
+Darum: (Auf Schullaptops FN+F11) und viel Spass!
+
 MfG
 
 Diego

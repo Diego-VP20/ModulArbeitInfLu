@@ -3,7 +3,7 @@ $(document).ready(function () {
         "pagingType": "simple_numbers",
         "info": false,
         "lengthChange": false,
-        "pageLength": 5
+        "pageLength": 4
 
     })
     $('.dataTables_length').addClass('bs-select');

@@ -274,16 +274,6 @@ if(isset($_GET['error'])){
                 </div>
             </div>
         </div>
-
-        <footer class="footer">
-            <div class="container-fluid">
-                <p class="copyright text-center">
-                    &copy; <script>document.write(new Date().getFullYear())</script> Made with Bootstrap and templates.
-                </p>
-            </div>
-        </footer>
-
-
     </div>
 </div>
 
